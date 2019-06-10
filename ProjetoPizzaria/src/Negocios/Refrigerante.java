@@ -13,7 +13,7 @@ public class Refrigerante extends Produto{
 
 	public Refrigerante() {
 		super();
-		// TODO Auto-generated constructor stub
+		// vamos que vamos
 	}
 
 	public String getMarca() {
