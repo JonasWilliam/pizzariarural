@@ -39,7 +39,7 @@ public class TelaInicial extends JFrame {
 	 */
 	public TelaInicial() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 400);
+		setBounds(100, 100, 430, 370);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -72,7 +72,7 @@ public class TelaInicial extends JFrame {
 		
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnEntrar.setBounds(164, 275, 111, 23);
+		btnEntrar.setBounds(164, 253, 111, 23);
 		contentPane.add(btnEntrar);
 	}
 }
