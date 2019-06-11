@@ -70,5 +70,7 @@ public class Funcionario {
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
+	
+	
 
 }

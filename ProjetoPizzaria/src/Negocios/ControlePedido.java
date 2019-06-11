@@ -2,13 +2,20 @@ package Negocios;
 
 import Dados.RepositorioPedido;
 import Dados.RepositorioPedidoArray;
+import Exception.ClientePedidosException;
 
 public class ControlePedido {
 
 	RepositorioPedido pedidos = new RepositorioPedidoArray();
 
-	public void criarPedido(Pedido pedido) {
-		pedidos.criarPedido(pedido);
+	public void criarPedido(Pedido pedido) throws ClientePedidosException {
+		if (pedido.getCliente().getTelefone() != null & pedido.getCliente().getTelefone() != "") {
+			pedidos.criarPedido(pedido);
+		} else {
+			ClientePedidosException e;
+			e = new ClientePedidosException(pedido.getCliente().getTelefone());
+			throw e;
+		}
 	}
 
 	public void removerPedido(int id) {

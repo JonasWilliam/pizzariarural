@@ -2,13 +2,20 @@ package Negocios;
 
 import Dados.RepositorioFuncionario;
 import Dados.RepositorioFuncionarioArray;
+import Exception.CpfInvalidoException;
 
 public class ControleFuncionario {
 
 	RepositorioFuncionario funcionarios = new RepositorioFuncionarioArray();
 
-	public void adicionar(Funcionario a) {
-		funcionarios.adicionar(a);
+	public void adicionar(Funcionario a) throws CpfInvalidoException {
+		if (a.getCpf() != null & a.getCpf() != "") {
+			funcionarios.adicionar(a);
+		} else {
+			CpfInvalidoException e;
+			e = new CpfInvalidoException(a.getCpf());
+			throw e;
+		}
 	}
 
 	public void remover(String cpf) {

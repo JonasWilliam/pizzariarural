@@ -1,5 +1,8 @@
 package Negocios;
 
+import Exception.ClientePedidosException;
+import Exception.CpfInvalidoException;
+
 public class Fachada {
 
 	private ControlePedido pedidos;
@@ -22,7 +25,7 @@ public class Fachada {
 
 	
 	//Pedido
-	public void criarPedido(Pedido pedido) {
+	public void criarPedido(Pedido pedido) throws ClientePedidosException {
 		pedidos.criarPedido(pedido);
 	}
 
@@ -66,7 +69,7 @@ public class Fachada {
 
 	// Funcionarios
 
-	public void adicionar(Funcionario a) {
+	public void adicionar(Funcionario a) throws CpfInvalidoException {
 		funcionarios.adicionar(a);
 	}
 
