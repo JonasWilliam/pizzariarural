@@ -1,5 +1,12 @@
 package Dados;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 import Negocios.Funcionario;
 
 public class RepositorioFuncionarioArray implements RepositorioFuncionario {
@@ -7,6 +14,7 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 	private Funcionario[] funcionarios;
 	private int indice;
 	private final static int TAMANHO = 100;
+	private static RepositorioFuncionarioArray instance;
 
 	@Override
 	public void adicionar(Funcionario funcionario) {
@@ -15,7 +23,7 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 
 	}
 
-	public void RepositorioFuncionariosArray() {
+	public RepositorioFuncionarioArray() {
 		this.funcionarios = new Funcionario[TAMANHO];
 		this.indice = 0;
 	}
@@ -50,7 +58,7 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 				funcionario = funcionarios[i];
 			} else
 				funcionario = null;
-			
+
 		}
 		return funcionario;
 
@@ -62,10 +70,60 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 
 	}
 
-	@Override
-	public void alterarCargo(String cargo, Funcionario a) {
-		a.setCargo(cargo);
+	public static RepositorioFuncionarioArray getInstance() {
+		if (instance == null) {
+			instance = lerDoArquivo();
+		}
+		return instance;
+	}
 
+	private static RepositorioFuncionarioArray lerDoArquivo() {
+		RepositorioFuncionarioArray instanciaLocal = null;
+
+		File in = new File("funcionarios.dat");
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try {
+			fis = new FileInputStream(in);
+			ois = new ObjectInputStream(fis);
+			Object o = ois.readObject();
+			instanciaLocal = (RepositorioFuncionarioArray) o;
+		} catch (Exception e) {
+			instanciaLocal = new RepositorioFuncionarioArray();
+		} finally {
+			if (ois != null) {
+				try {
+					ois.close();
+				} catch (IOException e) {/* Silent exception */
+				}
+			}
+		}
+
+		return instanciaLocal;
+	}
+
+	public void salvarArquivo() {
+		if (instance == null) {
+			return;
+		}
+		File out = new File("funcionarios.dat");
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+
+		try {
+			fos = new FileOutputStream(out);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(instance);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (oos != null) {
+				try {
+					oos.close();
+				} catch (IOException e) {
+					/* Silent */}
+			}
+		}
 	}
 
 }

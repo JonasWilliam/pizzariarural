@@ -30,9 +30,6 @@ public class ControleFuncionario {
 		funcionarios.alterarSenha(senha, a);
 	}
 
-	public void alterarCargo(String cargo, Funcionario a) {
-		funcionarios.alterarCargo(cargo, a);
-	}
 
 	public Funcionario[] listar() {
 		return funcionarios.listar();
