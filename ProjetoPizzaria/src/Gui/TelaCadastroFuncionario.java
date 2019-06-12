@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCadastroFuncionario extends JFrame {
 
@@ -124,7 +126,18 @@ public class TelaCadastroFuncionario extends JFrame {
 		
 		JButton btnCadastrar = new JButton("CADASTRAR");
 		btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnCadastrar.setBounds(176, 207, 108, 23);
+		btnCadastrar.setBounds(91, 208, 108, 23);
 		contentPane.add(btnCadastrar);
+		
+		JButton btnVoltarParaMenu = new JButton("Voltar para Menu");
+		btnVoltarParaMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaPrincipal.getInstance().setVisible(true);
+			}
+		});
+		btnVoltarParaMenu.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnVoltarParaMenu.setBounds(236, 208, 151, 23);
+		contentPane.add(btnVoltarParaMenu);
 	}
 }

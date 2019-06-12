@@ -10,11 +10,22 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaRemocaoFuncionario extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private static JFrame telaRemocaoFuncionarioinstance;
+
+	public static JFrame getInstance() {
+		if (TelaRemocaoFuncionario.telaRemocaoFuncionarioinstance == null)
+			TelaRemocaoFuncionario.telaRemocaoFuncionarioinstance = new TelaRemocaoFuncionario();
+
+		return TelaRemocaoFuncionario.telaRemocaoFuncionarioinstance;
+
+	}
 	
 	
 	/**
@@ -61,8 +72,19 @@ public class TelaRemocaoFuncionario extends JFrame {
 		
 		JButton btnRemover = new JButton("REMOVER");
 		btnRemover.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnRemover.setBounds(161, 156, 125, 29);
+		btnRemover.setBounds(61, 157, 125, 29);
 		contentPane.add(btnRemover);
+		
+		JButton btnVoltarParaMenu = new JButton("Voltar para Menu");
+		btnVoltarParaMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaPrincipal.getInstance().setVisible(true);
+			}
+		});
+		btnVoltarParaMenu.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnVoltarParaMenu.setBounds(216, 157, 141, 29);
+		contentPane.add(btnVoltarParaMenu);
 	}
 
 }

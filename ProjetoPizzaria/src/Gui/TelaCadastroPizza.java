@@ -126,7 +126,7 @@ public class TelaCadastroPizza extends JFrame {
 		JButton btnVoltarParaMenu = new JButton("Voltar Para Menu");
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaCadastroFuncionario.getInstance().setVisible(false);
+				dispose();
 				TelaPrincipal.getInstance().setVisible(true);
 			}
 		});

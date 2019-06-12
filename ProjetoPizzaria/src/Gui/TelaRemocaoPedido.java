@@ -13,20 +13,18 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class TelaRemocaoProduto extends JFrame {
+public class TelaRemocaoPedido extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private static JFrame telaRemocaoProdutoinstance;
+	private static JFrame telaRemocaoFuncionarioinstance;
 
 	public static JFrame getInstance() {
-		if (TelaRemocaoProduto.telaRemocaoProdutoinstance == null)
-			TelaRemocaoProduto.telaRemocaoProdutoinstance = new TelaRemocaoProduto();
+		if (TelaRemocaoPedido.telaRemocaoFuncionarioinstance == null)
+			TelaRemocaoPedido.telaRemocaoFuncionarioinstance = new TelaRemocaoPedido();
 
-		return TelaRemocaoProduto.telaRemocaoProdutoinstance;
-
+		return TelaRemocaoPedido.telaRemocaoFuncionarioinstance;
 	}
-
 
 	/**
 	 * Launch the application.
@@ -35,7 +33,7 @@ public class TelaRemocaoProduto extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaRemocaoProduto frame = new TelaRemocaoProduto();
+					TelaRemocaoPedido frame = new TelaRemocaoPedido();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,7 +45,7 @@ public class TelaRemocaoProduto extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaRemocaoProduto() {
+	public TelaRemocaoPedido() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 270);
 		contentPane = new JPanel();
@@ -55,36 +53,37 @@ public class TelaRemocaoProduto extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblRemooProduto = new JLabel("Remo\u00E7\u00E3o Produto");
-		lblRemooProduto.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblRemooProduto.setBounds(104, 11, 243, 34);
-		contentPane.add(lblRemooProduto);
+		JLabel lblCancelarPedido = new JLabel("Cancelar Pedido");
+		lblCancelarPedido.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblCancelarPedido.setBounds(114, 11, 204, 29);
+		contentPane.add(lblCancelarPedido);
 
 		JLabel lblInformeOCdigo = new JLabel("Informe o c\u00F3digo:");
-		lblInformeOCdigo.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblInformeOCdigo.setBounds(27, 86, 147, 34);
+		lblInformeOCdigo.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblInformeOCdigo.setBounds(29, 80, 110, 29);
 		contentPane.add(lblInformeOCdigo);
 
 		textField = new JTextField();
-		textField.setBounds(166, 93, 163, 25);
+		textField.setBounds(179, 85, 188, 24);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
-		JButton btnRemover = new JButton("REMOVER");
-		btnRemover.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnRemover.setBounds(72, 157, 125, 29);
-		contentPane.add(btnRemover);
-		
-		JButton btnVoltarParaMenu = new JButton("Voltar para Menu");
-		btnVoltarParaMenu.addActionListener(new ActionListener() {
+
+		JButton btnCancelar = new JButton("CANCELAR");
+		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnCancelar.setBounds(81, 165, 110, 23);
+		contentPane.add(btnCancelar);
+
+		JButton btnVoltar = new JButton("VOLTAR");
+		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				TelaPrincipal.getInstance().setVisible(true);
 			}
 		});
-		btnVoltarParaMenu.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnVoltarParaMenu.setBounds(217, 157, 147, 29);
-		contentPane.add(btnVoltarParaMenu);
+		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnVoltar.setBounds(244, 165, 97, 23);
+		contentPane.add(btnVoltar);
+
 	}
 
 }

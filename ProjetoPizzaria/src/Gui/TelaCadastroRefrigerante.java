@@ -3,6 +3,8 @@ package Gui;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -93,8 +95,10 @@ public class TelaCadastroRefrigerante extends JFrame {
 			
 			JButton btnCadastrar = new JButton("CADASTRAR");
 			btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 11));
-			btnCadastrar.setBounds(194, 206, 112, 23);
+			btnCadastrar.setBounds(113, 210, 112, 23);
 			contentPane.add(btnCadastrar);
+			
+			
 			
 			textNome = new JTextField();
 			textNome.setBounds(80, 73, 139, 20);
@@ -130,6 +134,16 @@ public class TelaCadastroRefrigerante extends JFrame {
 			textField.setBounds(335, 149, 139, 20);
 			contentPane.add(textField);
 			textField.setColumns(10);
+			
+			JButton btnVoltarParaMenu = new JButton("Voltar para Menu");
+			btnVoltarParaMenu.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+					TelaPrincipal.getInstance().setVisible(true);
+				}
+			});
+			btnVoltarParaMenu.setFont(new Font("Tahoma", Font.BOLD, 11));
+			btnVoltarParaMenu.setBounds(248, 210, 134, 23);
+			contentPane.add(btnVoltarParaMenu);
 		}
-
 }

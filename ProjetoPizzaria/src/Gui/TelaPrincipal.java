@@ -60,6 +60,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmInserirPizza = new JMenuItem("Inserir Pizza");
 		mntmInserirPizza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				TelaCadastroPizza.getInstance().setVisible(true);
 			}
 		});
@@ -68,12 +69,19 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmInserirRefrigerante = new JMenuItem("Inserir Refrigerante");
 		mntmInserirRefrigerante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				TelaCadastroRefrigerante.getInstance().setVisible(true);
 			}
 		});
 		mnNewMenuProdutos.add(mntmInserirRefrigerante);
 		
 		JMenuItem mntmProcurar = new JMenuItem("Procurar");
+		mntmProcurar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaProcurarProduto.getInstance().setVisible(true);
+			}
+		});
 		mnNewMenuProdutos.add(mntmProcurar);
 		
 		JMenuItem mntmListarTodos = new JMenuItem("Listar Todos");
@@ -82,6 +90,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmRemover = new JMenuItem("Remover");
 		mntmRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				TelaRemocaoProduto.getInstance().setVisible(true);
 			}
 		});
@@ -107,6 +116,12 @@ public class TelaPrincipal extends JFrame {
 		mnNewMenuPedidos.add(mntmListarPedidos);
 		
 		JMenuItem mntmCancelar = new JMenuItem("Cancelar");
+		mntmCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaRemocaoPedido.getInstance().setVisible(true);
+			}
+		});
 		mnNewMenuPedidos.add(mntmCancelar);
 		
 		JMenu mnNewFuncionarios = new JMenu("Funcion\u00E1rios\r\n");
@@ -116,6 +131,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmAdicionar = new JMenuItem("Adicionar");
 		mntmAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				TelaCadastroFuncionario.getInstance().setVisible(true);
 			}
 		});
@@ -131,6 +147,12 @@ public class TelaPrincipal extends JFrame {
 		mnNewFuncionarios.add(mntmAlterarSenha);
 		
 		JMenuItem mntmRemover_1 = new JMenuItem("Remover");
+		mntmRemover_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaRemocaoFuncionario.getInstance().setVisible(true);
+			}
+		});
 		mnNewFuncionarios.add(mntmRemover_1);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
