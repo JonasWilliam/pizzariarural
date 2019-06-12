@@ -15,6 +15,16 @@ public class TelaRemocaoProduto extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private static JFrame telaRemocaoProdutoinstance;
+
+	public static JFrame getInstance() {
+		if (TelaRemocaoProduto.telaRemocaoProdutoinstance == null)
+			TelaRemocaoProduto.telaRemocaoProdutoinstance = new TelaRemocaoProduto();
+
+		return TelaRemocaoProduto.telaRemocaoProdutoinstance;
+
+	}
+
 
 	/**
 	 * Launch the application.

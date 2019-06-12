@@ -20,6 +20,15 @@ public class TelaCadastroFuncionario extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private static JFrame telaCadastroFuncionarioinstance;
+
+	public static JFrame getInstance() {
+		if (TelaCadastroFuncionario.telaCadastroFuncionarioinstance == null)
+			TelaCadastroFuncionario.telaCadastroFuncionarioinstance = new TelaCadastroFuncionario();
+
+		return TelaCadastroFuncionario.telaCadastroFuncionarioinstance;
+
+	}
 
 	/**
 	 * Launch the application.

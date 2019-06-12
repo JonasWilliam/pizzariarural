@@ -15,7 +15,8 @@ public class TelaRemocaoFuncionario extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-
+	
+	
 	/**
 	 * Launch the application.
 	 */

@@ -21,6 +21,15 @@ public class TelaCadastroRefrigerante extends JFrame {
 	private JTextField textTamanho;
 	private JTextField textCodigo;
 	private JTextField textField;
+	private static JFrame telaCadastroRefrigeranteinstance;
+
+	public static JFrame getInstance() {
+		if (TelaCadastroRefrigerante.telaCadastroRefrigeranteinstance == null)
+			TelaCadastroRefrigerante.telaCadastroRefrigeranteinstance = new TelaCadastroRefrigerante();
+
+		return TelaCadastroRefrigerante.telaCadastroRefrigeranteinstance;
+
+	}
 
 	/**
 	 * Launch the application.
