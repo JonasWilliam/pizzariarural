@@ -80,7 +80,7 @@ public class TelaCadastroFuncionario extends JFrame {
 		lblCargo.setBounds(10, 144, 57, 24);
 		contentPane.add(lblCargo);
 		
-		JLabel lblCpf = new JLabel("Cpf:");
+		JLabel lblCpf = new JLabel("CPF :");
 		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblCpf.setBounds(219, 91, 57, 24);
 		contentPane.add(lblCpf);

@@ -5,7 +5,7 @@ public class Refrigerante extends Produto{
 	private String marca;
 	private String sabor;
 	
-	public Refrigerante(String nome, float valor, float peso, String marca, String sabor,int id) {
+	public Refrigerante(String nome, float valor, Peso peso, String marca, String sabor,int id) {
 		super(nome, valor, peso,id);
 		this.marca = marca;
 		this.sabor = sabor;

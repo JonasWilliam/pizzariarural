@@ -9,7 +9,7 @@ public class Pizza extends Produto{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Pizza(String nome, float valor, float peso, String sabor, Boolean bordaRecheada,int id) {
+	public Pizza(String nome, float valor, Peso peso, String sabor, Boolean bordaRecheada,int id) {
 		super(nome, valor, peso,id);
 		this.sabor = sabor;
 		this.bordaRecheada = bordaRecheada;

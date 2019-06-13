@@ -7,16 +7,17 @@ public class Funcionario {
 	private String login;
 	private String senha;
 	private String cpf;
-	//private String cargo;
+	private Cargos cargo;
 
-	public Funcionario(String nome, float salario, String login, String senha, String cpf) {
+	public Funcionario(String nome, float salario, String login, String senha, String cpf, Cargos cargo) {
 		super();
 		this.nome = nome;
 		this.salario = salario;
 		this.login = login;
 		this.senha = senha;
 		this.cpf = cpf;
-	
+		this.cargo = cargo;
+
 	}
 
 	public Funcionario() {
@@ -63,7 +64,12 @@ public class Funcionario {
 		this.cpf = cpf;
 	}
 
+	public Cargos getCargo() {
+		return cargo;
+	}
 
-
+	public void setCargo(Cargos cargo) {
+		this.cargo = cargo;
+	}
 
 }
