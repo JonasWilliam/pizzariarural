@@ -73,7 +73,7 @@ public class Fachada {
 		funcionarios.adicionar(a);
 	}
 
-	public void remover(String cpf) {
+	public void removerFuncionario(String cpf) {
 		funcionarios.remover(cpf);
 	}
 
@@ -81,7 +81,7 @@ public class Fachada {
 		return funcionarios.procurar(cpf);
 	}
 
-	public void alterarSenha(String senha, Funcionario a) {
+	public void alterarSenha(String senha, String a) {
 		funcionarios.alterarSenha(senha, a);
 	}
 

@@ -63,7 +63,15 @@ public class Funcionario {
 		this.cpf = cpf;
 	}
 
-
-
+	/*@Override
+	public String toString() {
+		return "Funcionario [nome=" + nome + ", salario=" + salario + ", login=" + login + ", senha=" + senha + ", cpf="
+				+ cpf + "]";
+	}*/
+	public String toString() {
+		return new StringBuffer(" Nome : ")
+				.append(this.nome).append(" cpf : ")
+				.append(this.cpf).toString();
+	}
 
 }

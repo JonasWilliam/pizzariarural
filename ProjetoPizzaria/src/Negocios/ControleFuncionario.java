@@ -26,7 +26,7 @@ public class ControleFuncionario {
 		return funcionarios.procurar(cpf);
 	}
 
-	public void alterarSenha(String senha, Funcionario a) {
+	public void alterarSenha(String senha,String a) {
 		funcionarios.alterarSenha(senha, a);
 	}
 

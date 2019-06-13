@@ -6,7 +6,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Negocios.Fachada;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -16,7 +21,7 @@ import java.awt.event.ActionEvent;
 public class TelaRemocaoFuncionario extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textcpf;
 	private static JFrame telaRemocaoFuncionarioinstance;
 
 	public static JFrame getInstance() {
@@ -26,8 +31,7 @@ public class TelaRemocaoFuncionario extends JFrame {
 		return TelaRemocaoFuncionario.telaRemocaoFuncionarioinstance;
 
 	}
-	
-	
+
 	/**
 	 * Launch the application.
 	 */
@@ -54,27 +58,36 @@ public class TelaRemocaoFuncionario extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblReoverDeFuncionrio = new JLabel("Remo\u00E7\u00E3o de Funcion\u00E1rio");
 		lblReoverDeFuncionrio.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblReoverDeFuncionrio.setBounds(61, 11, 363, 29);
 		contentPane.add(lblReoverDeFuncionrio);
-		
+
 		JLabel lblInformeOCpf = new JLabel("Informe o Cpf:");
 		lblInformeOCpf.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblInformeOCpf.setBounds(26, 85, 125, 29);
 		contentPane.add(lblInformeOCpf);
-		
-		textField = new JTextField();
-		textField.setBounds(161, 91, 244, 23);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
+
+		textcpf = new JTextField();
+		textcpf.setBounds(161, 91, 244, 23);
+		contentPane.add(textcpf);
+		textcpf.setColumns(10);
+
 		JButton btnRemover = new JButton("REMOVER");
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (textcpf.equals("")) {
+					JOptionPane.showMessageDialog(null, "Digite o cpf do funcionário que deseja remover");
+				}
+				Fachada.getInstance().removerFuncionario(textcpf.getText());
+				JOptionPane.showMessageDialog(null, "Funcionário removido com sucesso");
+			}
+		});
 		btnRemover.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnRemover.setBounds(61, 157, 125, 29);
 		contentPane.add(btnRemover);
-		
+
 		JButton btnVoltarParaMenu = new JButton("Voltar para Menu");
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
