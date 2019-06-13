@@ -2,6 +2,7 @@ package Negocios;
 
 import Exception.ClientePedidosException;
 import Exception.CpfInvalidoException;
+import Exception.IdProdutoException;
 
 public class Fachada {
 
@@ -51,7 +52,7 @@ public class Fachada {
 
 	// Produto
 
-	public void cadastrarProduto(Produto p) {
+	public void cadastrarProduto(Produto p) throws IdProdutoException {
 		produtos.cadastrarProduto(p);
 	}
 

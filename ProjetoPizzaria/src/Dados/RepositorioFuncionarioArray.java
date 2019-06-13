@@ -68,12 +68,12 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 	@Override
 	public Funcionario procurar(String cpf) {
 		Funcionario a = new Funcionario();
-		for(int i= 0; i >= funcionarios.length;i++) {
+		for(int i= 0; i < funcionarios.length; i++) {
 			if(funcionarios[i].getCpf() == cpf) {
 				System.out.println("nome: " + funcionarios[i].getNome());
 				System.out.println("cpf: " + funcionarios[i].getCpf());
 				a = new Funcionario(funcionarios[i].getNome(),funcionarios[i].getSalario(),funcionarios[i].getLogin(),
-						funcionarios[i].getSenha(),funcionarios[i].getCpf());
+						funcionarios[i].getSenha(),funcionarios[i].getCpf(), null);
 			}
 				
 		}

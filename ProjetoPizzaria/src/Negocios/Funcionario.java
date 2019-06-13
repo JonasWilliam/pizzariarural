@@ -7,16 +7,17 @@ public class Funcionario {
 	private String login;
 	private String senha;
 	private String cpf;
-	//private String cargo;
+	private Cargos cargo;
 
-	public Funcionario(String nome, float salario, String login, String senha, String cpf) {
+	public Funcionario(String nome, float salario, String login, String senha, String cpf, Cargos cargo) {
 		super();
 		this.nome = nome;
 		this.salario = salario;
 		this.login = login;
 		this.senha = senha;
 		this.cpf = cpf;
-	
+		this.cargo = cargo;
+
 	}
 
 	public Funcionario() {
@@ -63,15 +64,22 @@ public class Funcionario {
 		this.cpf = cpf;
 	}
 
-	/*@Override
+	/*
+	 * @Override public String toString() { return "Funcionario [nome=" + nome +
+	 * ", salario=" + salario + ", login=" + login + ", senha=" + senha + ", cpf=" +
+	 * cpf + "]"; }
+	 */
 	public String toString() {
-		return "Funcionario [nome=" + nome + ", salario=" + salario + ", login=" + login + ", senha=" + senha + ", cpf="
-				+ cpf + "]";
-	}*/
-	public String toString() {
-		return new StringBuffer(" Nome : ")
-				.append(this.nome).append(" cpf : ")
-				.append(this.cpf).toString();
+		return new StringBuffer(" Nome : ").append(this.nome).append(" cpf : ").append(this.cpf).toString();
+	}
+
+	public Cargos getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(Cargos cargo) {
+		this.cargo = cargo;
+
 	}
 
 }

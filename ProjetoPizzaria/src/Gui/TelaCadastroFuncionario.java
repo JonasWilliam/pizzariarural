@@ -56,6 +56,7 @@ public class TelaCadastroFuncionario extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaCadastroFuncionario() {
+		setTitle("Cadastro Funcionários");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 300);
 		contentPane = new JPanel();
@@ -78,7 +79,11 @@ public class TelaCadastroFuncionario extends JFrame {
 		lblSalrio.setBounds(10, 119, 73, 14);
 		contentPane.add(lblSalrio);
 		
-		JLabel lblCpf = new JLabel("Cpf:");
+
+		
+		
+		JLabel lblCpf = new JLabel("CPF :");
+
 		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblCpf.setBounds(10, 146, 57, 24);
 		contentPane.add(lblCpf);
