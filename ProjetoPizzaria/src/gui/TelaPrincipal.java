@@ -12,12 +12,17 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import dados.RepositorioFuncionarioArray;
+import dados.RepositorioPedidoArray;
+import dados.RepositorioProdutoArray;
 import negocios.Fachada;
 
 public class TelaPrincipal extends JFrame {
 
 	private JPanel contentPane;
 	private static JFrame telaPrincipalinstance;
+
+	
 
 	public static JFrame getInstance() {
 		if (TelaPrincipal.telaPrincipalinstance == null)
@@ -118,6 +123,11 @@ public class TelaPrincipal extends JFrame {
 		mnNewMenuPedidos.add(mntmProcurar_1);
 		
 		JMenuItem mntmListarPedidos = new JMenuItem("Listar Pedidos");
+		mntmListarPedidos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaListarPedido.getInstance().setVisible(true);
+			}
+		});
 		mnNewMenuPedidos.add(mntmListarPedidos);
 		
 		JMenuItem mntmCancelar = new JMenuItem("Cancelar");
