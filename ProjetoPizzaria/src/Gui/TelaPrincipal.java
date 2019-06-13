@@ -104,6 +104,11 @@ public class TelaPrincipal extends JFrame {
 		mnNewMenuPedidos.add(mntmCadastrar);
 		
 		JMenuItem mntmProcurar_1 = new JMenuItem("Procurar");
+		mntmProcurar_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaProcurarPedido.getInstance().setVisible(true);
+			}
+		});
 		mnNewMenuPedidos.add(mntmProcurar_1);
 		
 		JMenuItem mntmAlterarPedido = new JMenuItem("Add ao Pedido\r\n");
