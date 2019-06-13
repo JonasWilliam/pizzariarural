@@ -13,7 +13,6 @@ public class Refrigerante extends Produto{
 
 	public Refrigerante() {
 		super();
-		// vamos que vamos
 	}
 
 	public String getMarca() {
