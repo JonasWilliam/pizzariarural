@@ -53,6 +53,7 @@ public class TelaCadastroRefrigerante extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaCadastroRefrigerante() {
+		setTitle("Cadastrao de Refrigerante");
 		
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 500, 300);

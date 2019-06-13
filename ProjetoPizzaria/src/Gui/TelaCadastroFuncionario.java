@@ -52,6 +52,7 @@ public class TelaCadastroFuncionario extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaCadastroFuncionario() {
+		setTitle("Cadastro Funcionários");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 300);
 		contentPane = new JPanel();

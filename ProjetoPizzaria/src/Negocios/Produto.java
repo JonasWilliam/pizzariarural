@@ -4,14 +4,14 @@ public class Produto {
 
 	private String nome;
 	private float valor;
-	private String tamanho;
+	private float peso;
 	private int id;
 	
-	public Produto(String nome, float valor, String tamanho,int id) {
+	public Produto(String nome, float valor, float peso,int id) {
 		super();
 		this.nome = nome;
 		this.valor = valor;
-		this.tamanho = tamanho;
+		this.peso = peso;
 		this.id = id;
 	}
 	
@@ -35,12 +35,12 @@ public class Produto {
 		this.valor = valor;
 	}
 
-	public String getTamanho() {
-		return tamanho;
+	public float getPeso() {
+		return peso;
 	}
 
-	public void setTamanho(String tamanho) {
-		this.tamanho = tamanho;
+	public void setTamanho(float peso) {
+		this.peso = peso;
 	}
 
 	public int getId() {
