@@ -16,22 +16,23 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 	private final static int TAMANHO = 100;
 	private static RepositorioFuncionarioArray instance;
 
-	@Override
-	public void adicionar(Funcionario funcionario) {
-		this.funcionarios[indice] = funcionario;
-		this.indice = this.indice + 1;
-
-	}
-
 	public RepositorioFuncionarioArray() {
 		this.funcionarios = new Funcionario[TAMANHO];
 		this.indice = 0;
 	}
 
 	@Override
+	public void adicionar(Funcionario funcionario) {
+		this.funcionarios[indice] = funcionario;
+		this.indice = this.indice + 1;
+		
+
+	}
+
+	@Override
 	public void remover(String cpf) {
-		for (int i = 0; i < funcionarios.length; i++) {
-			if (funcionarios[i].getCpf() == cpf) {
+		for (int i = 0; i <= funcionarios.length; i++) {
+			if (funcionarios[i].getCpf() == (cpf)) {
 				funcionarios[i] = null;
 
 				for (int j = 0; j <= funcionarios.length; j++) {
@@ -40,48 +41,46 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 						funcionarios[i] = funcionarios[j];
 					}
 				}
+
 			}
+
 		}
 	}
 
 	@Override
 	public Funcionario[] listar() {
-
+		
 		return funcionarios;
 	}
-/*
-	@Override
-	public Funcionario procurar(String cpf) {
-		Funcionario funcionario = new Funcionario();
-		for (int i = 0; i >= funcionarios.length; i++) {
-			if (funcionarios[i].getCpf().equals(cpf)) {
-				funcionario = funcionarios[i];
-			} else
-				funcionario = null;
 
-		}
-		return funcionario;
-
-	}
-
-	*/
+	/*
+	 * @Override public Funcionario procurar(String cpf) { Funcionario funcionario =
+	 * new Funcionario(); for (int i = 0; i >= funcionarios.length; i++) { if
+	 * (funcionarios[i].getCpf().equals(cpf)) { funcionario = funcionarios[i]; }
+	 * else funcionario = null;
+	 * 
+	 * } return funcionario;
+	 * 
+	 * }
+	 * 
+	 */
 	@Override
 	public Funcionario procurar(String cpf) {
 		Funcionario a = new Funcionario();
-		for(int i= 0; i < funcionarios.length; i++) {
-			if(funcionarios[i].getCpf() == cpf) {
+		for (int i = 0; i < funcionarios.length; i++) {
+			if (funcionarios[i].getCpf() == cpf) {
 				System.out.println("nome: " + funcionarios[i].getNome());
 				System.out.println("cpf: " + funcionarios[i].getCpf());
-				a = new Funcionario(funcionarios[i].getNome(),funcionarios[i].getSalario(),funcionarios[i].getLogin(),
-						funcionarios[i].getSenha(),funcionarios[i].getCpf(), null);
+				a = new Funcionario(funcionarios[i].getNome(), funcionarios[i].getSalario(), funcionarios[i].getLogin(),
+						funcionarios[i].getSenha(), funcionarios[i].getCpf(), null);
 			}
-				
+
 		}
 		return a;
 	}
-	
+
 	@Override
-	public void alterarSenha(String senha,String cpf) {
+	public void alterarSenha(String senha, String cpf) {
 		Funcionario a = new Funcionario();
 		a = procurar(cpf);
 		a.setSenha(senha);
