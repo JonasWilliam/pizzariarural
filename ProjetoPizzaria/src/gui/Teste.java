@@ -15,9 +15,10 @@ public class Teste {
 		a.setCpf("987");
 		a.setSalario(987);
 		Fachada.getInstance().adicionar(a);
-		Fachada.getInstance().printa();//teste
-		Fachada.getInstance().procurarFuncionario("987");
-		Fachada.getInstance().procurarFuncionario("000");
+		//Fachada.getInstance().printa();//teste
+		Fachada.getInstance().listarFuncionario();
+		//Fachada.getInstance().procurarFuncionario("987");
+		//Fachada.getInstance().procurarFuncionario("000");
 		
 
 	}

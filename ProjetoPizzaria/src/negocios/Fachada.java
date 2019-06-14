@@ -91,12 +91,7 @@ public class Fachada {
 
 
 	public Funcionario[] listarFuncionario() {
-		
 		return funcionarios.listarFuncionario();
-	}
-
-	public void printa() {
-		
 	}
 	
 	
