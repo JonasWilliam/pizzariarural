@@ -1,4 +1,4 @@
-package exception;
+package negocios.exception;
 
 public class ClientePedidosException extends Exception{
 	

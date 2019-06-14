@@ -1,4 +1,4 @@
-package gui;
+package gui.produtos;
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import gui.TelaPrincipal;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 

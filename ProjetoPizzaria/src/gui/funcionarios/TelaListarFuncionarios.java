@@ -1,4 +1,4 @@
-package gui;
+package gui.funcionarios;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import gui.TelaPrincipal;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JScrollPane;
@@ -13,11 +16,13 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
 
 public class TelaListarFuncionarios extends JFrame {
 
 	private JPanel contentPane;
 	private static JFrame telaListarFuncionarioinstance;
+	private JTable table;
 
 	
 	
@@ -58,12 +63,9 @@ public class TelaListarFuncionarios extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 100, 400, 173);
-		contentPane.add(scrollPane);
-		
-		JTextArea textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
+		table = new JTable();
+		table.setBounds(12, 63, 426, 213);
+		contentPane.add(table);
 		
 		JLabel lblListarFuncionrios = new JLabel("Listar Funcion\u00E1rios");
 		lblListarFuncionrios.setFont(new Font("Tahoma", Font.BOLD, 24));
@@ -87,5 +89,4 @@ public class TelaListarFuncionarios extends JFrame {
 		
 	
 	}
-
 }

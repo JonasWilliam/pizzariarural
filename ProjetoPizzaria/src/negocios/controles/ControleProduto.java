@@ -1,8 +1,9 @@
-package negocios;
+package negocios.controles;
 
 import dados.RepositorioProduto;
 import dados.RepositorioProdutoArray;
-import exception.IdProdutoException;
+import negocios.Produto;
+import negocios.exception.IdProdutoException;
 
 public class ControleProduto {
 

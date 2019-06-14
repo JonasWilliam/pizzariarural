@@ -1,4 +1,4 @@
-package gui;
+package gui.funcionarios;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -13,6 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import gui.TelaPrincipal;
 import negocios.Fachada;
 import negocios.Funcionario;
 
@@ -75,9 +76,9 @@ public class TelaProcurarFuncionarios extends JFrame {
 				if(textteste.equals(""))
 					JOptionPane.showMessageDialog(null, "Digite o cpf do funcionario.");
 				else{ 
-					 Funcionario achouFuncionario = Fachada.getInstance().procurar(textteste.getText());
+					 Funcionario achouFuncionario = Fachada.getInstance().procurarFuncionario(textteste.getText());
 					 if(achouFuncionario == null){
-						 JOptionPane.showMessageDialog(null, "Funcionário não existe.");
+						 JOptionPane.showMessageDialog(null, "Funcionï¿½rio nï¿½o existe.");
 					 }else{
 						 textArea.append(achouFuncionario.toString());
 					 }

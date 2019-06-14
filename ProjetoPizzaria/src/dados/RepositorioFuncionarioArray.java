@@ -22,16 +22,15 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 	}
 
 	@Override
-	public void adicionar(Funcionario funcionario) {
+	public void adicionarFuncionario(Funcionario funcionario) {
 		this.funcionarios[indice] = funcionario;
 		this.indice = this.indice + 1;
-		
 
 	}
 
 	@Override
-	public void remover(String cpf) {
-		for (int i = 0; i <= funcionarios.length; i++) {
+	public void removerFuncionario(String cpf) {
+		for (int i = 0; i < indice; i++) {
 			if (funcionarios[i].getCpf() == (cpf)) {
 				funcionarios[i] = null;
 
@@ -48,41 +47,37 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 	}
 
 	@Override
-	public Funcionario[] listar() {
-		
+	public Funcionario[] listarFuncionario() {
 		return funcionarios;
 	}
 
-	/*
-	 * @Override public Funcionario procurar(String cpf) { Funcionario funcionario =
-	 * new Funcionario(); for (int i = 0; i >= funcionarios.length; i++) { if
-	 * (funcionarios[i].getCpf().equals(cpf)) { funcionario = funcionarios[i]; }
-	 * else funcionario = null;
-	 * 
-	 * } return funcionario;
-	 * 
-	 * }
-	 * 
-	 */
+	public void printa() {
+		Funcionario[] teste = funcionarios;
+		for (int i = 0; i < indice; i++) {
+			System.out.println("Nº: " + (indice + 1) + " Nome: " + funcionarios[i].getNome());
+		}
+	}
+
 	@Override
-	public Funcionario procurar(String cpf) {
-		Funcionario a = new Funcionario();
-		for (int i = 0; i < funcionarios.length; i++) {
+	public Funcionario procurarFuncionario(String cpf) {
+		Funcionario a = null;
+		for (int i = 0; i < indice; i++) {
 			if (funcionarios[i].getCpf() == cpf) {
-				System.out.println("nome: " + funcionarios[i].getNome());
-				System.out.println("cpf: " + funcionarios[i].getCpf());
-				a = new Funcionario(funcionarios[i].getNome(), funcionarios[i].getSalario(), funcionarios[i].getLogin(),
-						funcionarios[i].getSenha(), funcionarios[i].getCpf(), null);
+				System.out.println("Nome: " + funcionarios[i].getNome() + " Cpf: " + funcionarios[i].getCpf());
+				a = funcionarios[i];
 			}
 
+		}
+		if (a == null) {
+			System.out.println("Nenhum funcionario encontrado");
 		}
 		return a;
 	}
 
 	@Override
-	public void alterarSenha(String senha, String cpf) {
+	public void alterarSenhaFuncionario(String senha, String cpf) {
 		Funcionario a = new Funcionario();
-		a = procurar(cpf);
+		a = procurarFuncionario(cpf);
 		a.setSenha(senha);
 
 	}

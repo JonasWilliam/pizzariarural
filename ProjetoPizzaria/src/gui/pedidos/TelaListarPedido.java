@@ -1,4 +1,4 @@
-package gui;
+package gui.pedidos;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
+
+import gui.TelaPrincipal;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;

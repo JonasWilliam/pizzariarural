@@ -1,4 +1,4 @@
-package gui;
+package gui.produtos;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import gui.TelaPrincipal;
 
 public class TelaCadastroRefrigerante extends JFrame {
 

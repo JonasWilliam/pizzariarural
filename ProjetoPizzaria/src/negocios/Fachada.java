@@ -1,8 +1,11 @@
 package negocios;
 
-import exception.ClientePedidosException;
-import exception.CpfInvalidoException;
-import exception.IdProdutoException;
+import negocios.controles.ControleFuncionario;
+import negocios.controles.ControlePedido;
+import negocios.controles.ControleProduto;
+import negocios.exception.ClientePedidosException;
+import negocios.exception.CpfInvalidoException;
+import negocios.exception.IdProdutoException;
 
 public class Fachada {
 
@@ -71,24 +74,31 @@ public class Fachada {
 	// Funcionarios
 
 	public void adicionar(Funcionario a) throws CpfInvalidoException {
-		funcionarios.adicionar(a);
+		funcionarios.adicionarFuncionario(a);
 	}
 
 	public void removerFuncionario(String cpf) {
-		funcionarios.remover(cpf);
+		funcionarios.removerFuncionario(cpf);
 	}
 
-	public Funcionario procurar(String cpf) {
-		return funcionarios.procurar(cpf);
+	public Funcionario procurarFuncionario(String cpf) {
+		return funcionarios.procurarFuncionario(cpf);
 	}
 
 	public void alterarSenha(String senha, String a) {
-		funcionarios.alterarSenha(senha, a);
+		funcionarios.alterarSenhaFuncionario(senha, a);
 	}
 
 
-	public Funcionario[] listar() {
-		return funcionarios.listar();
+	public Funcionario[] listarFuncionario() {
+		
+		return funcionarios.listarFuncionario();
 	}
+
+	public void printa() {
+		
+	}
+	
+	
 
 }

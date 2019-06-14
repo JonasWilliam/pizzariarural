@@ -1,4 +1,4 @@
-package gui;
+package gui.funcionarios;
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -14,9 +14,10 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import dados.RepositorioFuncionarioArray;
-import exception.CpfInvalidoException;
+import gui.TelaPrincipal;
 import negocios.Fachada;
 import negocios.Funcionario;
+import negocios.exception.CpfInvalidoException;
 
 public class TelaCadastroFuncionario extends JFrame {
 
@@ -141,12 +142,12 @@ public class TelaCadastroFuncionario extends JFrame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(null, "Funcionário adicionado ao repositorio com sucesso");
+				JOptionPane.showMessageDialog(null, "Funcionï¿½rio adicionado ao repositorio com sucesso");
 				/*
 				try {
 					//Fachada.getInstance().adicionar(funcionario);
 					RepositorioFuncionarioArray.getInstance().adicionar(funcionario);
-					JOptionPane.showMessageDialog(null, "Funcionário adicionado ao repositorio com sucesso");
+					JOptionPane.showMessageDialog(null, "Funcionï¿½rio adicionado ao repositorio com sucesso");
 				} catch (CpfInvalidoException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

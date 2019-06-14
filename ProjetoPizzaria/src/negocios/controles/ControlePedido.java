@@ -1,8 +1,10 @@
-package negocios;
+package negocios.controles;
 
 import dados.RepositorioPedido;
 import dados.RepositorioPedidoArray;
-import exception.ClientePedidosException;
+import negocios.Pedido;
+import negocios.Produto;
+import negocios.exception.ClientePedidosException;
 
 public class ControlePedido {
 

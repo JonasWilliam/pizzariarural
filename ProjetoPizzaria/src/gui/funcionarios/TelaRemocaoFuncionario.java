@@ -1,4 +1,4 @@
-package gui;
+package gui.funcionarios;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import gui.TelaPrincipal;
 import negocios.Fachada;
 
 import javax.swing.JLabel;
@@ -78,10 +79,10 @@ public class TelaRemocaoFuncionario extends JFrame {
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (textcpf.equals("")) {
-					JOptionPane.showMessageDialog(null, "Digite o cpf do funcionário que deseja remover");
+					JOptionPane.showMessageDialog(null, "Digite o cpf do funcionï¿½rio que deseja remover");
 				}
 				Fachada.getInstance().removerFuncionario(textcpf.getText());
-				JOptionPane.showMessageDialog(null, "Funcionário removido com sucesso");
+				JOptionPane.showMessageDialog(null, "Funcionï¿½rio removido com sucesso");
 			}
 		});
 		btnRemover.setFont(new Font("Tahoma", Font.BOLD, 16));

@@ -1,4 +1,4 @@
-package exception;
+package negocios.exception;
 
 public class IdProdutoException extends Exception{
 	

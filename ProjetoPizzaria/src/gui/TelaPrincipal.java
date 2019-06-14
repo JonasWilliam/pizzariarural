@@ -15,6 +15,19 @@ import javax.swing.border.EmptyBorder;
 import dados.RepositorioFuncionarioArray;
 import dados.RepositorioPedidoArray;
 import dados.RepositorioProdutoArray;
+import gui.funcionarios.TelaAlterarSenhaFuncionario;
+import gui.funcionarios.TelaCadastroFuncionario;
+import gui.funcionarios.TelaListarFuncionarios;
+import gui.funcionarios.TelaProcurarFuncionarios;
+import gui.funcionarios.TelaRemocaoFuncionario;
+import gui.pedidos.TelaCadastrarPedido;
+import gui.pedidos.TelaListarPedido;
+import gui.pedidos.TelaProcurarPedido;
+import gui.pedidos.TelaRemocaoPedido;
+import gui.produtos.TelaCadastroPizza;
+import gui.produtos.TelaCadastroRefrigerante;
+import gui.produtos.TelaProcurarProduto;
+import gui.produtos.TelaRemocaoProduto;
 import negocios.Fachada;
 
 public class TelaPrincipal extends JFrame {
