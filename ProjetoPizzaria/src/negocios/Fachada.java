@@ -1,5 +1,7 @@
 package negocios;
 
+
+
 import negocios.controles.ControleFuncionario;
 import negocios.controles.ControlePedido;
 import negocios.controles.ControleProduto;
@@ -7,7 +9,7 @@ import negocios.exception.ClientePedidosException;
 import negocios.exception.CpfInvalidoException;
 import negocios.exception.IdProdutoException;
 
-public class Fachada {
+public class Fachada{
 
 	private ControlePedido pedidos;
 	private static Fachada instance;

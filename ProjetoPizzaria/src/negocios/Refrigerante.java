@@ -1,6 +1,8 @@
 package negocios;
 
-public class Refrigerante extends Produto{
+import java.io.Serializable;
+
+public class Refrigerante extends Produto implements Serializable{ 
 	
 	private String marca;
 	private String sabor;

@@ -6,35 +6,47 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 import negocios.Funcionario;
 
-public class RepositorioFuncionarioArray implements RepositorioFuncionario {
+public class RepositorioFuncionarioArray implements RepositorioFuncionario,Serializable{
 
 	private Funcionario[] funcionarios;
 	private int indice;
 	private final static int TAMANHO = 100;
 	private static RepositorioFuncionarioArray instance;
 
+	
+	public static RepositorioFuncionarioArray getInstance() {
+		if (instance == null) {
+			instance = lerDoArquivo();
+		}
+		return instance;
+	}
+	
 	public RepositorioFuncionarioArray() {
 		this.funcionarios = new Funcionario[TAMANHO];
 		this.indice = 0;
+
+		
 	}
 
 	@Override
 	public void adicionarFuncionario(Funcionario funcionario) {
 		this.funcionarios[indice] = funcionario;
 		this.indice = this.indice + 1;
+		
 
 	}
 
 	@Override
 	public void removerFuncionario(String cpf) {
 		for (int i = 0; i < indice; i++) {
-			if (funcionarios[i].getCpf() == (cpf)) {
+			if (funcionarios[i].getCpf().equals(cpf)) {
 				funcionarios[i] = null;
 
-				for (int j = 0; j <= funcionarios.length; j++) {
+				for (int j = 0; j < indice; j++) {
 
 					if (funcionarios[j] == null && funcionarios[j + 1] != null) {
 						funcionarios[i] = funcionarios[j];
@@ -62,15 +74,14 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 	public Funcionario procurarFuncionario(String cpf) {
 		Funcionario a = null;
 		for (int i = 0; i < indice; i++) {
-			if (funcionarios[i].getCpf() == cpf) {
+			if (funcionarios[i].getCpf().equals(cpf)) {
 				System.out.println("Nome: " + funcionarios[i].getNome() + " Cpf: " + funcionarios[i].getCpf());
 				a = funcionarios[i];
-			}
+			}else
+				a = null;
 
 		}
-		if (a == null) {
-			System.out.println("Nenhum funcionario encontrado");
-		}
+		
 		return a;
 	}
 
@@ -82,12 +93,7 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario {
 
 	}
 
-	public static RepositorioFuncionarioArray getInstance() {
-		if (instance == null) {
-			instance = lerDoArquivo();
-		}
-		return instance;
-	}
+
 
 	private static RepositorioFuncionarioArray lerDoArquivo() {
 		RepositorioFuncionarioArray instanciaLocal = null;

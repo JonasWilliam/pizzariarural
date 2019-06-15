@@ -6,11 +6,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 import negocios.Pedido;
 import negocios.Produto;
 
-public class RepositorioPedidoArray implements RepositorioPedido {
+public class RepositorioPedidoArray implements RepositorioPedido,Serializable {
 
 	private Pedido[] pedidos;
 	private int indice;

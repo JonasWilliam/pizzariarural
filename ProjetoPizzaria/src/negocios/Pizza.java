@@ -1,6 +1,8 @@
 package negocios;
 
-public class Pizza extends Produto{
+import java.io.Serializable;
+
+public class Pizza extends Produto implements Serializable{
 
 	private String sabor;
 	private Boolean bordaRecheada;

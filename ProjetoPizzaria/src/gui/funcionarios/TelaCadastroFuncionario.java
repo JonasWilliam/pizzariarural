@@ -30,7 +30,7 @@ public class TelaCadastroFuncionario extends JFrame {
 	private static JFrame telaCadastroFuncionarioinstance;
 	Funcionario funcionario = new Funcionario();
 	
-	private RepositorioFuncionarioArray repositorio = new RepositorioFuncionarioArray();
+	
 
 	public static JFrame getInstance() {
 		if (TelaCadastroFuncionario.telaCadastroFuncionarioinstance == null)
@@ -138,11 +138,18 @@ public class TelaCadastroFuncionario extends JFrame {
 				funcionario.setSenha(textsenha.getText());
 				try {
 					Fachada.getInstance().adicionar(funcionario);
+					//RepositorioFuncionarioArray.getInstance().salvarArquivo();
+					JOptionPane.showMessageDialog(null, "Funcionário adicionado ao repositorio com sucesso");
+					textnome.setText("");
+					textsalario.setText("");
+					textlogin.setText("");
+					textsenha.setText("");
+					textcpf.setText("");
 				} catch (CpfInvalidoException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				JOptionPane.showMessageDialog(null, "Funcionï¿½rio adicionado ao repositorio com sucesso");
+				
 				/*
 				try {
 					//Fachada.getInstance().adicionar(funcionario);

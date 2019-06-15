@@ -13,6 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import dados.RepositorioFuncionarioArray;
 import gui.TelaPrincipal;
 import negocios.Fachada;
 import negocios.Funcionario;
@@ -23,7 +24,7 @@ import java.awt.Font;
 public class TelaProcurarFuncionarios extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textteste;
+	private JTextField textcpf;
 	private static JFrame telaListarFuncionarioinstance;
 
 	public static JFrame getInstance() {
@@ -73,12 +74,15 @@ public class TelaProcurarFuncionarios extends JFrame {
 		btnProcurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("Dados: \n");
-				if(textteste.equals(""))
+				if(textcpf.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Digite o cpf do funcionario.");
-				else{ 
-					 Funcionario achouFuncionario = Fachada.getInstance().procurarFuncionario(textteste.getText());
+				}
+					
+				else {
+
+					Funcionario achouFuncionario = Fachada.getInstance().procurarFuncionario(textcpf.getText());
 					 if(achouFuncionario == null){
-						 JOptionPane.showMessageDialog(null, "Funcionï¿½rio nï¿½o existe.");
+						 JOptionPane.showMessageDialog(null, "Funcionário não existe.");
 					 }else{
 						 textArea.append(achouFuncionario.toString());
 					 }
@@ -86,13 +90,13 @@ public class TelaProcurarFuncionarios extends JFrame {
 				}
 			}
 		});
-		btnProcurar.setBounds(10, 281, 89, 23);
+		btnProcurar.setBounds(0, 281, 89, 23);
 		contentPane.add(btnProcurar);
 		
-		textteste = new JTextField();
-		textteste.setBounds(121, 63, 112, 20);
-		contentPane.add(textteste);
-		textteste.setColumns(10);
+		textcpf = new JTextField();
+		textcpf.setBounds(121, 63, 112, 20);
+		contentPane.add(textcpf);
+		textcpf.setColumns(10);
 		
 		JLabel lblProcurarFuncionrio = new JLabel("Procurar Funcion\u00E1rio");
 		lblProcurarFuncionrio.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -111,8 +115,19 @@ public class TelaProcurarFuncionarios extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnVoltar.setBounds(118, 282, 89, 23);
+		btnVoltar.setBounds(195, 281, 89, 23);
 		contentPane.add(btnVoltar);
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.setText("");
+				textcpf.setText("");
+			}
+		});
+		btnReset.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnReset.setBounds(99, 282, 89, 23);
+		contentPane.add(btnReset);
 		
 	}
 }

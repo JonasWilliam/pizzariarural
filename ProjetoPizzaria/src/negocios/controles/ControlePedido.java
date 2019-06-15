@@ -1,5 +1,7 @@
 package negocios.controles;
 
+
+import dados.RepositorioFuncionarioArray;
 import dados.RepositorioPedido;
 import dados.RepositorioPedidoArray;
 import negocios.Pedido;
@@ -8,11 +10,12 @@ import negocios.exception.ClientePedidosException;
 
 public class ControlePedido {
 
-	RepositorioPedido pedidos = new RepositorioPedidoArray();
+	RepositorioPedido pedidos =  RepositorioPedidoArray.getInstance();
 
 	public void criarPedido(Pedido pedido) throws ClientePedidosException {
 		if (pedido.getCliente().getTelefone() != null & pedido.getCliente().getTelefone() != "") {
 			pedidos.criarPedido(pedido);
+			RepositorioPedidoArray.getInstance().salvarArquivo();
 		} else {
 			ClientePedidosException e;
 			e = new ClientePedidosException(pedido.getCliente().getTelefone());
@@ -29,6 +32,11 @@ public class ControlePedido {
 	}
 
 	public Pedido procurarPedido(int id) {
+		
+			
+			RepositorioPedidoArray.getInstance();
+			pedidos.procurarPedido(id);
+
 		return pedidos.procurarPedido(id);
 	}
 

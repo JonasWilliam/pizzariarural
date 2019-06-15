@@ -78,11 +78,12 @@ public class TelaRemocaoFuncionario extends JFrame {
 		JButton btnRemover = new JButton("REMOVER");
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (textcpf.equals("")) {
-					JOptionPane.showMessageDialog(null, "Digite o cpf do funcionï¿½rio que deseja remover");
+				if (textcpf.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Digite o cpf do funcionário que deseja remover");
+				} else {
+					Fachada.getInstance().removerFuncionario(textcpf.getText());
+					JOptionPane.showMessageDialog(null, "Funcionário removido com sucesso");
 				}
-				Fachada.getInstance().removerFuncionario(textcpf.getText());
-				JOptionPane.showMessageDialog(null, "Funcionï¿½rio removido com sucesso");
 			}
 		});
 		btnRemover.setFont(new Font("Tahoma", Font.BOLD, 16));
