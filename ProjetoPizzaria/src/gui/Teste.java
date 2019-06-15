@@ -2,11 +2,15 @@ package gui;
 
 import negocios.Fachada;
 import negocios.Funcionario;
+import negocios.Pizza;
+import negocios.Refrigerante;
+import negocios.Tamanho;
 import negocios.exception.CpfInvalidoException;
+import negocios.exception.IdProdutoException;
 
 public class Teste {
 
-	public static void main(String[] args) throws CpfInvalidoException {
+	public static void main(String[] args) throws CpfInvalidoException, IdProdutoException {
 		// TODO Auto-generated method stub
 		Funcionario a = new Funcionario();
 		a.setNome("HAHA");
@@ -14,13 +18,24 @@ public class Teste {
 		a.setSenha("HAHA");
 		a.setCpf("987");
 		a.setSalario(987);
-		Fachada.getInstance().adicionar(a);
+		//Fachada.getInstance().adicionar(a);
 		//Fachada.getInstance().printa();//teste
-		Fachada.getInstance().listarFuncionario();
+		//Fachada.getInstance().listarFuncionario();
 		//Fachada.getInstance().procurarFuncionario("987");
 		//Fachada.getInstance().procurarFuncionario("000");
-		
-
+		Refrigerante r = new Refrigerante();
+		r.setNome("Guaraná Antartica");
+		r.setTamanho(Tamanho.M);
+		Fachada.getInstance().cadastrarProduto(r);
+		System.out.println(r.getValor());
+		System.out.println(r.getId());
+		Pizza p = new Pizza();
+		p.setNome("Calabresa");
+		p.setTamanho(Tamanho.G);
+		Fachada.getInstance().cadastrarProduto(p);
+		System.out.println(p.getValor());
+		System.out.println(p.getId());
 	}
 
+	
 }

@@ -2,37 +2,23 @@ package negocios;
 
 import java.io.Serializable;
 
-public class Refrigerante extends Produto implements Serializable{ 
-	
+public class Refrigerante extends Produto implements Serializable {
+
 	private String marca;
-	private String sabor;
-	
-	public Refrigerante(String nome, float valor, Peso peso, String marca, String sabor,int id) {
-		super(nome, valor, peso,id);
-		this.marca = marca;
-		this.sabor = sabor;
+
+	public Refrigerante(String nome, float valor, Tamanho tamanho, int id) {
+		super(nome, valor, tamanho, id);
+		this.id = id;
 	}
 
 	public Refrigerante() {
 		super();
+		this.id = 2;
 	}
 
-	public String getMarca() {
-		return marca;
+	@Override
+	public float getValor() {
+		return this.valor = calcularPreco(this.tamanho, this.id);
 	}
 
-	public void setMarca(String marca) {
-		this.marca = marca;
-	}
-
-	public String getSabor() {
-		return sabor;
-	}
-
-	public void setSabor(String sabor) {
-		this.sabor = sabor;
-	}
-	
-	
-	
 }

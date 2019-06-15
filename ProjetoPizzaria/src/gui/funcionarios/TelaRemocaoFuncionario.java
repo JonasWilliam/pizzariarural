@@ -66,7 +66,7 @@ public class TelaRemocaoFuncionario extends JFrame {
 		lblReoverDeFuncionrio.setBounds(61, 11, 363, 29);
 		contentPane.add(lblReoverDeFuncionrio);
 
-		JLabel lblInformeOCpf = new JLabel("Informe o Cpf:");
+		JLabel lblInformeOCpf = new JLabel("Informe o CPF:");
 		lblInformeOCpf.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblInformeOCpf.setBounds(26, 85, 125, 29);
 		contentPane.add(lblInformeOCpf);

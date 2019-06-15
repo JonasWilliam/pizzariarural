@@ -20,7 +20,6 @@ public class TelaCadastroRefrigerante extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textNome;
-	private JTextField textValor;
 	private static JFrame telaCadastroRefrigeranteinstance;
 
 	public static JFrame getInstance() {
@@ -70,11 +69,6 @@ public class TelaCadastroRefrigerante extends JFrame {
 			lblNome.setBounds(27, 74, 58, 15);
 			contentPane.add(lblNome);
 			
-			JLabel lblValor = new JLabel("Valor:");
-			lblValor.setFont(new Font("Tahoma", Font.BOLD, 14));
-			lblValor.setBounds(27, 146, 69, 22);
-			contentPane.add(lblValor);
-			
 			
 			
 			JButton btnCadastrar = new JButton("Cadastrar");
@@ -88,11 +82,6 @@ public class TelaCadastroRefrigerante extends JFrame {
 			textNome.setBounds(100, 72, 139, 20);
 			contentPane.add(textNome);
 			textNome.setColumns(10);
-			
-			textValor = new JTextField();
-			textValor.setColumns(10);
-			textValor.setBounds(86, 148, 139, 20);
-			contentPane.add(textValor);
 			
 			JButton btnVoltarParaMenu = new JButton("Voltar");
 			btnVoltarParaMenu.addActionListener(new ActionListener() {

@@ -20,7 +20,6 @@ public class TelaCadastroPizza extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField_1;
-	private JTextField textField_2;
 	private static JFrame telaCadastroPizzainstance;
 
 	public static JFrame getInstance() {
@@ -69,20 +68,10 @@ public class TelaCadastroPizza extends JFrame {
 		lblSabor.setBounds(27, 110, 58, 18);
 		contentPane.add(lblSabor);
 
-		JLabel lblValor = new JLabel("Valor:");
-		lblValor.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblValor.setBounds(27, 146, 69, 22);
-		contentPane.add(lblValor);
-
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(84, 111, 139, 20);
 		contentPane.add(textField_1);
-
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(84, 149, 139, 20);
-		contentPane.add(textField_2);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 11));
