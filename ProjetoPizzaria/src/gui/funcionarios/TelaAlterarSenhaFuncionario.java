@@ -10,6 +10,7 @@ import gui.TelaPrincipal;
 import negocios.Fachada;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -112,6 +113,9 @@ public class TelaAlterarSenhaFuncionario extends JFrame {
 		btnTeste_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Fachada.getInstance().alterarSenha(textsenha.getText(),textcpf.getText());
+				JOptionPane.showMessageDialog(null, "Senha alterada com sucesso");
+				dispose();
+				TelaPrincipal.getInstance().setVisible(true);
 			}
 		});
 		btnTeste_1.setBounds(105, 186, 93, 23);

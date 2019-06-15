@@ -78,7 +78,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmInserirPizza = new JMenuItem("Inserir Pizza");
 		mntmInserirPizza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
 				TelaCadastroPizza.getInstance().setVisible(true);
 			}
 		});
@@ -87,7 +87,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmInserirRefrigerante = new JMenuItem("Inserir Refrigerante");
 		mntmInserirRefrigerante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
 				TelaCadastroRefrigerante.getInstance().setVisible(true);
 			}
 		});
@@ -96,7 +96,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmProcurar = new JMenuItem("Procurar");
 		mntmProcurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
 				TelaProcurarProduto.getInstance().setVisible(true);
 			}
 		});
@@ -108,7 +108,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmRemover = new JMenuItem("Remover");
 		mntmRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
 				TelaRemocaoProduto.getInstance().setVisible(true);
 			}
 		});
@@ -121,6 +121,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
 		mntmCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				TelaCadastrarPedido.getInstance().setVisible(true);
 			}
 		});
@@ -129,7 +130,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmProcurar_1 = new JMenuItem("Procurar");
 		mntmProcurar_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
 				TelaProcurarPedido.getInstance().setVisible(true);
 			}
 		});
@@ -138,6 +139,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmListarPedidos = new JMenuItem("Listar Pedidos");
 		mntmListarPedidos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				TelaListarPedido.getInstance().setVisible(true);
 			}
 		});
@@ -146,7 +148,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmCancelar = new JMenuItem("Cancelar");
 		mntmCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
 				TelaRemocaoPedido.getInstance().setVisible(true);
 			}
 		});
@@ -159,7 +161,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmAdicionar = new JMenuItem("Adicionar");
 		mntmAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
 				TelaCadastroFuncionario.getInstance().setVisible(true);
 			}
 		});
@@ -168,6 +170,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmProcurar_2 = new JMenuItem("Procurar");
 		mntmProcurar_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				TelaProcurarFuncionarios.getInstance().setVisible(true);
 			}
 		});
@@ -176,6 +179,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmListarFuncionrios = new JMenuItem("Listar Funcion\u00E1rios");
 		mntmListarFuncionrios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				TelaListarFuncionarios.getInstance().setVisible(true);
 			}
 		});
@@ -184,6 +188,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmAlterarSenha = new JMenuItem("Alterar Senha");
 		mntmAlterarSenha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				TelaAlterarSenhaFuncionario.getInstance().setVisible(true);
 			}
 		});
@@ -192,7 +197,7 @@ public class TelaPrincipal extends JFrame {
 		JMenuItem mntmRemover_1 = new JMenuItem("Remover");
 		mntmRemover_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
 				TelaRemocaoFuncionario.getInstance().setVisible(true);
 			}
 		});

@@ -55,7 +55,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaProcurarFuncionarios() {
-		setTitle("Procurar Funcion√°rio");
+		setTitle("Procurar Funcion·rio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 300, 380);
 		contentPane = new JPanel();
@@ -64,7 +64,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 100, 223, 150);
+		scrollPane.setBounds(10, 100, 264, 150);
 		contentPane.add(scrollPane);
 		
 		JTextArea textArea = new JTextArea();
@@ -95,7 +95,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 		contentPane.add(btnProcurar);
 		
 		textcpf = new JTextField();
-		textcpf.setBounds(135, 37, 153, 20);
+		textcpf.setBounds(121, 37, 153, 20);
 		contentPane.add(textcpf);
 		textcpf.setColumns(10);
 		
@@ -118,7 +118,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 			
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnVoltar.setBounds(155, 262, 133, 41);
+		btnVoltar.setBounds(145, 261, 110, 30);
 		contentPane.add(btnVoltar);
 		
 		JButton btnReset = new JButton("Reset");
@@ -129,7 +129,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnReset.setBounds(163, 65, 125, 23);
+		btnReset.setBounds(20, 261, 110, 30);
 		contentPane.add(btnReset);
 		
 	}

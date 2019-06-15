@@ -103,13 +103,13 @@ public class TelaCadastroFuncionario extends JFrame {
 		contentPane.add(lblSenha);
 		
 		textnome = new JTextField();
-		textnome.setBounds(70, 88, 370, 20);
+		textnome.setBounds(70, 88, 356, 20);
 		contentPane.add(textnome);
 		textnome.setColumns(10);
 		
 		textsalario = new JTextField();
 		textsalario.setColumns(10);
-		textsalario.setBounds(80, 117, 114, 20);
+		textsalario.setBounds(70, 117, 124, 20);
 		contentPane.add(textsalario);
 		
 		textcpf = new JTextField();
@@ -124,7 +124,7 @@ public class TelaCadastroFuncionario extends JFrame {
 		
 		textsenha = new JTextField();
 		textsenha.setColumns(10);
-		textsenha.setBounds(276, 144, 151, 20);
+		textsenha.setBounds(264, 144, 163, 20);
 		contentPane.add(textsenha);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");

@@ -72,7 +72,8 @@ public class Funcionario  implements Serializable{
 	 * cpf + "]"; }
 	 */
 	public String toString() {
-		return new StringBuffer(" Nome : ").append(this.nome).append(" senha* : ").append(this.senha).toString();
+		return new StringBuffer(" Nome : ").append(this.nome).append(" senha para teste : ").append(this.senha).append(" login: ").append(this.login)
+				.append(" Salário: ").append(this.salario).append(" cpf: ").append(this.cpf).toString();
 	}
 
 	public Cargos getCargo() {

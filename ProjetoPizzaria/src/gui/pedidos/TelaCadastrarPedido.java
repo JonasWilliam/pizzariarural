@@ -15,25 +15,31 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
+import negocios.Cliente;
+import negocios.Entregador;
+import negocios.Pedido;
 import negocios.Tamanho;
 
 public class TelaCadastrarPedido extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtNDoTelefone;
+	private JTextField txtCliente;
 	private JTextField txtQuantidadeDePizzas;
 	private JTextField txtQuantidadeDeRegrigerantes;
 	private JTextField txtNomeDoEntregador;
 	private static JFrame telaPedidosinstance;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txtEnd;
+	private JTextField txtTel;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_8;
-	private JTextField textField_9;
+	private JTextField txtId;
+	Entregador entregador = new Entregador();
+	Cliente cliente = new Cliente();
+	Pedido pedido = new Pedido();
 
 	public static JFrame getInstance() {
 		if (TelaCadastrarPedido.telaPedidosinstance == null)
@@ -76,10 +82,10 @@ public class TelaCadastrarPedido extends JFrame {
 		lblCliente.setBounds(12, 45, 66, 15);
 		contentPane.add(lblCliente);
 
-		txtNDoTelefone = new JTextField();
-		txtNDoTelefone.setBounds(87, 43, 183, 19);
-		contentPane.add(txtNDoTelefone);
-		txtNDoTelefone.setColumns(10);
+		txtCliente = new JTextField();
+		txtCliente.setBounds(87, 43, 183, 19);
+		contentPane.add(txtCliente);
+		txtCliente.setColumns(10);
 
 		JLabel lblDadosDoCliente = new JLabel("Dados do Cliente");
 		lblDadosDoCliente.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -183,15 +189,15 @@ public class TelaCadastrarPedido extends JFrame {
 		checkBox.setBounds(350, 211, 175, 23);
 		contentPane.add(checkBox);
 
-		textField = new JTextField();
-		textField.setBounds(86, 69, 186, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtEnd = new JTextField();
+		txtEnd.setBounds(86, 69, 186, 20);
+		contentPane.add(txtEnd);
+		txtEnd.setColumns(10);
 
-		textField_1 = new JTextField();
-		textField_1.setBounds(88, 95, 182, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		txtTel = new JTextField();
+		txtTel.setBounds(88, 95, 182, 20);
+		contentPane.add(txtTel);
+		txtTel.setColumns(10);
 
 		textField_2 = new JTextField();
 		textField_2.setBounds(420, 120, 94, 20);
@@ -224,6 +230,16 @@ public class TelaCadastrarPedido extends JFrame {
 		textField_8.setColumns(10);
 
 		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				entregador.setNome(txtNomeDoEntregador.getText());
+				cliente.setNome(txtCliente.getText());
+				cliente.setEndereco(txtEnd.getText());
+				cliente.setTelefone(txtTel.getText());
+				int id = (Integer.parseInt(txtId.getText()));
+				//pedido = new Pedido(cliente,null,entregador,null,id);
+			}
+		});
 		btnConfirmar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnConfirmar.setBounds(318, 301, 120, 23);
 		contentPane.add(btnConfirmar);
@@ -243,10 +259,10 @@ public class TelaCadastrarPedido extends JFrame {
 		lblIdPedido.setBounds(32, 271, 73, 14);
 		contentPane.add(lblIdPedido);
 
-		textField_9 = new JTextField();
-		textField_9.setBounds(126, 273, 144, 20);
-		contentPane.add(textField_9);
-		textField_9.setColumns(10);
+		txtId = new JTextField();
+		txtId.setBounds(126, 273, 144, 20);
+		contentPane.add(txtId);
+		txtId.setColumns(10);
 
 		JComboBox pizzaComboBox = new JComboBox(Tamanho.values());
 		pizzaComboBox.addActionListener(new ActionListener() {
