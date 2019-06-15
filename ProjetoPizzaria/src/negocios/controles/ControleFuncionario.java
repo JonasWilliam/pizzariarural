@@ -22,6 +22,7 @@ public class ControleFuncionario {
 	}
 
 	public void removerFuncionario(String cpf) {
+	
 		RepositorioFuncionarioArray.getInstance();
 		funcionarios.removerFuncionario(cpf);
 		RepositorioFuncionarioArray.getInstance().salvarArquivo();

@@ -7,16 +7,14 @@ public class Pedido implements Serializable{
 	private Cliente cliente;
 	private Produto[] produtos;
 	private Entregador entregador;
-	private Vendedor vendedor;
 	private float total;
 	private int id;
 	
-	public Pedido(Cliente cliente, Produto[] produtos, Entregador entregador, Vendedor vendedor, float total,int id) {
+	public Pedido(Cliente cliente, Produto[] produtos, Entregador entregador, float total,int id) {
 		super();
 		this.cliente = cliente;
 		this.produtos = produtos;
 		this.entregador = entregador;
-		this.vendedor = vendedor;
 		this.total = total;
 		this.id = id;
 	}
@@ -41,12 +39,7 @@ public class Pedido implements Serializable{
 	public void setEntregador(Entregador entregador) {
 		this.entregador = entregador;
 	}
-	public Vendedor getVendedor() {
-		return vendedor;
-	}
-	public void setVendedor(Vendedor vendedor) {
-		this.vendedor = vendedor;
-	}
+	
 	public float getTotal() {
 		return total;
 	}

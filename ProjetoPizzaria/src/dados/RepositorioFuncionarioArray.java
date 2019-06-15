@@ -41,25 +41,22 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 	public void removerFuncionario(String cpf) {
 		for (int i = 0; i < indice; i++) {
 			if (funcionarios[i].getCpf().equals(cpf)) {
-				funcionarios[i] = null;
-				System.out.println("removeu na posição" + i);
-
 				for (int j = 0; j < indice; j++) {
-					System.out.println("chegou no 2 for");
-					if (funcionarios[j] == null) {
-						if (funcionarios[j + 1] != null) {
-							funcionarios[j] = funcionarios[j + 1];
+					if (funcionarios[i+1] == null && funcionarios[j+2] == null) {
+						funcionarios[i] = null;
 						}
-						System.out.println("chegou no ao fim do for");
-
-					}
+						else if(funcionarios[j] != null && funcionarios[j+1] == null) {
+							funcionarios[i]= funcionarios[j];
+						}
+						
+							
+				
 				}
 
 			}
 
-		}
+			}
 	}
-
 	@Override
 	public Funcionario[] listarFuncionario() {
 		for (int i = 0; i < indice; i++) {

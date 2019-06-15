@@ -2,26 +2,29 @@ package gui.produtos;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import negocios.Fachada;
+import negocios.Pizza;
+import negocios.exception.IdProdutoException;
 
 public class TelaCadastroPizza extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField textSabor;
+	private JTextField textValor;
 	private static JFrame telaCadastroPizzainstance;
+	Pizza pizza = new Pizza();
 
 	public static JFrame getInstance() {
 		if (TelaCadastroPizza.telaCadastroPizzainstance == null)
@@ -74,22 +77,38 @@ public class TelaCadastroPizza extends JFrame {
 		lblValor.setBounds(27, 146, 69, 22);
 		contentPane.add(lblValor);
 
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(84, 111, 139, 20);
-		contentPane.add(textField_1);
+		textSabor = new JTextField();
+		textSabor.setColumns(10);
+		textSabor.setBounds(84, 111, 139, 20);
+		contentPane.add(textSabor);
 
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(84, 149, 139, 20);
-		contentPane.add(textField_2);
+		textValor = new JTextField();
+		textValor.setColumns(10);
+		textValor.setBounds(84, 149, 139, 20);
+		contentPane.add(textValor);
 
 		JButton btnCadastrar = new JButton("CADASTRAR");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pizza.setSabor(textSabor.getText());
+				pizza.setValor(Float.parseFloat(textValor.getText()));
+				try {
+					Fachada.getInstance().cadastrarProduto(pizza);
+					JOptionPane.showMessageDialog(null, "Pizza adicionada ao repositorio com sucesso");
+					textSabor.setText("");
+					textValor.setText("");
+				} catch (IdProdutoException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
 		btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnCadastrar.setBounds(128, 207, 112, 23);
 		contentPane.add(btnCadastrar);
 		
-		JButton btnVoltarParaMenu = new JButton("Voltar Para Menu");
+		JButton btnVoltarParaMenu = new JButton("Voltar");
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

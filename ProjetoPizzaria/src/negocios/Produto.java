@@ -4,14 +4,14 @@ import java.io.Serializable;
 
 public class Produto implements Serializable{
 
-	private String nome;
+	
 	private float valor;
 	private Peso peso;
 	private int id;
 	
 	public Produto(String nome, float valor, Peso peso,int id) {
 		super();
-		this.nome = nome;
+		
 		this.valor = valor;
 		this.peso = peso;
 		this.id = id;
@@ -21,13 +21,7 @@ public class Produto implements Serializable{
 		
 	}
 
-	public String getNome() {
-		return nome;
-	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 
 	public float getValor() {
 		return valor;

@@ -8,13 +8,18 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
+import negocios.Fachada;
+import negocios.Funcionario;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 
@@ -22,7 +27,7 @@ public class TelaListarFuncionarios extends JFrame {
 
 	private JPanel contentPane;
 	private static JFrame telaListarFuncionarioinstance;
-	private JTable table;
+	private JTable textArea;
 
 	
 	
@@ -63,9 +68,9 @@ public class TelaListarFuncionarios extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		table = new JTable();
-		table.setBounds(12, 63, 426, 213);
-		contentPane.add(table);
+		textArea = new JTable();
+		textArea.setBounds(12, 63, 426, 213);
+		contentPane.add(textArea);
 		
 		JLabel lblListarFuncionrios = new JLabel("Listar Funcion\u00E1rios");
 		lblListarFuncionrios.setFont(new Font("Tahoma", Font.BOLD, 24));
@@ -73,6 +78,7 @@ public class TelaListarFuncionarios extends JFrame {
 		contentPane.add(lblListarFuncionrios);
 		
 		JButton btnListarTodos = new JButton("Listar TODOS");
+	
 		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnListarTodos.setBounds(78, 296, 122, 23);
 		contentPane.add(btnListarTodos);
@@ -88,6 +94,7 @@ public class TelaListarFuncionarios extends JFrame {
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnVoltar.setBounds(228, 297, 89, 23);
 		contentPane.add(btnVoltar);
+		
 		
 	
 	}
