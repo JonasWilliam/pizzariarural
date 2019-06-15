@@ -81,7 +81,9 @@ public class TelaListarFuncionarios extends JFrame {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				TelaPrincipal.getInstance().setVisible(true);
+				
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));

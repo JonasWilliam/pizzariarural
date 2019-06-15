@@ -112,8 +112,10 @@ public class TelaProcurarFuncionarios extends JFrame {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				TelaPrincipal.getInstance().setVisible(true);
 			}
+			
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnVoltar.setBounds(155, 262, 133, 41);

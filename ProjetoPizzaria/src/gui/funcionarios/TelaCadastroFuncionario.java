@@ -173,7 +173,7 @@ public class TelaCadastroFuncionario extends JFrame {
 		JButton btnVoltarParaMenu = new JButton("Voltar");
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
 				TelaPrincipal.getInstance().setVisible(true);
 			}
 		});
