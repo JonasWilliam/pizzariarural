@@ -60,14 +60,10 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario,Seria
 
 	@Override
 	public Funcionario[] listarFuncionario() {
-		return funcionarios;
-	}
-
-	public void printa() {
-		Funcionario[] teste = funcionarios;
 		for (int i = 0; i < indice; i++) {
-			System.out.println("Nº: " + (indice + 1) + " Nome: " + funcionarios[i].getNome());
+			System.out.println(indice + " " + funcionarios[i].getCpf() + " " + funcionarios[i].getNome());
 		}
+		return funcionarios;
 	}
 
 	@Override
