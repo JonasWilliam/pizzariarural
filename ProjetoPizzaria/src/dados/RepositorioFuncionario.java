@@ -9,5 +9,4 @@ public interface RepositorioFuncionario {
 	public Funcionario procurarFuncionario(String cpf);
 	public void alterarSenhaFuncionario(String senha,String cpf);
 	public Funcionario[] listarFuncionario();
-
 }
