@@ -4,14 +4,30 @@ import java.io.Serializable;
 
 public class Produto implements Serializable {
 
+<<<<<<< HEAD
 	private String nome;
 	protected float valor;
 	protected Tamanho tamanho;
 	protected int id;
 
 	public Produto(String nome, float valor, Tamanho tamanho, int id) {
+||||||| merged common ancestors
+	private String nome;
+	private float valor;
+	private Peso peso;
+	private int id;
+	
+	public Produto(String nome, float valor, Peso peso,int id) {
+=======
+	
+	private float valor;
+	private Peso peso;
+	private int id;
+	
+	public Produto(String nome, float valor, Peso peso,int id) {
+>>>>>>> e67b827465ba9ce044cbaa3bc24aee7482d9009c
 		super();
-		this.nome = nome;
+		
 		this.valor = valor;
 		this.tamanho = tamanho;
 		this.id = id;
@@ -21,13 +37,7 @@ public class Produto implements Serializable {
 
 	}
 
-	public String getNome() {
-		return nome;
-	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 
 	public float getValor() {
 		return valor;
