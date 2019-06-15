@@ -126,9 +126,10 @@ public class TelaAlterarSenhaFuncionario extends JFrame {
 		lblCpf.setBounds(46, 93, 46, 14);
 		contentPane.add(lblCpf);
 		
-		JButton btnVoltar = new JButton("VOLTAR");
+		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				TelaPrincipal.getInstance().setVisible(true);
 			}
 		});

@@ -40,7 +40,9 @@ public class ControleFuncionario {
 	}
 
 	public void alterarSenhaFuncionario(String senha, String a) {
+		RepositorioFuncionarioArray.getInstance();
 		funcionarios.alterarSenhaFuncionario(senha, a);
+		RepositorioFuncionarioArray.getInstance().salvarArquivo();
 	}
 
 	public Funcionario[] listarFuncionario() {

@@ -90,7 +90,7 @@ public class TelaRemocaoFuncionario extends JFrame {
 		btnRemover.setBounds(61, 157, 125, 29);
 		contentPane.add(btnRemover);
 
-		JButton btnVoltarParaMenu = new JButton("Voltar para Menu");
+		JButton btnVoltarParaMenu = new JButton("Voltar");
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

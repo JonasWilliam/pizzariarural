@@ -170,10 +170,10 @@ public class TelaCadastroFuncionario extends JFrame {
 		btnCadastrar.setBounds(91, 208, 108, 23);
 		contentPane.add(btnCadastrar);
 		
-		JButton btnVoltarParaMenu = new JButton("Voltar para Menu");
+		JButton btnVoltarParaMenu = new JButton("Voltar");
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
 				TelaPrincipal.getInstance().setVisible(true);
 			}
 		});

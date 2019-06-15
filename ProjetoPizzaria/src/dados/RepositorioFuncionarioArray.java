@@ -10,33 +10,30 @@ import java.io.Serializable;
 
 import negocios.Funcionario;
 
-public class RepositorioFuncionarioArray implements RepositorioFuncionario,Serializable{
+public class RepositorioFuncionarioArray implements RepositorioFuncionario, Serializable {
 
 	private Funcionario[] funcionarios;
 	private int indice;
 	private final static int TAMANHO = 100;
 	private static RepositorioFuncionarioArray instance;
 
-	
 	public static RepositorioFuncionarioArray getInstance() {
 		if (instance == null) {
 			instance = lerDoArquivo();
 		}
 		return instance;
 	}
-	
+
 	public RepositorioFuncionarioArray() {
 		this.funcionarios = new Funcionario[TAMANHO];
 		this.indice = 0;
 
-		
 	}
 
 	@Override
 	public void adicionarFuncionario(Funcionario funcionario) {
 		this.funcionarios[indice] = funcionario;
 		this.indice = this.indice + 1;
-		
 
 	}
 
@@ -45,11 +42,16 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario,Seria
 		for (int i = 0; i < indice; i++) {
 			if (funcionarios[i].getCpf().equals(cpf)) {
 				funcionarios[i] = null;
+				System.out.println("removeu na posição" + i);
 
 				for (int j = 0; j < indice; j++) {
+					System.out.println("chegou no 2 for");
+					if (funcionarios[j] == null) {
+						if (funcionarios[j + 1] != null) {
+							funcionarios[j] = funcionarios[j + 1];
+						}
+						System.out.println("chegou no ao fim do for");
 
-					if (funcionarios[j] == null && funcionarios[j + 1] != null) {
-						funcionarios[i] = funcionarios[j];
 					}
 				}
 
@@ -71,25 +73,24 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario,Seria
 		Funcionario a = null;
 		for (int i = 0; i < indice; i++) {
 			if (funcionarios[i].getCpf().equals(cpf)) {
-				System.out.println("Nome: " + funcionarios[i].getNome() + " Cpf: " + funcionarios[i].getCpf());
+				System.out.println("Nome: " + funcionarios[i].getNome() + " senha: " + funcionarios[i].getSenha());
 				a = funcionarios[i];
-			}else
+			} else
 				a = null;
 
 		}
-		
+
 		return a;
 	}
 
 	@Override
 	public void alterarSenhaFuncionario(String senha, String cpf) {
 		Funcionario a = new Funcionario();
+		System.out.println("********");
 		a = procurarFuncionario(cpf);
 		a.setSenha(senha);
 
 	}
-
-
 
 	private static RepositorioFuncionarioArray lerDoArquivo() {
 		RepositorioFuncionarioArray instanciaLocal = null;
