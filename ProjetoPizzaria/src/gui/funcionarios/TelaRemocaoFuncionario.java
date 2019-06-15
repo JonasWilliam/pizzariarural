@@ -53,6 +53,7 @@ public class TelaRemocaoFuncionario extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaRemocaoFuncionario() {
+		setTitle("RemoÃ§Ã£o de FuncionÃ¡rio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 270);
 		contentPane = new JPanel();
@@ -75,14 +76,14 @@ public class TelaRemocaoFuncionario extends JFrame {
 		contentPane.add(textcpf);
 		textcpf.setColumns(10);
 
-		JButton btnRemover = new JButton("REMOVER");
+		JButton btnRemover = new JButton("Remover");
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (textcpf.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Digite o cpf do funcionário que deseja remover");
+					JOptionPane.showMessageDialog(null, "Digite o cpf do funcionï¿½rio que deseja remover");
 				} else {
 					Fachada.getInstance().removerFuncionario(textcpf.getText());
-					JOptionPane.showMessageDialog(null, "Funcionário removido com sucesso");
+					JOptionPane.showMessageDialog(null, "Funcionï¿½rio removido com sucesso");
 				}
 			}
 		});
@@ -90,7 +91,7 @@ public class TelaRemocaoFuncionario extends JFrame {
 		btnRemover.setBounds(61, 157, 125, 29);
 		contentPane.add(btnRemover);
 
-		JButton btnVoltarParaMenu = new JButton("Voltar para Menu");
+		JButton btnVoltarParaMenu = new JButton("Voltar");
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

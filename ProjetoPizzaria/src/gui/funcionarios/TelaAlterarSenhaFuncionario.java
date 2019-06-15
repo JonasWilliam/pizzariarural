@@ -57,6 +57,7 @@ public class TelaAlterarSenhaFuncionario extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaAlterarSenhaFuncionario() {
+		setTitle("Alterar Senha");
 		getContentPane().setLayout(null);
 		
 		textField_3 = new JTextField();
@@ -96,17 +97,17 @@ public class TelaAlterarSenhaFuncionario extends JFrame {
 		lblAlterarSenha.setBounds(150, 11, 202, 41);
 		contentPane.add(lblAlterarSenha);
 		
-		JLabel lblInformeANova = new JLabel("nova senha:");
+		JLabel lblInformeANova = new JLabel("Nova Senha :");
 		lblInformeANova.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblInformeANova.setBounds(46, 118, 86, 28);
+		lblInformeANova.setBounds(46, 118, 105, 28);
 		contentPane.add(lblInformeANova);
 		
 		textsenha = new JTextField();
-		textsenha.setBounds(142, 123, 105, 20);
+		textsenha.setBounds(158, 123, 133, 20);
 		contentPane.add(textsenha);
 		textsenha.setColumns(10);
 		
-		JButton btnTeste_1 = new JButton("ALTERAR");
+		JButton btnTeste_1 = new JButton("Alterar");
 		btnTeste_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnTeste_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -117,16 +118,16 @@ public class TelaAlterarSenhaFuncionario extends JFrame {
 		contentPane.add(btnTeste_1);
 		
 		textcpf = new JTextField();
-		textcpf.setBounds(88, 87, 142, 20);
+		textcpf.setBounds(88, 87, 203, 20);
 		contentPane.add(textcpf);
 		textcpf.setColumns(10);
 		
-		JLabel lblCpf = new JLabel("Cpf:\r\n");
+		JLabel lblCpf = new JLabel("CPF :\r");
 		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblCpf.setBounds(46, 93, 46, 14);
 		contentPane.add(lblCpf);
 		
-		JButton btnVoltar = new JButton("VOLTAR");
+		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaPrincipal.getInstance().setVisible(true);

@@ -94,7 +94,7 @@ public class TelaCadastrarPedido extends JFrame {
 		
 		JLabel lblPizza = new JLabel("Pizza");
 		lblPizza.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblPizza.setBounds(431, 1, 66, 15);
+		lblPizza.setBounds(431, 0, 66, 15);
 		contentPane.add(lblPizza);
 		
 		JLabel lblRefrigerantes = new JLabel("Refrigerantes");
@@ -187,7 +187,7 @@ public class TelaCadastrarPedido extends JFrame {
 		
 		JLabel lblValorTotal = new JLabel("Valor Total :");
 		lblValorTotal.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblValorTotal.setBounds(33, 303, 93, 15);
+		lblValorTotal.setBounds(33, 303, 103, 18);
 		contentPane.add(lblValorTotal);
 		
 		JCheckBox checkBox = new JCheckBox("Borda Recheada");
@@ -231,21 +231,21 @@ public class TelaCadastrarPedido extends JFrame {
 		textField_6.setColumns(10);
 		
 		textField_7 = new JTextField();
-		textField_7.setBounds(79, 201, 43, 20);
+		textField_7.setBounds(93, 201, 43, 20);
 		contentPane.add(textField_7);
 		textField_7.setColumns(10);
 		
 		textField_8 = new JTextField();
-		textField_8.setBounds(136, 302, 86, 20);
+		textField_8.setBounds(162, 301, 86, 20);
 		contentPane.add(textField_8);
 		textField_8.setColumns(10);
 		
-		JButton btnConfirmar = new JButton("CONFIRMAR");
+		JButton btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnConfirmar.setBounds(318, 301, 120, 23);
 		contentPane.add(btnConfirmar);
 		
-		JButton btnVoltar = new JButton("VOLTAR");
+		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaPrincipal.getInstance().setVisible(true);
@@ -255,7 +255,7 @@ public class TelaCadastrarPedido extends JFrame {
 		btnVoltar.setBounds(463, 301, 89, 23);
 		contentPane.add(btnVoltar);
 		
-		JLabel lblIdPedido = new JLabel("Id Pedido:");
+		JLabel lblIdPedido = new JLabel("ID Pedido:");
 		lblIdPedido.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblIdPedido.setBounds(32, 271, 73, 14);
 		contentPane.add(lblIdPedido);

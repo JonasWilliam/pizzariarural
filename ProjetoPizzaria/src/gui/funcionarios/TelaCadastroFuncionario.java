@@ -80,7 +80,7 @@ public class TelaCadastroFuncionario extends JFrame {
 		
 		JLabel lblSalrio = new JLabel("Sal\u00E1rio:");
 		lblSalrio.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblSalrio.setBounds(10, 119, 73, 14);
+		lblSalrio.setBounds(10, 120, 73, 14);
 		contentPane.add(lblSalrio);
 		
 
@@ -89,45 +89,45 @@ public class TelaCadastroFuncionario extends JFrame {
 		JLabel lblCpf = new JLabel("CPF :");
 
 		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblCpf.setBounds(10, 146, 57, 24);
+		lblCpf.setBounds(212, 115, 57, 24);
 		contentPane.add(lblCpf);
 		
 		JLabel lblLogin = new JLabel("Login:");
 		lblLogin.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblLogin.setBounds(219, 87, 65, 19);
+		lblLogin.setBounds(10, 144, 65, 19);
 		contentPane.add(lblLogin);
 		
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblSenha.setBounds(219, 119, 65, 14);
+		lblSenha.setBounds(212, 146, 65, 14);
 		contentPane.add(lblSenha);
 		
 		textnome = new JTextField();
-		textnome.setBounds(70, 88, 139, 20);
+		textnome.setBounds(70, 88, 370, 20);
 		contentPane.add(textnome);
 		textnome.setColumns(10);
 		
 		textsalario = new JTextField();
 		textsalario.setColumns(10);
-		textsalario.setBounds(70, 118, 139, 20);
+		textsalario.setBounds(80, 117, 114, 20);
 		contentPane.add(textsalario);
 		
 		textcpf = new JTextField();
 		textcpf.setColumns(10);
-		textcpf.setBounds(70, 144, 169, 20);
+		textcpf.setBounds(264, 118, 164, 20);
 		contentPane.add(textcpf);
 		
 		textlogin = new JTextField();
 		textlogin.setColumns(10);
-		textlogin.setBounds(271, 88, 169, 20);
+		textlogin.setBounds(70, 144, 124, 20);
 		contentPane.add(textlogin);
 		
 		textsenha = new JTextField();
 		textsenha.setColumns(10);
-		textsenha.setBounds(271, 118, 169, 20);
+		textsenha.setBounds(276, 144, 151, 20);
 		contentPane.add(textsenha);
 		
-		JButton btnCadastrar = new JButton("CADASTRAR");
+		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -139,7 +139,7 @@ public class TelaCadastroFuncionario extends JFrame {
 				try {
 					Fachada.getInstance().adicionar(funcionario);
 					//RepositorioFuncionarioArray.getInstance().salvarArquivo();
-					JOptionPane.showMessageDialog(null, "Funcionário adicionado ao repositorio com sucesso");
+					JOptionPane.showMessageDialog(null, "Funcionï¿½rio adicionado ao repositorio com sucesso");
 					textnome.setText("");
 					textsalario.setText("");
 					textlogin.setText("");
@@ -170,7 +170,7 @@ public class TelaCadastroFuncionario extends JFrame {
 		btnCadastrar.setBounds(91, 208, 108, 23);
 		contentPane.add(btnCadastrar);
 		
-		JButton btnVoltarParaMenu = new JButton("Voltar para Menu");
+		JButton btnVoltarParaMenu = new JButton("Voltar");
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

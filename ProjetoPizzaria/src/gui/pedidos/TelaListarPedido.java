@@ -53,6 +53,8 @@ public class TelaListarPedido extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaListarPedido() {
+		setFont(new Font("Dialog", Font.PLAIN, 99));
+		setTitle("Listar Pedidos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 380);
 		contentPane = new JPanel();

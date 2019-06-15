@@ -55,6 +55,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaProcurarFuncionarios() {
+		setTitle("Procurar FuncionÃ¡rio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 300, 380);
 		contentPane = new JPanel();
@@ -82,7 +83,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 
 					Funcionario achouFuncionario = Fachada.getInstance().procurarFuncionario(textcpf.getText());
 					 if(achouFuncionario == null){
-						 JOptionPane.showMessageDialog(null, "Funcionário não existe.");
+						 JOptionPane.showMessageDialog(null, "Funcionï¿½rio nï¿½o existe.");
 					 }else{
 						 textArea.append(achouFuncionario.toString());
 					 }
@@ -90,11 +91,11 @@ public class TelaProcurarFuncionarios extends JFrame {
 				}
 			}
 		});
-		btnProcurar.setBounds(0, 281, 89, 23);
+		btnProcurar.setBounds(10, 65, 123, 23);
 		contentPane.add(btnProcurar);
 		
 		textcpf = new JTextField();
-		textcpf.setBounds(121, 63, 112, 20);
+		textcpf.setBounds(135, 37, 153, 20);
 		contentPane.add(textcpf);
 		textcpf.setColumns(10);
 		
@@ -103,9 +104,9 @@ public class TelaProcurarFuncionarios extends JFrame {
 		lblProcurarFuncionrio.setBounds(10, 11, 223, 23);
 		contentPane.add(lblProcurarFuncionrio);
 		
-		JLabel lblInformeOCpf = new JLabel("Informe o Cpf:");
+		JLabel lblInformeOCpf = new JLabel("Informe o CPF :");
 		lblInformeOCpf.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblInformeOCpf.setBounds(10, 65, 101, 14);
+		lblInformeOCpf.setBounds(13, 39, 120, 14);
 		contentPane.add(lblInformeOCpf);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -115,7 +116,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnVoltar.setBounds(195, 281, 89, 23);
+		btnVoltar.setBounds(155, 262, 133, 41);
 		contentPane.add(btnVoltar);
 		
 		JButton btnReset = new JButton("Reset");
@@ -126,7 +127,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnReset.setBounds(99, 282, 89, 23);
+		btnReset.setBounds(163, 65, 125, 23);
 		contentPane.add(btnReset);
 		
 	}

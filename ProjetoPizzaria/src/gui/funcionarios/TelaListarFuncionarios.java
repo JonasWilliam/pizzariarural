@@ -56,6 +56,7 @@ public class TelaListarFuncionarios extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaListarFuncionarios() {
+		setTitle("Listar Funcionário");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 380);
 		contentPane = new JPanel();
@@ -69,10 +70,10 @@ public class TelaListarFuncionarios extends JFrame {
 		
 		JLabel lblListarFuncionrios = new JLabel("Listar Funcion\u00E1rios");
 		lblListarFuncionrios.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblListarFuncionrios.setBounds(84, 11, 254, 28);
+		lblListarFuncionrios.setBounds(84, 11, 295, 28);
 		contentPane.add(lblListarFuncionrios);
 		
-		JButton btnListarTodos = new JButton("Listar TODOS");
+		JButton btnListarTodos = new JButton("Listar");
 		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnListarTodos.setBounds(78, 296, 122, 23);
 		contentPane.add(btnListarTodos);

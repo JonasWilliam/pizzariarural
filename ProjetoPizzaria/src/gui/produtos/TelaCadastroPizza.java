@@ -84,12 +84,12 @@ public class TelaCadastroPizza extends JFrame {
 		textField_2.setBounds(84, 149, 139, 20);
 		contentPane.add(textField_2);
 
-		JButton btnCadastrar = new JButton("CADASTRAR");
+		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnCadastrar.setBounds(128, 207, 112, 23);
 		contentPane.add(btnCadastrar);
 		
-		JButton btnVoltarParaMenu = new JButton("Voltar Para Menu");
+		JButton btnVoltarParaMenu = new JButton("Voltar");
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

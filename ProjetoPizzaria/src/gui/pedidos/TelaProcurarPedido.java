@@ -55,6 +55,7 @@ public class TelaProcurarPedido extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaProcurarPedido() {
+		setTitle("Procurar Pedido");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 470, 380);
 		contentPane = new JPanel();
@@ -80,23 +81,23 @@ public class TelaProcurarPedido extends JFrame {
 		contentPane.add(lblInformeOCdigo);
 		
 		textField = new JTextField();
-		textField.setBounds(147, 74, 191, 20);
+		textField.setBounds(172, 73, 185, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JButton btnProcurar = new JButton("Procurar");
 		btnProcurar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnProcurar.setBounds(10, 284, 89, 23);
+		btnProcurar.setBounds(369, 72, 89, 23);
 		contentPane.add(btnProcurar);
 		
-		JButton btnAddAoPedido = new JButton("Add ao Pedido");
+		JButton btnAddAoPedido = new JButton("Adicionar ao Pedido");
 		btnAddAoPedido.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnAddAoPedido.setBounds(97, 284, 120, 23);
+		btnAddAoPedido.setBounds(10, 285, 185, 23);
 		contentPane.add(btnAddAoPedido);
 		
-		JButton btnRemoverItem = new JButton("Remover Item");
+		JButton btnRemoverItem = new JButton("Remover Item do Pedido");
 		btnRemoverItem.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnRemoverItem.setBounds(216, 284, 118, 23);
+		btnRemoverItem.setBounds(10, 320, 185, 23);
 		contentPane.add(btnRemoverItem);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -106,7 +107,7 @@ public class TelaProcurarPedido extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnVoltar.setBounds(355, 284, 89, 23);
+		btnVoltar.setBounds(353, 285, 105, 55);
 		contentPane.add(btnVoltar);
 	}
 }

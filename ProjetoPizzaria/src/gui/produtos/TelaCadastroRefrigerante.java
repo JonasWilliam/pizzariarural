@@ -51,7 +51,7 @@ public class TelaCadastroRefrigerante extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaCadastroRefrigerante() {
-		setTitle("Cadastrao de Refrigerante");
+		setTitle("Cadastro de Refrigerante");
 		
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 500, 300);
@@ -77,7 +77,7 @@ public class TelaCadastroRefrigerante extends JFrame {
 			
 			
 			
-			JButton btnCadastrar = new JButton("CADASTRAR");
+			JButton btnCadastrar = new JButton("Cadastrar");
 			btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 11));
 			btnCadastrar.setBounds(113, 210, 112, 23);
 			contentPane.add(btnCadastrar);
@@ -85,16 +85,16 @@ public class TelaCadastroRefrigerante extends JFrame {
 			
 			
 			textNome = new JTextField();
-			textNome.setBounds(80, 73, 139, 20);
+			textNome.setBounds(100, 72, 139, 20);
 			contentPane.add(textNome);
 			textNome.setColumns(10);
 			
 			textValor = new JTextField();
 			textValor.setColumns(10);
-			textValor.setBounds(80, 149, 139, 20);
+			textValor.setBounds(86, 148, 139, 20);
 			contentPane.add(textValor);
 			
-			JButton btnVoltarParaMenu = new JButton("Voltar para Menu");
+			JButton btnVoltarParaMenu = new JButton("Voltar");
 			btnVoltarParaMenu.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					dispose();

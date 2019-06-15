@@ -49,6 +49,7 @@ public class TelaRemocaoPedido extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaRemocaoPedido() {
+		setTitle("Cancelar Pedido");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 270);
 		contentPane = new JPanel();
@@ -63,7 +64,7 @@ public class TelaRemocaoPedido extends JFrame {
 
 		JLabel lblInformeOCdigo = new JLabel("Informe o c\u00F3digo:");
 		lblInformeOCdigo.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblInformeOCdigo.setBounds(29, 80, 110, 29);
+		lblInformeOCdigo.setBounds(29, 80, 132, 29);
 		contentPane.add(lblInformeOCdigo);
 
 		textField = new JTextField();
@@ -71,12 +72,12 @@ public class TelaRemocaoPedido extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 
-		JButton btnCancelar = new JButton("CANCELAR");
+		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnCancelar.setBounds(81, 165, 110, 23);
 		contentPane.add(btnCancelar);
 
-		JButton btnVoltar = new JButton("VOLTAR");
+		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

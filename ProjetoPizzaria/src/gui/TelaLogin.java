@@ -12,7 +12,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class TelaInicial extends JFrame {
+public class TelaLogin extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -25,7 +25,7 @@ public class TelaInicial extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaInicial frame = new TelaInicial();
+					TelaLogin frame = new TelaLogin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +37,7 @@ public class TelaInicial extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaInicial() {
+	public TelaLogin() {
 		setTitle("Pizzaria Rural");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 430, 370);
@@ -71,7 +71,7 @@ public class TelaInicial extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnEntrar = new JButton("ENTRAR");
+		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnEntrar.setBounds(164, 253, 111, 23);
 		contentPane.add(btnEntrar);

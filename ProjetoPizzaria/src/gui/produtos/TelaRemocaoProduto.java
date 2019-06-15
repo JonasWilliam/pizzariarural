@@ -51,9 +51,11 @@ public class TelaRemocaoProduto extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaRemocaoProduto() {
+		setTitle("Remoção Produto");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 270);
 		contentPane = new JPanel();
+		contentPane.setToolTipText("");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -69,16 +71,17 @@ public class TelaRemocaoProduto extends JFrame {
 		contentPane.add(lblInformeOCdigo);
 
 		textField = new JTextField();
-		textField.setBounds(166, 93, 163, 25);
+		textField.setToolTipText("");
+		textField.setBounds(184, 91, 163, 25);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnRemover = new JButton("REMOVER");
+		JButton btnRemover = new JButton("Remover");
 		btnRemover.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnRemover.setBounds(72, 157, 125, 29);
 		contentPane.add(btnRemover);
 		
-		JButton btnVoltarParaMenu = new JButton("Voltar para Menu");
+		JButton btnVoltarParaMenu = new JButton("Voltar");
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

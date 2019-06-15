@@ -51,6 +51,7 @@ public class TelaProcurarProduto extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaProcurarProduto() {
+		setTitle("Procurar um Produto");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -69,24 +70,24 @@ public class TelaProcurarProduto extends JFrame {
 		
 		JLabel lblInformeOCdigo = new JLabel("Informe o c\u00F3digo:");
 		lblInformeOCdigo.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblInformeOCdigo.setBounds(37, 102, 141, 31);
+		lblInformeOCdigo.setBounds(37, 102, 164, 31);
 		contentPane.add(lblInformeOCdigo);
 		
 		textField = new JTextField();
-		textField.setBounds(188, 109, 186, 24);
+		textField.setBounds(219, 106, 186, 24);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnProcurar = new JButton("PROCURAR");
+		JButton btnProcurar = new JButton("Procurar");
 		btnProcurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		btnProcurar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnProcurar.setBounds(75, 186, 103, 23);
+		btnProcurar.setBounds(66, 186, 130, 23);
 		contentPane.add(btnProcurar);
 		
-		JButton btnVoltarParaMenu = new JButton("Voltar Para Menu");
+		JButton btnVoltarParaMenu = new JButton("Voltar");
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -94,7 +95,7 @@ public class TelaProcurarProduto extends JFrame {
 			}
 		});
 		btnVoltarParaMenu.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnVoltarParaMenu.setBounds(223, 186, 155, 24);
+		btnVoltarParaMenu.setBounds(254, 185, 120, 24);
 		contentPane.add(btnVoltarParaMenu);
 	}
 }
