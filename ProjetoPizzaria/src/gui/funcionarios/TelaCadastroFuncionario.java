@@ -139,7 +139,7 @@ public class TelaCadastroFuncionario extends JFrame {
 				try {
 					Fachada.getInstance().adicionar(funcionario);
 					//RepositorioFuncionarioArray.getInstance().salvarArquivo();
-					JOptionPane.showMessageDialog(null, "Funcionï¿½rio adicionado ao repositorio com sucesso");
+					JOptionPane.showMessageDialog(null, "Funcionário adicionado ao repositorio com sucesso");
 					textnome.setText("");
 					textsalario.setText("");
 					textlogin.setText("");

@@ -11,6 +11,7 @@ public class ControleFuncionario {
 
 	public void adicionarFuncionario(Funcionario a) throws CpfInvalidoException {
 		if (a.getCpf() != null & a.getCpf() != "") {
+			RepositorioFuncionarioArray.getInstance();
 			funcionarios.adicionarFuncionario(a);
 			RepositorioFuncionarioArray.getInstance().salvarArquivo();
 			System.out.println("Funcionario Cadastrado com Sucesso");
@@ -33,6 +34,7 @@ public class ControleFuncionario {
 			
 			RepositorioFuncionarioArray.getInstance();
 			funcionarios.procurarFuncionario(cpf);
+	
 			
 		}
 
@@ -46,7 +48,12 @@ public class ControleFuncionario {
 	}
 
 	public Funcionario[] listarFuncionario() {
+		RepositorioFuncionarioArray.getInstance();
+		funcionarios.listarFuncionario();
 		return funcionarios.listarFuncionario();
 	}
+	
+	
+	
 
 }

@@ -1,23 +1,21 @@
 package gui.funcionarios;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
 import negocios.Fachada;
-
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import negocios.Funcionario;
 
 public class TelaRemocaoFuncionario extends JFrame {
 
@@ -80,10 +78,16 @@ public class TelaRemocaoFuncionario extends JFrame {
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (textcpf.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Digite o cpf do funcionï¿½rio que deseja remover");
+					JOptionPane.showMessageDialog(null, "Digite o cpf do funcionário que deseja remover");
 				} else {
-					Fachada.getInstance().removerFuncionario(textcpf.getText());
-					JOptionPane.showMessageDialog(null, "Funcionï¿½rio removido com sucesso");
+					Funcionario a = new Funcionario();
+					a = Fachada.getInstance().procurarFuncionario(textcpf.getText());
+					if (a == null) {
+						JOptionPane.showMessageDialog(null, "Não existe nenhum funcionário com esse cpf");
+					} else {
+						Fachada.getInstance().removerFuncionario(textcpf.getText());
+						JOptionPane.showMessageDialog(null, "Funcionário removido com sucesso");
+					}
 				}
 			}
 		});

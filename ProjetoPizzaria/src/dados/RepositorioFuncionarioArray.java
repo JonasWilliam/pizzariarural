@@ -42,7 +42,8 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 		for (int i = 0; i < indice; i++) {
 			if (funcionarios[i].getCpf().equals(cpf)) {
 				funcionarios[i] = null;
-				System.out.println("removeu na posiï¿½ï¿½o" + i);
+				indice--;
+				System.out.println("removeu na posição" + i);
 
 				for (int j = 0; j < indice; j++) {
 					System.out.println("chegou no 2 for");
@@ -92,10 +93,12 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 
 	}
 
+
+
 	private static RepositorioFuncionarioArray lerDoArquivo() {
 		RepositorioFuncionarioArray instanciaLocal = null;
 
-		File in = new File("funcionarios.dat");
+		File in = new File("funcionario.dat");
 		FileInputStream fis = null;
 		ObjectInputStream ois = null;
 		try {
@@ -121,7 +124,7 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 		if (instance == null) {
 			return;
 		}
-		File out = new File("funcionarios.dat");
+		File out = new File("funcionario.dat");
 		FileOutputStream fos = null;
 		ObjectOutputStream oos = null;
 

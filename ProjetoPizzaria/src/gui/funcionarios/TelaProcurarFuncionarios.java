@@ -83,8 +83,9 @@ public class TelaProcurarFuncionarios extends JFrame {
 
 					Funcionario achouFuncionario = Fachada.getInstance().procurarFuncionario(textcpf.getText());
 					 if(achouFuncionario == null){
-						 JOptionPane.showMessageDialog(null, "Funcionï¿½rio nï¿½o existe.");
+						 JOptionPane.showMessageDialog(null, "Funcionário não existe.");
 					 }else{
+						 JOptionPane.showMessageDialog(null, "Funcionário existe.");
 						 textArea.append(achouFuncionario.toString());
 					 }
 					 
