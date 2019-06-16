@@ -5,11 +5,18 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
+import negocios.Fachada;
+import negocios.Funcionario;
+import negocios.Produto;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -51,40 +58,59 @@ public class TelaProcurarProduto extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaProcurarProduto() {
-		setTitle("Procurar um Produto");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 400, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(5, 5, 424, 0);
-		contentPane.add(label);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 100, 364, 150);
+		contentPane.add(scrollPane);
+		
+		JTextArea textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
 		
 		JLabel lblProcurarUmProduto = new JLabel("Procurar um Produto");
 		lblProcurarUmProduto.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblProcurarUmProduto.setBounds(75, 11, 303, 31);
+		lblProcurarUmProduto.setBounds(10, 11, 303, 31);
 		contentPane.add(lblProcurarUmProduto);
 		
 		JLabel lblInformeOCdigo = new JLabel("Informe o c\u00F3digo:");
 		lblInformeOCdigo.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblInformeOCdigo.setBounds(37, 102, 164, 31);
+		lblInformeOCdigo.setBounds(10, 58, 164, 31);
 		contentPane.add(lblInformeOCdigo);
 		
 		textField = new JTextField();
-		textField.setBounds(219, 106, 186, 24);
+		textField.setBounds(144, 65, 186, 24);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JButton btnProcurar = new JButton("Procurar");
 		btnProcurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				textArea.setText("Dados: \n");
+				if(textField.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Digite o Codigo do Produto.");
+				}
+					
+				else {
+
+					Produto achouProduto = Fachada.getInstance().procurarProduto(textField.getText());
+					 if(achouProduto == null){
+						 JOptionPane.showMessageDialog(null, "Produto não existe.");
+					 }else{
+						 textArea.append(achouProduto.toString());
+					 }
+					 
+				}
+				
 			}
 		});
 		btnProcurar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnProcurar.setBounds(66, 186, 130, 23);
+		btnProcurar.setBounds(20, 261, 109, 23);
 		contentPane.add(btnProcurar);
 		
 		JButton btnVoltarParaMenu = new JButton("Voltar");
@@ -95,7 +121,18 @@ public class TelaProcurarProduto extends JFrame {
 			}
 		});
 		btnVoltarParaMenu.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnVoltarParaMenu.setBounds(254, 185, 120, 24);
+		btnVoltarParaMenu.setBounds(254, 261, 120, 24);
 		contentPane.add(btnVoltarParaMenu);
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("");
+				textArea.setText("");
+			}
+		});
+		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnReset.setBounds(144, 261, 89, 23);
+		contentPane.add(btnReset);
 	}
 }

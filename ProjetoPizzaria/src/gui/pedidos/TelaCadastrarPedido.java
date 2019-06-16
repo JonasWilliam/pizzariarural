@@ -26,7 +26,6 @@ public class TelaCadastrarPedido extends JFrame {
 	private JTextField txtCliente;
 	private JTextField txtQuantidadeDePizzas;
 	private JTextField txtQuantidadeDeRegrigerantes;
-	private JTextField txtNomeDoEntregador;
 	private static JFrame telaPedidosinstance;
 	private JTextField txtEnd;
 	private JTextField txtTel;
@@ -40,6 +39,7 @@ public class TelaCadastrarPedido extends JFrame {
 	Entregador entregador = new Entregador();
 	Cliente cliente = new Cliente();
 	Pedido pedido = new Pedido();
+	private JTextField txtNomeDoEntregador;
 
 	public static JFrame getInstance() {
 		if (TelaCadastrarPedido.telaPedidosinstance == null)
@@ -117,12 +117,6 @@ public class TelaCadastrarPedido extends JFrame {
 		lblEntregador.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblEntregador.setBounds(33, 245, 93, 15);
 		contentPane.add(lblEntregador);
-
-		txtNomeDoEntregador = new JTextField();
-		txtNomeDoEntregador.setText("Nome do Entregador");
-		txtNomeDoEntregador.setBounds(129, 243, 141, 19);
-		contentPane.add(txtNomeDoEntregador);
-		txtNomeDoEntregador.setColumns(10);
 
 		JLabel lblNomeCliente = new JLabel("Telefone :");
 		lblNomeCliente.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -248,6 +242,7 @@ public class TelaCadastrarPedido extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaPrincipal.getInstance().setVisible(true);
+				dispose();
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -283,6 +278,11 @@ public class TelaCadastrarPedido extends JFrame {
 		});
 		refrigeranteComboBox.setBounds(87, 198, 49, 24);
 		contentPane.add(refrigeranteComboBox);
+		
+		txtNomeDoEntregador = new JTextField();
+		txtNomeDoEntregador.setBounds(126, 243, 144, 20);
+		contentPane.add(txtNomeDoEntregador);
+		txtNomeDoEntregador.setColumns(10);
 
 	}
 }

@@ -28,7 +28,7 @@ public class ControleFuncionario {
 	}
 
 	public Funcionario procurarFuncionario(String cpf) {
-		Funcionario a = null;
+		
 		if (cpf != null & cpf != "") {
 			
 			RepositorioFuncionarioArray.getInstance();

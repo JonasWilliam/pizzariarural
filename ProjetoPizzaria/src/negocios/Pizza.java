@@ -29,4 +29,9 @@ public class Pizza extends Produto implements Serializable {
 		return this.valor = calcularPreco(this.tamanho, this.id);
 	}
 
+	@Override
+	public String toString() {
+		return new StringBuffer(" Sabor : ").append(this.getNome()).append(" Valor : ").append(this.getValor()).toString();
+
+	}
 }
