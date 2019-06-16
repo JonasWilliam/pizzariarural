@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -18,7 +19,6 @@ import negocios.Fachada;
 import negocios.Refrigerante;
 import negocios.Tamanho;
 import negocios.exception.IdProdutoException;
-import javax.swing.JComboBox;
 
 public class TelaCadastroRefrigerante extends JFrame {
 
@@ -26,8 +26,9 @@ public class TelaCadastroRefrigerante extends JFrame {
 	private JTextField textNome;
 	private static JFrame telaCadastroRefrigeranteinstance;
 	Refrigerante refrigerante = new Refrigerante();
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textValorTotal;
+	private JTextField textCodigo;
+	private JTextField textCustoMaterial;
 
 	public static JFrame getInstance() {
 		if (TelaCadastroRefrigerante.telaCadastroRefrigeranteinstance == null)
@@ -73,15 +74,73 @@ public class TelaCadastroRefrigerante extends JFrame {
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNome.setBounds(27, 74, 58, 15);
+		lblNome.setBounds(27, 79, 58, 15);
 		contentPane.add(lblNome);
+
+		textNome = new JTextField();
+		textNome.setBounds(103, 77, 176, 20);
+		contentPane.add(textNome);
+		textNome.setColumns(10);
+
+		JButton btnVoltarParaMenu = new JButton("Voltar");
+		btnVoltarParaMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaPrincipal.getInstance().setVisible(true);
+			}
+		});
+		btnVoltarParaMenu.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnVoltarParaMenu.setBounds(170, 289, 134, 23);
+		contentPane.add(btnVoltarParaMenu);
+
+		JLabel lblValorTotal = new JLabel("Valor Total:");
+		lblValorTotal.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblValorTotal.setBounds(27, 214, 112, 22);
+		contentPane.add(lblValorTotal);
+
+		textValorTotal = new JTextField();
+		textValorTotal.setEditable(false);
+		textValorTotal.setBounds(129, 216, 102, 20);
+		contentPane.add(textValorTotal);
+		textValorTotal.setColumns(10);
+
+		JLabel lblCdigo = new JLabel("C\u00F3digo:");
+		lblCdigo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblCdigo.setBounds(27, 45, 72, 22);
+		contentPane.add(lblCdigo);
+
+		textCodigo = new JTextField();
+		textCodigo.setBounds(100, 45, 176, 20);
+		contentPane.add(textCodigo);
+		textCodigo.setColumns(10);
+
+		JComboBox refrigeranteComboBox = new JComboBox(Tamanho.values());
+		refrigeranteComboBox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				refrigeranteComboBox.getSelectedItem();
+				System.out.println(refrigeranteComboBox.getSelectedItem());
+			}
+		});
+		refrigeranteComboBox.setBounds(113, 138, 46, 22);
+		contentPane.add(refrigeranteComboBox);
+
+		JLabel lblTamanho = new JLabel("Tamanho:");
+		lblTamanho.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblTamanho.setBounds(27, 140, 88, 19);
+		contentPane.add(lblTamanho);
 
 		JButton btnCadastrarRefrigerante = new JButton("Cadastrar");
 		btnCadastrarRefrigerante.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				refrigerante.setCodigo(textCodigo.getText());
 				refrigerante.setNome(textNome.getText());
+				refrigerante.setTamanho(Tamanho.valueOf(refrigeranteComboBox.getSelectedItem().toString()));
+				refrigerante.setCustoMaterial(Float.parseFloat(textCustoMaterial.getText()));
+				refrigerante.calcularPreco();
+				textValorTotal.setText(new String(refrigerante.getValor() + ""));
 				try {
 					Fachada.getInstance().cadastrarProduto(refrigerante);
 					JOptionPane.showMessageDialog(null, "Refrigerante adicionado ao repositorio com sucesso");
@@ -97,49 +156,13 @@ public class TelaCadastroRefrigerante extends JFrame {
 		btnCadastrarRefrigerante.setBounds(48, 289, 112, 23);
 		contentPane.add(btnCadastrarRefrigerante);
 
-		textNome = new JTextField();
-		textNome.setBounds(100, 72, 176, 20);
-		contentPane.add(textNome);
-		textNome.setColumns(10);
+		JLabel lblCustomaterial = new JLabel("CustoMaterial:");
+		lblCustomaterial.setBounds(33, 178, 126, 15);
+		contentPane.add(lblCustomaterial);
 
-		JButton btnVoltarParaMenu = new JButton("Voltar");
-		btnVoltarParaMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				TelaPrincipal.getInstance().setVisible(true);
-			}
-		});
-		btnVoltarParaMenu.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnVoltarParaMenu.setBounds(170, 289, 134, 23);
-		contentPane.add(btnVoltarParaMenu);
-		
-		JLabel lblValor = new JLabel("Valor:");
-		lblValor.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblValor.setBounds(27, 119, 72, 22);
-		contentPane.add(lblValor);
-		
-		textField = new JTextField();
-		textField.setBounds(100, 122, 176, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblCdigo = new JLabel("C\u00F3digo:");
-		lblCdigo.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblCdigo.setBounds(27, 170, 58, 22);
-		contentPane.add(lblCdigo);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(100, 173, 176, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
-		JComboBox comboBox = new JComboBox(Tamanho.values());
-		comboBox.setBounds(100, 220, 46, 22);
-		contentPane.add(comboBox);
-		
-		JLabel lblTamanho = new JLabel("Tamanho:");
-		lblTamanho.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblTamanho.setBounds(27, 221, 72, 19);
-		contentPane.add(lblTamanho);
+		textCustoMaterial = new JTextField();
+		textCustoMaterial.setBounds(155, 174, 124, 19);
+		contentPane.add(textCustoMaterial);
+		textCustoMaterial.setColumns(10);
 	}
 }
