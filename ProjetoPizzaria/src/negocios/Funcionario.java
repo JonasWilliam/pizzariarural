@@ -71,12 +71,17 @@ public class Funcionario  implements Serializable{
 	 * ", salario=" + salario + ", login=" + login + ", senha=" + senha + ", cpf=" +
 	 * cpf + "]"; }
 	 */
-	public String toString() {
-		return new StringBuffer(" Nome : ").append(this.nome).append(" Salário: ").append(this.salario).append(" cpf: ").append(this.cpf).toString();
-	}
+	
+
 
 	public Cargos getCargo() {
 		return cargo;
+	}
+
+	@Override
+	public String toString() {
+		return "\n ********************** \n"+" nome=" + nome + ",\n salario=" + salario + ",\n cpf="
+				+ cpf + "\n **********************";
 	}
 
 	public void setCargo(Cargos cargo) {

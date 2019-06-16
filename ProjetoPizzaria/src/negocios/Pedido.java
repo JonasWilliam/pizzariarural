@@ -1,17 +1,18 @@
 package negocios;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Pedido implements Serializable{
 
 	private Cliente cliente;
-	private Produto[] produtos;
+	private ArrayList<Produto> produtos;
 	private Entregador entregador;
 	
 	private float total;
 	private int id;
 	
-	public Pedido(Cliente cliente, Produto[] produtos, Entregador entregador, float total,int id) {
+	public Pedido(Cliente cliente, ArrayList<Produto> produtos, Entregador entregador, float total,int id) {
 		super();
 		this.cliente = cliente;
 		this.produtos = produtos;
@@ -28,10 +29,11 @@ public class Pedido implements Serializable{
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public Produto[] getProdutos() {
+	
+	public ArrayList<Produto> getProdutos() {
 		return produtos;
 	}
-	public void setProdutos(Produto[] produtos) {
+	public void setProdutos(ArrayList<Produto> produtos) {
 		this.produtos = produtos;
 	}
 	public Entregador getEntregador() {

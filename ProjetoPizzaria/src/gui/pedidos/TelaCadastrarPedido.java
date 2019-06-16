@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -11,28 +12,27 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
 import negocios.Cliente;
 import negocios.Entregador;
+import negocios.Fachada;
 import negocios.Pedido;
+import negocios.Produto;
 import negocios.Tamanho;
 
 public class TelaCadastrarPedido extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtCliente;
-	private JTextField txtQuantidadeDePizzas;
 	private JTextField txtQuantidadeDeRegrigerantes;
 	private static JFrame telaPedidosinstance;
 	private JTextField txtEnd;
 	private JTextField txtTel;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_8;
 	private JTextField txtId;
@@ -40,6 +40,8 @@ public class TelaCadastrarPedido extends JFrame {
 	Cliente cliente = new Cliente();
 	Pedido pedido = new Pedido();
 	private JTextField txtNomeDoEntregador;
+	private JTextField textAdd;
+	ArrayList<Produto> produtos = new ArrayList<Produto>();
 
 	public static JFrame getInstance() {
 		if (TelaCadastrarPedido.telaPedidosinstance == null)
@@ -76,6 +78,14 @@ public class TelaCadastrarPedido extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(310, 40, 264, 150);
+		contentPane.add(scrollPane);
+		
+		JTextArea textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
 
 		JLabel lblCliente = new JLabel("Cliente :");
 		lblCliente.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -94,18 +104,13 @@ public class TelaCadastrarPedido extends JFrame {
 
 		JLabel lblPizza = new JLabel("Pizza");
 		lblPizza.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblPizza.setBounds(431, 0, 66, 15);
+		lblPizza.setBounds(408, 0, 66, 15);
 		contentPane.add(lblPizza);
 
 		JLabel lblRefrigerantes = new JLabel("Refrigerantes");
 		lblRefrigerantes.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblRefrigerantes.setBounds(126, 136, 107, 15);
 		contentPane.add(lblRefrigerantes);
-
-		txtQuantidadeDePizzas = new JTextField();
-		txtQuantidadeDePizzas.setBounds(389, 43, 36, 19);
-		contentPane.add(txtQuantidadeDePizzas);
-		txtQuantidadeDePizzas.setColumns(10);
 
 		txtQuantidadeDeRegrigerantes = new JTextField();
 		txtQuantidadeDeRegrigerantes.setText("Quantidade de Regrigerantes");
@@ -128,40 +133,10 @@ public class TelaCadastrarPedido extends JFrame {
 		lblEnderecoCliente.setBounds(12, 71, 64, 15);
 		contentPane.add(lblEnderecoCliente);
 
-		JLabel lblSabor = new JLabel("Sabor 1 :");
-		lblSabor.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblSabor.setBounds(350, 97, 60, 15);
-		contentPane.add(lblSabor);
-
-		JLabel lblSabor_1 = new JLabel("Sabor 2 :");
-		lblSabor_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblSabor_1.setBounds(350, 123, 66, 15);
-		contentPane.add(lblSabor_1);
-
-		JLabel lblTamanho = new JLabel("Tamanho:");
-		lblTamanho.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblTamanho.setBounds(442, 45, 83, 15);
-		contentPane.add(lblTamanho);
-
 		JLabel lblQuantidade = new JLabel("Qtd :");
 		lblQuantidade.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblQuantidade.setBounds(33, 175, 93, 15);
 		contentPane.add(lblQuantidade);
-
-		JLabel lblQtd = new JLabel("Qtd :");
-		lblQtd.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblQtd.setBounds(350, 46, 43, 15);
-		contentPane.add(lblQtd);
-
-		JLabel lblSabor_2 = new JLabel("Sabor 3 :");
-		lblSabor_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblSabor_2.setBounds(350, 149, 66, 15);
-		contentPane.add(lblSabor_2);
-
-		JLabel lblSabor_3 = new JLabel("Sabor 4 :");
-		lblSabor_3.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblSabor_3.setBounds(350, 175, 66, 15);
-		contentPane.add(lblSabor_3);
 
 		JLabel lblNome = new JLabel("Nome :");
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -175,12 +150,12 @@ public class TelaCadastrarPedido extends JFrame {
 
 		JLabel lblValorTotal = new JLabel("Valor Total :");
 		lblValorTotal.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblValorTotal.setBounds(33, 303, 103, 18);
+		lblValorTotal.setBounds(12, 364, 103, 18);
 		contentPane.add(lblValorTotal);
 
 		JCheckBox checkBox = new JCheckBox("Borda Recheada");
 		checkBox.setFont(new Font("Dialog", Font.BOLD, 14));
-		checkBox.setBounds(350, 211, 175, 23);
+		checkBox.setBounds(350, 282, 175, 23);
 		contentPane.add(checkBox);
 
 		txtEnd = new JTextField();
@@ -193,33 +168,13 @@ public class TelaCadastrarPedido extends JFrame {
 		contentPane.add(txtTel);
 		txtTel.setColumns(10);
 
-		textField_2 = new JTextField();
-		textField_2.setBounds(420, 120, 94, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(420, 95, 94, 20);
-		contentPane.add(textField_3);
-
-		textField_4 = new JTextField();
-		textField_4.setBounds(420, 146, 94, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
-
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(420, 172, 94, 20);
-		contentPane.add(textField_5);
-
 		textField_6 = new JTextField();
 		textField_6.setBounds(184, 173, 86, 20);
 		contentPane.add(textField_6);
 		textField_6.setColumns(10);
 
 		textField_8 = new JTextField();
-		textField_8.setBounds(162, 301, 86, 20);
+		textField_8.setBounds(103, 365, 86, 20);
 		contentPane.add(textField_8);
 		textField_8.setColumns(10);
 
@@ -231,11 +186,11 @@ public class TelaCadastrarPedido extends JFrame {
 				cliente.setEndereco(txtEnd.getText());
 				cliente.setTelefone(txtTel.getText());
 				int id = (Integer.parseInt(txtId.getText()));
-				//pedido = new Pedido(cliente,null,entregador,null,id);
+				//pedido = new Pedido(cliente,produtos,entregador,null,id);
 			}
 		});
 		btnConfirmar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnConfirmar.setBounds(318, 301, 120, 23);
+		btnConfirmar.setBounds(372, 364, 120, 23);
 		contentPane.add(btnConfirmar);
 
 		JButton btnVoltar = new JButton("Voltar");
@@ -246,7 +201,7 @@ public class TelaCadastrarPedido extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnVoltar.setBounds(463, 301, 89, 23);
+		btnVoltar.setBounds(501, 364, 73, 23);
 		contentPane.add(btnVoltar);
 
 		JLabel lblIdPedido = new JLabel("ID Pedido:");
@@ -258,16 +213,6 @@ public class TelaCadastrarPedido extends JFrame {
 		txtId.setBounds(126, 273, 144, 20);
 		contentPane.add(txtId);
 		txtId.setColumns(10);
-
-		JComboBox pizzaComboBox = new JComboBox(Tamanho.values());
-		pizzaComboBox.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				pizzaComboBox.getItemAt(pizzaComboBox.getSelectedIndex());
-			}
-		});
-		pizzaComboBox.setBounds(521, 40, 49, 24);
-		contentPane.add(pizzaComboBox);
 
 		JComboBox refrigeranteComboBox = new JComboBox(Tamanho.values());
 		refrigeranteComboBox.addActionListener(new ActionListener() {
@@ -283,6 +228,48 @@ public class TelaCadastrarPedido extends JFrame {
 		txtNomeDoEntregador.setBounds(126, 243, 144, 20);
 		contentPane.add(txtNomeDoEntregador);
 		txtNomeDoEntregador.setColumns(10);
+		
+		JLabel lblInformeOCdigo = new JLabel("Informe o C\u00F3digo:");
+		lblInformeOCdigo.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblInformeOCdigo.setBounds(310, 201, 149, 17);
+		contentPane.add(lblInformeOCdigo);
+		
+		textAdd = new JTextField();
+		textAdd.setBounds(438, 201, 93, 20);
+		contentPane.add(textAdd);
+		textAdd.setColumns(10);
+		
+		JButton btnAdd = new JButton("Add");
+		btnAdd.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Produto p;
+				p = Fachada.getInstance().procurarProduto(textAdd.getText());
+				textArea.append(p.toString());
+				produtos.add(p);
+				
+				
+			}
+		});
+		btnAdd.setBounds(335, 241, 89, 23);
+		contentPane.add(btnAdd);
+		
+		JButton btnDelet = new JButton("Apagar");
+		btnDelet.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnDelet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Produto j;
+				j = Fachada.getInstance().procurarProduto(textAdd.getText());
+				produtos.remove(j);
+			}
+		});
+		btnDelet.setBounds(436, 241, 89, 23);
+		contentPane.add(btnDelet);
+		
+		JButton btnCalcularTotal = new JButton("Calcular Total");
+		btnCalcularTotal.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnCalcularTotal.setBounds(233, 364, 129, 23);
+		contentPane.add(btnCalcularTotal);
 
 	}
 }

@@ -94,7 +94,7 @@ public class TelaListarFuncionarios extends JFrame {
 			}
 		});
 		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnListarTodos.setBounds(78, 296, 122, 23);
+		btnListarTodos.setBounds(47, 297, 122, 23);
 		contentPane.add(btnListarTodos);
 
 		JButton btnVoltar = new JButton("Voltar");
@@ -106,8 +106,18 @@ public class TelaListarFuncionarios extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnVoltar.setBounds(228, 297, 89, 23);
+		btnVoltar.setBounds(290, 297, 89, 23);
 		contentPane.add(btnVoltar);
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.setText("");
+			}
+		});
+		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnReset.setBounds(189, 298, 89, 23);
+		contentPane.add(btnReset);
 
 	}
 }

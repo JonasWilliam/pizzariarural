@@ -28,12 +28,7 @@ public class Pizza extends Produto implements Serializable {
 		this.bordaRecheada = bordaRecheada;
 	}
 
-	@Override
-	public String toString() {
-		return new StringBuffer(" Sabor : ").append(this.getNome()).append(" Valor : ").append(this.getValor())
-				.toString();
-
-	}
+	
 
 	public void calcularPreco(Tamanho tamanho, int id, float custoMaterial, float MaodeObra) {
 		if (tamanho.getValorTamanho() == TAXA_P) {
