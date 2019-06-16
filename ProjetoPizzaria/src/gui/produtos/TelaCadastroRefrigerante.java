@@ -145,6 +145,8 @@ public class TelaCadastroRefrigerante extends JFrame {
 					Fachada.getInstance().cadastrarProduto(refrigerante);
 					JOptionPane.showMessageDialog(null, "Refrigerante adicionado ao repositorio com sucesso");
 					textNome.setText("");
+					textCodigo.setText("");
+					textCustoMaterial.setText("");
 				} catch (IdProdutoException eId) {
 					eId.printStackTrace();
 				}

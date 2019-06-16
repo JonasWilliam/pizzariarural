@@ -176,6 +176,9 @@ public class TelaCadastroPizza extends JFrame {
 					Fachada.getInstance().cadastrarProduto(pizza);
 					JOptionPane.showMessageDialog(null, "Sabor de Pizza adicionado ao repositorio com sucesso");
 					txtSabor.setText("");
+					txtCodigo.setText("");
+					txtCustoMaterial.setText("");
+					txtCustoMaodeObra.setText("");
 				} catch (IdProdutoException eId) {
 					eId.printStackTrace();
 				}
