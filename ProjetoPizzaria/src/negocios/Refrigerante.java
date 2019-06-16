@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 public class Refrigerante extends Produto implements Serializable {
 
-	private String marca;
-
 	public Refrigerante(String nome, float valor, Tamanho tamanho, int id) {
 		super(nome, valor, tamanho, id);
 		this.id = id;

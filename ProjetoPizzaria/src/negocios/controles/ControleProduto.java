@@ -30,11 +30,11 @@ public class ControleProduto {
 		return produtos.listarProdutos();
 	}
 
-	public Produto procurarProduto(int id) {
+	public Produto procurarProduto(String nome) {
 		RepositorioProdutoArray.getInstance();
-		produtos.procurarProduto(id);
+		produtos.procurarProduto(nome);
 
-		return produtos.procurarProduto(id);
+		return produtos.procurarProduto(nome);
 	}
 
 }

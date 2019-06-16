@@ -69,8 +69,8 @@ public class Fachada{
 		return produtos.listarProdutos();
 	}
 
-	public Produto procurarProduto(int id) {
-		return produtos.procurarProduto(id);
+	public Produto procurarProduto(String nome) {
+		return produtos.procurarProduto(nome);
 	}
 
 	// Funcionarios

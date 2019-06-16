@@ -25,15 +25,14 @@ public class Teste {
 		//Fachada.getInstance().procurarFuncionario("000");
 		Refrigerante r = new Refrigerante();
 		r.setNome("Guaraná Antartica");
-		r.setTamanho(Tamanho.M);
 		Fachada.getInstance().cadastrarProduto(r);
-		System.out.println(r.getValor());
+		//System.out.println(r.getValor());
+		System.out.println(r.getNome());
 		System.out.println(r.getId());
 		Pizza p = new Pizza();
 		p.setNome("Calabresa");
-		p.setTamanho(Tamanho.G);
 		Fachada.getInstance().cadastrarProduto(p);
-		System.out.println(p.getValor());
+		System.out.println(p.getNome());
 		System.out.println(p.getId());
 	}
 

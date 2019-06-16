@@ -10,8 +10,7 @@ import java.io.Serializable;
 
 import negocios.Produto;
 
-
-public class RepositorioProdutoArray implements RepositorioProduto,Serializable {
+public class RepositorioProdutoArray implements RepositorioProduto, Serializable {
 
 	private Produto[] produtos;
 	private int indice;
@@ -48,22 +47,25 @@ public class RepositorioProdutoArray implements RepositorioProduto,Serializable 
 
 	@Override
 	public Produto[] listarProdutos() {
-		// TODO Auto-generated method stub
+		for (int i = 0; i < indice; i++) {
+			System.out.println(indice + " " + produtos[i].getNome());
+		}
 		return produtos;
 	}
 
 	@Override
-	public Produto procurarProduto(int id) {
-		Produto p = new Produto();
-		for (int i = 0; i <= produtos.length; i++) {
-			if (produtos[i].getId() == id) {
+	public Produto procurarProduto(String nome) {
+		Produto p = null;
+		for (int i = 0; i < indice; i++) {
+			if (produtos[i].getNome() == nome) {
+				System.out.println("Nome: " + produtos[i].getNome());
 				p = produtos[i];
 			} else
 				p = null;
 		}
 		return p;
 	}
-	
+
 	public static RepositorioProdutoArray getInstance() {
 		if (instance == null) {
 			instance = lerDoArquivo();
@@ -119,11 +121,5 @@ public class RepositorioProdutoArray implements RepositorioProduto,Serializable 
 			}
 		}
 	}
-
-	
-
-	
-	
-	
 
 }

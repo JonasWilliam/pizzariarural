@@ -9,7 +9,6 @@ public class Pizza extends Produto implements Serializable {
 	public Pizza() {
 		super();
 		this.id = 1;
-		// TODO Auto-generated constructor stub
 	}
 
 	public Pizza(String nome, float valor, Tamanho tamanho, Boolean bordaRecheada, int id) {
@@ -24,7 +23,7 @@ public class Pizza extends Produto implements Serializable {
 	public void setBordaRecheada(Boolean bordaRecheada) {
 		this.bordaRecheada = bordaRecheada;
 	}
-	
+
 	@Override
 	public float getValor() {
 		return this.valor = calcularPreco(this.tamanho, this.id);
