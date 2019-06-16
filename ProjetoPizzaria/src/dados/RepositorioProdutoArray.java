@@ -30,15 +30,20 @@ public class RepositorioProdutoArray implements RepositorioProduto, Serializable
 	}
 
 	@Override
-	public void removerProduto(int id) {
-		for (int i = 0; i <= produtos.length; i++) {
-			if (produtos[i].getId() == id) {
+	public void removerProduto(String codigo) {
+		for (int i = 0; i < indice; i++) {
+			if (produtos[i].getCodigo() == codigo) {
 				produtos[i] = null;
+				indice--;
+				System.out.println("removeu na posição" + i);
 
-				for (int j = 0; j <= produtos.length; j++) {
-
-					if (produtos[j] == null && produtos[j + 1] != null) {
-						produtos[i] = produtos[j];
+				for (int j = 0; j < indice; j++) {
+					System.out.println("chegou no segundo FOR");
+					if (produtos[j] == null) {
+						if (produtos[j + 1] != null) {
+							produtos[j] = produtos[j + 1];
+						}
+						System.out.println("chegou no ao fim do for");
 					}
 				}
 			}
@@ -57,7 +62,7 @@ public class RepositorioProdutoArray implements RepositorioProduto, Serializable
 	public Produto procurarProduto(String nome) {
 		Produto p = null;
 		for (int i = 0; i < indice; i++) {
-			if (produtos[i].getNome() == nome) {
+			if (produtos[i].getNome().equals(nome)) {
 				System.out.println("Nome: " + produtos[i].getNome());
 				p = produtos[i];
 			} else

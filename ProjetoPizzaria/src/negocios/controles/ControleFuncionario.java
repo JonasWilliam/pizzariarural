@@ -29,13 +29,12 @@ public class ControleFuncionario {
 	}
 
 	public Funcionario procurarFuncionario(String cpf) {
-		
+
 		if (cpf != null & cpf != "") {
-			
+
 			RepositorioFuncionarioArray.getInstance();
 			funcionarios.procurarFuncionario(cpf);
-	
-			
+
 		}
 
 		return funcionarios.procurarFuncionario(cpf);
@@ -52,8 +51,5 @@ public class ControleFuncionario {
 		funcionarios.listarFuncionario();
 		return funcionarios.listarFuncionario();
 	}
-	
-	
-	
 
 }

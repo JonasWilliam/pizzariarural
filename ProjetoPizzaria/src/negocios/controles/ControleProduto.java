@@ -1,5 +1,6 @@
 package negocios.controles;
 
+import dados.RepositorioFuncionarioArray;
 import dados.RepositorioProduto;
 import dados.RepositorioProdutoArray;
 import negocios.Produto;
@@ -22,18 +23,21 @@ public class ControleProduto {
 		}
 	}
 
-	public void removerProduto(int id) {
-		produtos.removerProduto(id);
+	public void removerProduto(String codigo) {
+		produtos.removerProduto(codigo);
 	}
 
 	public Produto[] listarProdutos() {
+		RepositorioProdutoArray.getInstance();
+		produtos.listarProdutos();
 		return produtos.listarProdutos();
 	}
 
 	public Produto procurarProduto(String nome) {
-		RepositorioProdutoArray.getInstance();
-		produtos.procurarProduto(nome);
-
+		if (nome != null & nome != "") {
+			RepositorioProdutoArray.getInstance();
+			produtos.procurarProduto(nome);
+		}
 		return produtos.procurarProduto(nome);
 	}
 

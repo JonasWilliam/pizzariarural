@@ -93,15 +93,16 @@ public class TelaProcurarProduto extends JFrame {
 				
 				textArea.setText("Dados: \n");
 				if(textField.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Digite o Codigo do Produto.");
+					JOptionPane.showMessageDialog(null, "Digite o Nome do Produto.");
 				}
 					
 				else {
 
 					Produto achouProduto = Fachada.getInstance().procurarProduto(textField.getText());
 					 if(achouProduto == null){
-						 JOptionPane.showMessageDialog(null, "Produto não existe.");
+						 JOptionPane.showMessageDialog(null, "Produto nï¿½o existe.");
 					 }else{
+						 JOptionPane.showMessageDialog(null, "Produto existe.");
 						 textArea.append(achouProduto.toString());
 					 }
 					 

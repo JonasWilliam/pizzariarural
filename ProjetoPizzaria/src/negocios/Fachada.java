@@ -61,8 +61,8 @@ public class Fachada{
 		produtos.cadastrarProduto(p);
 	}
 
-	public void removerProduto(int id) {
-		produtos.removerProduto(id);
+	public void removerProduto(String codigo) {
+		produtos.removerProduto(codigo);
 	}
 
 	public Produto[] listarProdutos() {

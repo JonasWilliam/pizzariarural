@@ -1,25 +1,26 @@
 package gui.produtos;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
-
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import negocios.Fachada;
+import negocios.Produto;
 
 public class TelaRemocaoProduto extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textCodigo;
 	private static JFrame telaRemocaoProdutoinstance;
 
 	public static JFrame getInstance() {
@@ -70,13 +71,29 @@ public class TelaRemocaoProduto extends JFrame {
 		lblInformeOCdigo.setBounds(27, 86, 147, 34);
 		contentPane.add(lblInformeOCdigo);
 
-		textField = new JTextField();
-		textField.setToolTipText("");
-		textField.setBounds(184, 91, 163, 25);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textCodigo = new JTextField();
+		textCodigo.setToolTipText("");
+		textCodigo.setBounds(184, 91, 163, 25);
+		contentPane.add(textCodigo);
+		textCodigo.setColumns(10);
 		
 		JButton btnRemover = new JButton("Remover");
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (textCodigo.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Digite o Codigo do Produto que deseja remover");
+				} else {
+					Produto p = new Produto();
+					p = Fachada.getInstance().procurarProduto(textCodigo.getText());
+					if (p == null) {
+						JOptionPane.showMessageDialog(null, "Nao existe nenhum Produto com esse codigo");
+					} else {
+						Fachada.getInstance().removerProduto(textCodigo.getText());
+						JOptionPane.showMessageDialog(null, "Produto removido com sucesso");
+					}
+				}
+			}
+		});
 		btnRemover.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnRemover.setBounds(72, 157, 125, 29);
 		contentPane.add(btnRemover);
