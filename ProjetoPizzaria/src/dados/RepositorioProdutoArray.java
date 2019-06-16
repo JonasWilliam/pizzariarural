@@ -35,7 +35,7 @@ public class RepositorioProdutoArray implements RepositorioProduto, Serializable
 			if (produtos[i].getCodigo() == codigo) {
 				produtos[i] = null;
 				indice--;
-				System.out.println("removeu na posiÃ§Ã£o" + i);
+				System.out.println("removeu na posição" + i);
 
 				for (int j = 0; j < indice; j++) {
 					System.out.println("chegou no segundo FOR");
@@ -62,7 +62,7 @@ public class RepositorioProdutoArray implements RepositorioProduto, Serializable
 	public Produto procurarProduto(String nome) {
 		Produto p = null;
 		for (int i = 0; i < indice; i++) {
-			if (produtos[i].getNome().equals(nome)) {
+			if (produtos[i].getCodigo().equals(nome)) {
 				System.out.println("Nome: " + produtos[i].getNome());
 				p = produtos[i];
 			} else

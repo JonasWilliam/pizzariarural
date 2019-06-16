@@ -100,7 +100,7 @@ public class TelaProcurarProduto extends JFrame {
 
 					Produto achouProduto = Fachada.getInstance().procurarProduto(textField.getText());
 					 if(achouProduto == null){
-						 JOptionPane.showMessageDialog(null, "Produto nï¿½o existe.");
+						 JOptionPane.showMessageDialog(null, "Produto não existe.");
 					 }else{
 						 JOptionPane.showMessageDialog(null, "Produto existe.");
 						 textArea.append(achouProduto.toString());

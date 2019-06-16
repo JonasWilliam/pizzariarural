@@ -17,12 +17,14 @@ import gui.TelaPrincipal;
 import negocios.Fachada;
 import negocios.Produto;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+
+import java.awt.Font;
 
 public class TelaListarProdutos extends JFrame {
 
 	private JPanel contentPane;
 	private static JFrame telaListarProdutosinstance;
-	private JTable table;
 
 	public static JFrame getInstance() {
 		if (TelaListarProdutos.telaListarProdutosinstance == null)
@@ -54,24 +56,27 @@ public class TelaListarProdutos extends JFrame {
 	public TelaListarProdutos() {
 		setTitle("Listar Produtos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 470, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 100, 414, 150);
+		scrollPane.setBounds(10, 54, 434, 181);
 		contentPane.add(scrollPane);
-
-		TextArea textArea = new TextArea();
+		
+		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
+		
 
 		JLabel lblListarProdutos = new JLabel("Listar Produtos");
-		lblListarProdutos.setBounds(165, 28, 66, 15);
+		lblListarProdutos.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblListarProdutos.setBounds(108, 11, 205, 32);
 		contentPane.add(lblListarProdutos);
 
 		JButton btnListarTodos = new JButton("Listar Todos");
+		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnListarTodos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
@@ -88,10 +93,11 @@ public class TelaListarProdutos extends JFrame {
 				}
 			}
 		});
-		btnListarTodos.setBounds(22, 247, 146, 25);
+		btnListarTodos.setBounds(10, 260, 146, 25);
 		contentPane.add(btnListarTodos);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -99,11 +105,17 @@ public class TelaListarProdutos extends JFrame {
 
 			}
 		});
-		btnVoltar.setBounds(221, 247, 114, 25);
+		btnVoltar.setBounds(330, 260, 114, 25);
 		contentPane.add(btnVoltar);
 		
-		table = new JTable();
-		table.setBounds(63, 52, 291, 15);
-		contentPane.add(table);
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.setText("");
+			}
+		});
+		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnReset.setBounds(195, 262, 89, 23);
+		contentPane.add(btnReset);
 	}
 }

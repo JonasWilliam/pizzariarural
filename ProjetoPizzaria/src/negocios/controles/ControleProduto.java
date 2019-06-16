@@ -1,6 +1,6 @@
 package negocios.controles;
 
-import dados.RepositorioFuncionarioArray;
+
 import dados.RepositorioProduto;
 import dados.RepositorioProdutoArray;
 import negocios.Produto;
