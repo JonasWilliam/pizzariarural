@@ -12,9 +12,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import dados.RepositorioFuncionarioArray;
-import dados.RepositorioPedidoArray;
-import dados.RepositorioProdutoArray;
 import gui.funcionarios.TelaAlterarSenhaFuncionario;
 import gui.funcionarios.TelaCadastroFuncionario;
 import gui.funcionarios.TelaListarFuncionarios;
@@ -26,16 +23,14 @@ import gui.pedidos.TelaProcurarPedido;
 import gui.pedidos.TelaRemocaoPedido;
 import gui.produtos.TelaCadastroPizza;
 import gui.produtos.TelaCadastroRefrigerante;
+import gui.produtos.TelaListarProdutos;
 import gui.produtos.TelaProcurarProduto;
 import gui.produtos.TelaRemocaoProduto;
-import negocios.Fachada;
 
 public class TelaPrincipal extends JFrame {
 
 	private JPanel contentPane;
 	private static JFrame telaPrincipalinstance;
-
-	
 
 	public static JFrame getInstance() {
 		if (TelaPrincipal.telaPrincipalinstance == null)
@@ -44,7 +39,7 @@ public class TelaPrincipal extends JFrame {
 		return TelaPrincipal.telaPrincipalinstance;
 
 	}
-	
+
 	/**
 	 * Launch the application.
 	 */
@@ -67,14 +62,14 @@ public class TelaPrincipal extends JFrame {
 	public TelaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 340, 300);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		
+
 		JMenu mnNewMenuProdutos = new JMenu("Produtos");
 		mnNewMenuProdutos.setFont(new Font("Tahoma", Font.BOLD, 18));
 		menuBar.add(mnNewMenuProdutos);
-		
+
 		JMenuItem mntmInserirPizza = new JMenuItem("Inserir Pizza");
 		mntmInserirPizza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -83,7 +78,7 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenuProdutos.add(mntmInserirPizza);
-		
+
 		JMenuItem mntmInserirRefrigerante = new JMenuItem("Inserir Refrigerante");
 		mntmInserirRefrigerante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -92,7 +87,7 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenuProdutos.add(mntmInserirRefrigerante);
-		
+
 		JMenuItem mntmProcurar = new JMenuItem("Procurar");
 		mntmProcurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -101,10 +96,16 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenuProdutos.add(mntmProcurar);
-		
+
 		JMenuItem mntmListarTodos = new JMenuItem("Listar Todos");
+		mntmListarTodos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaListarProdutos.getInstance().setVisible(true);
+			}
+		});
 		mnNewMenuProdutos.add(mntmListarTodos);
-		
+
 		JMenuItem mntmRemover = new JMenuItem("Remover");
 		mntmRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -113,11 +114,11 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenuProdutos.add(mntmRemover);
-		
+
 		JMenu mnNewMenuPedidos = new JMenu("Pedidos");
 		mnNewMenuPedidos.setFont(new Font("Tahoma", Font.BOLD, 18));
 		menuBar.add(mnNewMenuPedidos);
-		
+
 		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar");
 		mntmCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -126,7 +127,7 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenuPedidos.add(mntmCadastrar);
-		
+
 		JMenuItem mntmProcurar_1 = new JMenuItem("Procurar");
 		mntmProcurar_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -135,7 +136,7 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenuPedidos.add(mntmProcurar_1);
-		
+
 		JMenuItem mntmListarPedidos = new JMenuItem("Listar Pedidos");
 		mntmListarPedidos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -144,7 +145,7 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenuPedidos.add(mntmListarPedidos);
-		
+
 		JMenuItem mntmCancelar = new JMenuItem("Cancelar");
 		mntmCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -153,11 +154,11 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		mnNewMenuPedidos.add(mntmCancelar);
-		
+
 		JMenu mnNewFuncionarios = new JMenu("Funcion\u00E1rios\r\n");
 		mnNewFuncionarios.setFont(new Font("Tahoma", Font.BOLD, 18));
 		menuBar.add(mnNewFuncionarios);
-		
+
 		JMenuItem mntmAdicionar = new JMenuItem("Adicionar");
 		mntmAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -166,7 +167,7 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		mnNewFuncionarios.add(mntmAdicionar);
-		
+
 		JMenuItem mntmProcurar_2 = new JMenuItem("Procurar");
 		mntmProcurar_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -175,7 +176,7 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		mnNewFuncionarios.add(mntmProcurar_2);
-		
+
 		JMenuItem mntmListarFuncionrios = new JMenuItem("Listar Funcion\u00E1rios");
 		mntmListarFuncionrios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -184,7 +185,7 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		mnNewFuncionarios.add(mntmListarFuncionrios);
-		
+
 		JMenuItem mntmAlterarSenha = new JMenuItem("Alterar Senha");
 		mntmAlterarSenha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -193,7 +194,7 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		mnNewFuncionarios.add(mntmAlterarSenha);
-		
+
 		JMenuItem mntmRemover_1 = new JMenuItem("Remover");
 		mntmRemover_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
