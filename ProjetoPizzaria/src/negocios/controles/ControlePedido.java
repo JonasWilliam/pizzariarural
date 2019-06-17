@@ -25,9 +25,11 @@ public class ControlePedido {
 
 	public void removerPedido(int id) {
 		pedidos.removerPedido(id);
+		RepositorioPedidoArray.getInstance().salvarArquivo();
 	}
 
 	public Pedido[] listarPedidos() {
+		RepositorioPedidoArray.getInstance();
 		return pedidos.listarPedidos();
 	}
 

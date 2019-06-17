@@ -1,21 +1,21 @@
 package gui.pedidos;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
-
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import negocios.Fachada;
+import negocios.Pedido;
 
 public class TelaListarPedido extends JFrame {
 
@@ -75,13 +75,30 @@ public class TelaListarPedido extends JFrame {
 		contentPane.add(lblListarPedidos);
 		
 		JButton btnListarTodos = new JButton("Listar Todos");
+		btnListarTodos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.setText("");
+				Pedido[] pedidos = Fachada.getInstance().listarPedidos();
+				//ArrayList<Produto> nomeProdutos = new ArrayList<Produto>();
+				for (int i = 0; i < pedidos.length; i++) {
+					if(pedidos[i] != null) {
+						textArea.append(pedidos[i].toString());	
+					}
+					
+
+				}
+				
+			
+			}
+		});
 		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnListarTodos.setBounds(20, 290, 121, 23);
+		btnListarTodos.setBounds(44, 291, 121, 23);
 		contentPane.add(btnListarTodos);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				TelaPrincipal.getInstance().setVisible(true);
 			}
 		});

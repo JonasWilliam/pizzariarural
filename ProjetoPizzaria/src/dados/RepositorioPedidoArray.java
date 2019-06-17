@@ -32,14 +32,17 @@ public class RepositorioPedidoArray implements RepositorioPedido,Serializable {
 
 	@Override
 	public void removerPedido(int id) {
-		for (int i = 0; i <= pedidos.length; i++) {
+		for (int i = 0; i < indice; i++) {
 			if (pedidos[i].getId() == id) {
 				pedidos[i] = null;
+				indice --;
+				for (int j = 0; j < indice; j++) {
 
-				for (int j = 0; j <= pedidos.length; j++) {
-
-					if (pedidos[j] == null && pedidos[j + 1] != null) {
-						pedidos[i] = pedidos[j];
+					if (pedidos[j] == null) {
+						if(pedidos[j+1] != null) {
+							pedidos[i] = pedidos[j];
+						}
+						
 					}
 				}
 			}

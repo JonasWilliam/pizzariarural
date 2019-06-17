@@ -82,14 +82,17 @@ public class TelaRemocaoProduto extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (textCodigo.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Digite o Codigo do Produto que deseja remover");
+					textCodigo.setText("");
 				} else {
 					Produto p = new Produto();
 					p = Fachada.getInstance().procurarProduto(textCodigo.getText());
 					if (p == null) {
 						JOptionPane.showMessageDialog(null, "Nao existe nenhum Produto com esse codigo");
+						textCodigo.setText("");
 					} else {
 						Fachada.getInstance().removerProduto(textCodigo.getText());
 						JOptionPane.showMessageDialog(null, "Produto removido com sucesso");
+						textCodigo.setText("");
 					}
 				}
 			}

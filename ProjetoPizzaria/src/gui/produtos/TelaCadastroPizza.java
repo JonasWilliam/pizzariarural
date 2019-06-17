@@ -17,7 +17,7 @@ import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
 import negocios.Fachada;
-import negocios.Pizza1;
+import negocios.Pizza;
 import negocios.Tamanho;
 import negocios.exception.IdProdutoException;
 
@@ -26,7 +26,7 @@ public class TelaCadastroPizza extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtSabor;
 	private static JFrame telaCadastroPizzainstance;
-	Pizza1 pizza = new Pizza1();
+	Pizza pizza = new Pizza();
 	private JTextField txtCustoMaterial;
 	private JTextField txtCodigo;
 	private JTextField txtCustoMaodeObra;

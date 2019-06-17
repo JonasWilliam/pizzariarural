@@ -1,6 +1,8 @@
 package negocios;
 
-public class Entregador{
+import java.io.Serializable;
+
+public class Entregador implements Serializable{
 
 	private String nome;
 

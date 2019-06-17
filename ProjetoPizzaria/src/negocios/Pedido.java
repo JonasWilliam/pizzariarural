@@ -55,6 +55,11 @@ public class Pedido implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
+	@Override
+	public String toString() {
+		return "\n *****************************"+ "\n cliente: " + cliente.getNome() + "\n entregador:" + entregador.getNome() + "\n total="
+				+ total + "\n id=" + id + "\n *****************************";
+	}
 	
 	
 }

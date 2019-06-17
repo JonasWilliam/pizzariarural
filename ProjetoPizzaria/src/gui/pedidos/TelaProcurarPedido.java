@@ -1,22 +1,23 @@
 package gui.pedidos;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
-
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import negocios.Fachada;
+import negocios.Pedido;
 
 public class TelaProcurarPedido extends JFrame {
 
@@ -88,6 +89,26 @@ public class TelaProcurarPedido extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnProcurar = new JButton("Procurar");
+		btnProcurar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.setText("Dados: \n");
+				if(textField.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Digite o id do Pedido.");
+				}
+					
+				else {
+
+					Pedido achouPedido = Fachada.getInstance().procurarPedido(Integer.parseInt(textField.getText()));
+					 if(achouPedido == null){
+						 JOptionPane.showMessageDialog(null, "Pedido não existe.");
+					 }else{
+						 JOptionPane.showMessageDialog(null, "Pedido Encontrado.");
+						 textArea.append(achouPedido.toString());
+					 }
+					 
+				}
+			}
+		});
 		btnProcurar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnProcurar.setBounds(172, 108, 89, 23);
 		contentPane.add(btnProcurar);

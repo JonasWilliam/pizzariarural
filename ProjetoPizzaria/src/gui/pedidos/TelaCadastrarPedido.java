@@ -19,12 +19,14 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
+import gui.produtos.TelaListarProdutos;
 import negocios.Cliente;
 import negocios.Entregador;
 import negocios.Fachada;
 import negocios.Pedido;
 import negocios.Produto;
 import negocios.Tamanho;
+import negocios.exception.ClientePedidosException;
 
 public class TelaCadastrarPedido extends JFrame {
 
@@ -33,7 +35,7 @@ public class TelaCadastrarPedido extends JFrame {
 	private static JFrame telaPedidosinstance;
 	private JTextField txtEnd;
 	private JTextField txtTel;
-	private JTextField textField_8;
+	private JTextField TOTAL;
 	private JTextField txtId;
 	Entregador entregador = new Entregador();
 	Cliente cliente = new Cliente();
@@ -133,10 +135,30 @@ public class TelaCadastrarPedido extends JFrame {
 		contentPane.add(txtTel);
 		txtTel.setColumns(10);
 
-		textField_8 = new JTextField();
-		textField_8.setBounds(103, 365, 86, 20);
-		contentPane.add(textField_8);
-		textField_8.setColumns(10);
+		
+		
+		TOTAL = new JTextField();
+		TOTAL.setBounds(103, 365, 86, 20);
+		contentPane.add(TOTAL);
+		TOTAL.setColumns(10);
+		
+		
+		
+		JButton btnCalcularTotal = new JButton("Calcular Total");
+		btnCalcularTotal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				float total = 0;
+				for(int i = 0; i < produtos.size(); i++) {
+					total += produtos.get(i).getValor();
+					TOTAL.setText(String.valueOf(total));
+				}
+			}
+		});
+		btnCalcularTotal.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnCalcularTotal.setBounds(252, 363, 129, 23);
+		contentPane.add(btnCalcularTotal);
+		
+		
 
 		JButton btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.addActionListener(new ActionListener() {
@@ -146,7 +168,23 @@ public class TelaCadastrarPedido extends JFrame {
 				cliente.setEndereco(txtEnd.getText());
 				cliente.setTelefone(txtTel.getText());
 				int id = (Integer.parseInt(txtId.getText()));
-				// pedido = new Pedido(cliente,produtos,entregador,null,id);
+				float soma = (Float.parseFloat(TOTAL.getText()));
+				 pedido = new Pedido(cliente,produtos,entregador,soma,id);
+				 try {
+					Fachada.getInstance().criarPedido(pedido);
+					JOptionPane.showMessageDialog(null, "Pedido adicionado ao repositorio com sucesso");
+					txtNomeDoEntregador.setText("");
+					txtCliente.setText("");
+					txtEnd.setText("");
+					txtTel.setText("");
+					txtId.setText("");
+					TOTAL.setText("");
+					
+					
+				} catch (ClientePedidosException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnConfirmar.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -226,10 +264,7 @@ public class TelaCadastrarPedido extends JFrame {
 		btnDelet.setBounds(535, 241, 89, 23);
 		contentPane.add(btnDelet);
 
-		JButton btnCalcularTotal = new JButton("Calcular Total");
-		btnCalcularTotal.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnCalcularTotal.setBounds(252, 363, 129, 23);
-		contentPane.add(btnCalcularTotal);
+		
 
 		JLabel lblCdigoPApagar = new JLabel("C\u00F3digo p/ Apagar");
 		lblCdigoPApagar.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -258,6 +293,16 @@ public class TelaCadastrarPedido extends JFrame {
 		lblProdutos.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblProdutos.setBounds(353, 2, 194, 27);
 		contentPane.add(lblProdutos);
+		
+		JButton btnNewButton = new JButton("Listar Todos Produtos");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaListarProdutos.getInstance().setVisible(true);
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnNewButton.setBounds(310, 273, 215, 23);
+		contentPane.add(btnNewButton);
 
 	}
 }

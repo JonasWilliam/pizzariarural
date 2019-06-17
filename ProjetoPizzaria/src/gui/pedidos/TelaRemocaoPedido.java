@@ -1,25 +1,26 @@
 package gui.pedidos;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
-
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import negocios.Fachada;
+import negocios.Pedido;
 
 public class TelaRemocaoPedido extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textcdg;
 	private static JFrame telaRemocaoFuncionarioinstance;
 
 	public static JFrame getInstance() {
@@ -67,12 +68,28 @@ public class TelaRemocaoPedido extends JFrame {
 		lblInformeOCdigo.setBounds(29, 80, 132, 29);
 		contentPane.add(lblInformeOCdigo);
 
-		textField = new JTextField();
-		textField.setBounds(179, 85, 188, 24);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textcdg = new JTextField();
+		textcdg.setBounds(179, 85, 188, 24);
+		contentPane.add(textcdg);
+		textcdg.setColumns(10);
 
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (textcdg.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Digite o Id do Pedido que deseja remover");
+				} else {
+					Pedido a = new Pedido();
+					a = Fachada.getInstance().procurarPedido(Integer.parseInt(textcdg.getText()));
+					if (a == null) {
+						JOptionPane.showMessageDialog(null, "Não existe nenhum Pedido com esse Id");
+					} else {
+						Fachada.getInstance().removerPedido(Integer.parseInt(textcdg.getText()));
+						JOptionPane.showMessageDialog(null, "Pedido removido com sucesso");
+					}
+				}
+			}
+		});
 		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnCancelar.setBounds(81, 165, 110, 23);
 		contentPane.add(btnCancelar);
