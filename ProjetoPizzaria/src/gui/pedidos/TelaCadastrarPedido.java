@@ -11,6 +11,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -42,6 +43,7 @@ public class TelaCadastrarPedido extends JFrame {
 	private JTextField txtNomeDoEntregador;
 	private JTextField textAdd;
 	ArrayList<Produto> produtos = new ArrayList<Produto>();
+	private JTextField textRemove;
 
 	public static JFrame getInstance() {
 		if (TelaCadastrarPedido.telaPedidosinstance == null)
@@ -73,17 +75,16 @@ public class TelaCadastrarPedido extends JFrame {
 	public TelaCadastrarPedido() {
 		setTitle("Pedidos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 450);
+		setBounds(100, 100, 650, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		
+
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(310, 40, 264, 150);
+		scrollPane.setBounds(310, 40, 314, 150);
 		contentPane.add(scrollPane);
-		
+
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
 
@@ -155,7 +156,7 @@ public class TelaCadastrarPedido extends JFrame {
 
 		JCheckBox checkBox = new JCheckBox("Borda Recheada");
 		checkBox.setFont(new Font("Dialog", Font.BOLD, 14));
-		checkBox.setBounds(350, 282, 175, 23);
+		checkBox.setBounds(350, 307, 175, 23);
 		contentPane.add(checkBox);
 
 		txtEnd = new JTextField();
@@ -186,7 +187,7 @@ public class TelaCadastrarPedido extends JFrame {
 				cliente.setEndereco(txtEnd.getText());
 				cliente.setTelefone(txtTel.getText());
 				int id = (Integer.parseInt(txtId.getText()));
-				//pedido = new Pedido(cliente,produtos,entregador,null,id);
+				// pedido = new Pedido(cliente,produtos,entregador,null,id);
 			}
 		});
 		btnConfirmar.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -223,53 +224,80 @@ public class TelaCadastrarPedido extends JFrame {
 		});
 		refrigeranteComboBox.setBounds(87, 198, 49, 24);
 		contentPane.add(refrigeranteComboBox);
-		
+
 		txtNomeDoEntregador = new JTextField();
 		txtNomeDoEntregador.setBounds(126, 243, 144, 20);
 		contentPane.add(txtNomeDoEntregador);
 		txtNomeDoEntregador.setColumns(10);
-		
+
 		JLabel lblInformeOCdigo = new JLabel("Informe o C\u00F3digo:");
 		lblInformeOCdigo.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblInformeOCdigo.setBounds(310, 201, 149, 17);
+		lblInformeOCdigo.setBounds(310, 201, 120, 17);
 		contentPane.add(lblInformeOCdigo);
-		
+
 		textAdd = new JTextField();
-		textAdd.setBounds(438, 201, 93, 20);
+		textAdd.setBounds(438, 201, 87, 20);
 		contentPane.add(textAdd);
 		textAdd.setColumns(10);
-		
+
 		JButton btnAdd = new JButton("Add");
 		btnAdd.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Produto p;
 				p = Fachada.getInstance().procurarProduto(textAdd.getText());
-				textArea.append(p.toString());
-				produtos.add(p);
-				
-				
-			}
+					JOptionPane.showMessageDialog(null, "informe um codigo");
+					textArea.append(p.toString());
+					produtos.add(p);
+					textAdd.setText("");
+
+				}
+			
 		});
-		btnAdd.setBounds(335, 241, 89, 23);
+		btnAdd.setBounds(546, 199, 66, 23);
 		contentPane.add(btnAdd);
-		
+
 		JButton btnDelet = new JButton("Apagar");
 		btnDelet.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnDelet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Produto j;
-				j = Fachada.getInstance().procurarProduto(textAdd.getText());
+				j = Fachada.getInstance().procurarProduto(textRemove.getText());
 				produtos.remove(j);
+			
 			}
-		});
-		btnDelet.setBounds(436, 241, 89, 23);
+});
+
+		btnDelet.setBounds(535, 241, 89, 23);
 		contentPane.add(btnDelet);
-		
+
 		JButton btnCalcularTotal = new JButton("Calcular Total");
 		btnCalcularTotal.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnCalcularTotal.setBounds(233, 364, 129, 23);
 		contentPane.add(btnCalcularTotal);
+
+		JLabel lblCdigoPApagar = new JLabel("C\u00F3digo p/ Apagar");
+		lblCdigoPApagar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblCdigoPApagar.setBounds(310, 237, 120, 23);
+		contentPane.add(lblCdigoPApagar);
+
+		textRemove = new JTextField();
+		textRemove.setBounds(439, 243, 86, 20);
+		contentPane.add(textRemove);
+		textRemove.setColumns(10);
+
+		JButton btnAtualizar = new JButton("Atualizar");
+		btnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.setText("");
+				for (int i = 0; i < produtos.size(); i++) {
+					textArea.append(produtos.get(i).getCodigo());
+				}
+			}
+		});
+		btnAtualizar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnAtualizar.setBounds(535, 272, 89, 23);
+		contentPane.add(btnAtualizar);
 
 	}
 }

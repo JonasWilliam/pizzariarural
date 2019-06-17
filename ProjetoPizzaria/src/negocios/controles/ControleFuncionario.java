@@ -11,7 +11,7 @@ public class ControleFuncionario {
 
 	public void adicionarFuncionario(Funcionario a) throws CpfInvalidoException {
 		if (a.getCpf() != null & a.getCpf() != "") {
-			RepositorioFuncionarioArray.getInstance();
+		
 			funcionarios.adicionarFuncionario(a);
 			RepositorioFuncionarioArray.getInstance().salvarArquivo();
 			System.out.println("Funcionario Cadastrado com Sucesso");
@@ -23,7 +23,7 @@ public class ControleFuncionario {
 	}
 
 	public void removerFuncionario(String cpf) {
-		RepositorioFuncionarioArray.getInstance();
+		
 		funcionarios.removerFuncionario(cpf);
 		RepositorioFuncionarioArray.getInstance().salvarArquivo();
 	}

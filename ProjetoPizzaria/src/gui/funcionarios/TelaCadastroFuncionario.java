@@ -25,7 +25,6 @@ public class TelaCadastroFuncionario extends JFrame {
 	private JTextField textnome;
 	private JTextField textsalario;
 	private JTextField textcpf;
-	private JTextField textlogin;
 	private JTextField textsenha;
 	private static JFrame telaCadastroFuncionarioinstance;
 	Funcionario funcionario = new Funcionario();
@@ -62,7 +61,7 @@ public class TelaCadastroFuncionario extends JFrame {
 	public TelaCadastroFuncionario() {
 		setTitle("Cadastro Funcion√°rios");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 300);
+		setBounds(100, 100, 460, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -92,14 +91,9 @@ public class TelaCadastroFuncionario extends JFrame {
 		lblCpf.setBounds(212, 115, 57, 24);
 		contentPane.add(lblCpf);
 		
-		JLabel lblLogin = new JLabel("Login:");
-		lblLogin.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblLogin.setBounds(10, 144, 65, 19);
-		contentPane.add(lblLogin);
-		
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblSenha.setBounds(212, 146, 65, 14);
+		lblSenha.setBounds(10, 145, 65, 14);
 		contentPane.add(lblSenha);
 		
 		textnome = new JTextField();
@@ -117,34 +111,30 @@ public class TelaCadastroFuncionario extends JFrame {
 		textcpf.setBounds(264, 118, 164, 20);
 		contentPane.add(textcpf);
 		
-		textlogin = new JTextField();
-		textlogin.setColumns(10);
-		textlogin.setBounds(70, 144, 124, 20);
-		contentPane.add(textlogin);
-		
 		textsenha = new JTextField();
 		textsenha.setColumns(10);
-		textsenha.setBounds(264, 144, 163, 20);
+		textsenha.setBounds(70, 145, 163, 20);
 		contentPane.add(textsenha);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				funcionario.setNome(textnome.getText());
+				/*funcionario.setNome(textnome.getText());
 				funcionario.setSalario(Float.parseFloat(textsalario.getText()));
-				funcionario.setLogin(textlogin.getText());
 				funcionario.setCpf(textcpf.getText());
-				funcionario.setSenha(textsenha.getText());
+				funcionario.setSenha(textsenha.getText());*/
+				funcionario = new Funcionario(textnome.getText(),Float.parseFloat(textsalario.getText()),textsenha.getText(),textcpf.getText());
 				try {
 					Fachada.getInstance().adicionar(funcionario);
 					//RepositorioFuncionarioArray.getInstance().salvarArquivo();
 					JOptionPane.showMessageDialog(null, "Funcion·rio adicionado ao repositorio com sucesso");
 					textnome.setText("");
 					textsalario.setText("");
-					textlogin.setText("");
 					textsenha.setText("");
 					textcpf.setText("");
+					dispose();
+					TelaPrincipal.getInstance().setVisible(true);
 				} catch (CpfInvalidoException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -167,7 +157,7 @@ public class TelaCadastroFuncionario extends JFrame {
 			}
 		});
 		btnCadastrar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnCadastrar.setBounds(91, 208, 108, 23);
+		btnCadastrar.setBounds(21, 209, 108, 23);
 		contentPane.add(btnCadastrar);
 		
 		JButton btnVoltarParaMenu = new JButton("Voltar");
@@ -178,7 +168,20 @@ public class TelaCadastroFuncionario extends JFrame {
 			}
 		});
 		btnVoltarParaMenu.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnVoltarParaMenu.setBounds(236, 208, 151, 23);
+		btnVoltarParaMenu.setBounds(299, 208, 108, 24);
 		contentPane.add(btnVoltarParaMenu);
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textnome.setText("");
+				textsalario.setText("");
+				textsenha.setText("");
+				textcpf.setText("");
+			}
+		});
+		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnReset.setBounds(161, 209, 108, 23);
+		contentPane.add(btnReset);
 	}
 }

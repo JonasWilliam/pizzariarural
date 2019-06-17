@@ -75,7 +75,8 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 		for (int i = 0; i < indice; i++) {
 			if (funcionarios[i].getCpf().equals(cpf)) {
 				System.out.println("Nome: " + funcionarios[i].getNome() + " senha: " + funcionarios[i].getSenha());
-				a = funcionarios[i];
+				//a = funcionarios[i];
+				return funcionarios[i];
 			} else
 				a = null;
 

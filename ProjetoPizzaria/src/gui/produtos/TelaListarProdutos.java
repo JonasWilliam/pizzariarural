@@ -81,16 +81,15 @@ public class TelaListarProdutos extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
 				Produto[] produto = Fachada.getInstance().listarProdutos();
-				ArrayList<Produto> nomeProdutos = new ArrayList<Produto>();
+				//ArrayList<Produto> nomeProdutos = new ArrayList<Produto>();
 				for (int i = 0; i < produto.length; i++) {
-					if (produto[i] != null) {
-						nomeProdutos.add(produto[i]);
+					if(produto[i] != null) {
+						textArea.append(produto[i].toString());	
 					}
+					
 
 				}
-				for (int i = 0; i < nomeProdutos.size(); i++) {
-					textArea.append(nomeProdutos.get(i).toString());
-				}
+				
 			}
 		});
 		btnListarTodos.setBounds(10, 260, 146, 25);

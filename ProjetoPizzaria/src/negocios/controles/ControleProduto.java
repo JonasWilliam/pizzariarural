@@ -10,21 +10,19 @@ public class ControleProduto {
 
 	RepositorioProduto produtos = RepositorioProdutoArray.getInstance();
 
-	public void cadastrarProduto(Produto p) throws IdProdutoException {
-		if (p.getId() >= 0) {
-
+	public void cadastrarProduto(Produto p) {
+		
+			
 			produtos.cadastrarProduto(p);
 			RepositorioProdutoArray.getInstance().salvarArquivo();
-
-		} else {
-			IdProdutoException e;
-			e = new IdProdutoException(p.getId());
-			throw e;
-		}
+			System.out.println("Produto: " + p.getNome() + " cadastrado com sucesso");
+			
+		
 	}
 
 	public void removerProduto(String codigo) {
 		produtos.removerProduto(codigo);
+		RepositorioProdutoArray.getInstance().salvarArquivo();;
 	}
 
 	public Produto[] listarProdutos() {

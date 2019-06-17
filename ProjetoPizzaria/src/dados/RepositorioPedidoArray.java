@@ -86,7 +86,7 @@ public class RepositorioPedidoArray implements RepositorioPedido,Serializable {
 	private static RepositorioPedidoArray lerDoArquivo() {
 		RepositorioPedidoArray instanciaLocal = null;
 
-		File in = new File("pedidos.dat");
+		File in = new File("pedido.dat");
 		FileInputStream fis = null;
 		ObjectInputStream ois = null;
 		try {
@@ -112,7 +112,7 @@ public class RepositorioPedidoArray implements RepositorioPedido,Serializable {
 		if (instance == null) {
 			return;
 		}
-		File out = new File("pedidos.dat");
+		File out = new File("pedido.dat");
 		FileOutputStream fos = null;
 		ObjectOutputStream oos = null;
 

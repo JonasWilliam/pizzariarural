@@ -4,9 +4,15 @@ import java.io.Serializable;
 
 public class Vendedor extends Funcionario implements Serializable{
 
-	public Vendedor(String nome, float salario, String login, String senha, String cpf, Cargos cargo) {
-		super(nome, salario, login, senha, cpf, cargo);
+	public Vendedor() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	public Vendedor(String nome, float salario, String senha, String cpf) {
+		super(nome, salario, senha, cpf);
+		// TODO Auto-generated constructor stub
+	}
+
 
 }

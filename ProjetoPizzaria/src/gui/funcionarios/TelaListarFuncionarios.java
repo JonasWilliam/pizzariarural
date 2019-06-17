@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -17,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 import gui.TelaPrincipal;
 import negocios.Fachada;
 import negocios.Funcionario;
+import negocios.Produto;
 
 public class TelaListarFuncionarios extends JFrame {
 
@@ -76,21 +78,23 @@ public class TelaListarFuncionarios extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
 				Funcionario[] funcionarios = Fachada.getInstance().listarFuncionario();
-				ArrayList<Funcionario> cpfFuncionarios = new ArrayList<Funcionario>();
+				//ArrayList<Funcionario> cpfFuncionarios = new ArrayList<Funcionario>();
 				for (int i = 0; i < funcionarios.length; i++) {
 					if (funcionarios[i] != null) {
-						cpfFuncionarios.add(funcionarios[i]);
-						// textArea.append(funcionarios[i].toString());
-						// textArea.setText(funcionarios[i].toString());
-						// textArea.setText(funcionarios[i].getCpf());
+					//	cpfFuncionarios.add(funcionarios[i]);
+						textArea.append(funcionarios[i].toString());
 					}
 
 				}
-				for (int i = 0; i < cpfFuncionarios.size(); i++) {
-					// textArea.setText("Lista de funcionários:");
-
-					textArea.append(cpfFuncionarios.get(i).toString());
-				}
+			/*	textArea.setText("");
+				Produto[] produto = Fachada.getInstance().listarProdutos();
+				for (int i = 0; i < produto.length; i++) {
+					if(produto[i] != null) {
+						textArea.append(produto[i].toString());	
+					}
+					
+				}*/
+				
 			}
 		});
 		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 12));
