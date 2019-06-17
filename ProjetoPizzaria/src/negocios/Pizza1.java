@@ -10,7 +10,7 @@ public class Pizza1 extends Produto implements Serializable {
 
 	public Pizza1() {
 		super();
-		this.id = 1;
+		
 	}
 
 	public Pizza1(String nome, float valor, Tamanho tamanho, int id, String codigo,

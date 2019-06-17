@@ -10,7 +10,7 @@ public class Refrigerante extends Produto implements Serializable {
 
 	public Refrigerante() {
 		super();
-		this.id = 2;
+		
 	}
 
 	public void calcularPreco(Tamanho tamanho, int id, float custoMaterial) {

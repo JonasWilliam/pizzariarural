@@ -25,8 +25,9 @@ public class RepositorioProdutoArray implements RepositorioProduto, Serializable
 	@Override
 	public void cadastrarProduto(Produto produto) {
 		this.produtos[indice] = produto;
+		//produtos[indice].setId(indice);
 		this.indice = this.indice + 1;
-
+		
 	}
 
 	@Override

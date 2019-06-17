@@ -57,7 +57,7 @@ public class RepositorioPedidoArray implements RepositorioPedido,Serializable {
 		Pedido p = new Pedido();
 		for (int i = 0; i <= pedidos.length; i++) {
 			if (pedidos[i].getId() == id) {
-				p = pedidos[i];
+				return pedidos[i];
 			}else
 				p = null;
 		}

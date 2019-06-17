@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -62,7 +63,7 @@ public class TelaCadastroPizza extends JFrame {
 	public TelaCadastroPizza() {
 		setTitle("Cadastro de Pizza");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 330, 380);
+		setBounds(100, 100, 330, 420);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -74,13 +75,13 @@ public class TelaCadastroPizza extends JFrame {
 		contentPane.add(lblCadastroDePizza);
 
 		JLabel lblSabor = new JLabel("Sabor:");
-		lblSabor.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblSabor.setBounds(25, 78, 58, 18);
+		lblSabor.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblSabor.setBounds(25, 101, 58, 18);
 		contentPane.add(lblSabor);
 
 		txtSabor = new JTextField();
 		txtSabor.setColumns(10);
-		txtSabor.setBounds(87, 78, 139, 20);
+		txtSabor.setBounds(87, 102, 154, 20);
 		contentPane.add(txtSabor);
 
 		JButton btnVoltarParaMenu = new JButton("Voltar");
@@ -91,12 +92,12 @@ public class TelaCadastroPizza extends JFrame {
 			}
 		});
 		btnVoltarParaMenu.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnVoltarParaMenu.setBounds(156, 267, 112, 23);
+		btnVoltarParaMenu.setBounds(205, 334, 99, 23);
 		contentPane.add(btnVoltarParaMenu);
 
 		JLabel lblTamanho = new JLabel("Tamanho:");
-		lblTamanho.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblTamanho.setBounds(25, 108, 81, 28);
+		lblTamanho.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblTamanho.setBounds(25, 130, 81, 28);
 		contentPane.add(lblTamanho);
 
 		JComboBox pizzaComboBox = new JComboBox(Tamanho.values());
@@ -107,55 +108,62 @@ public class TelaCadastroPizza extends JFrame {
 				txtTaxa.setText(pizzaComboBox.getSelectedItem().toString());
 			}
 		});
-		pizzaComboBox.setBounds(113, 110, 45, 22);
+		pizzaComboBox.setBounds(116, 135, 45, 22);
 		contentPane.add(pizzaComboBox);
 
 		JLabel lblValorTotal = new JLabel("Valor Total:");
 		lblValorTotal.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblValorTotal.setBounds(25, 210, 112, 22);
+		lblValorTotal.setBounds(25, 292, 112, 22);
 		contentPane.add(lblValorTotal);
 
 		txtCustoMaterial = new JTextField();
-		txtCustoMaterial.setBounds(145, 145, 58, 20);
+		txtCustoMaterial.setBounds(171, 168, 109, 20);
 		contentPane.add(txtCustoMaterial);
 		txtCustoMaterial.setColumns(10);
 
 		txtCodigo = new JTextField();
-		txtCodigo.setBounds(102, 45, 139, 20);
+		txtCodigo.setBounds(87, 71, 154, 20);
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
+		
+		JCheckBox checkBox = new JCheckBox("Borda Recheada");
+		checkBox.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBox.setBounds(25, 234, 175, 23);
+		contentPane.add(checkBox);
 
 		JLabel lblCodigo = new JLabel("C\u00F3digo:");
 		lblCodigo.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblCodigo.setBounds(25, 45, 76, 19);
+		lblCodigo.setBounds(25, 71, 76, 19);
 		contentPane.add(lblCodigo);
 
 		JLabel lblCustoMaterial = new JLabel("Custo Mateiral:");
-		lblCustoMaterial.setBounds(30, 148, 112, 15);
+		lblCustoMaterial.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblCustoMaterial.setBounds(25, 169, 136, 15);
 		contentPane.add(lblCustoMaterial);
 
 		JLabel lblTaxa = new JLabel("Taxa:");
-		lblTaxa.setBounds(176, 104, 64, 26);
+		lblTaxa.setBounds(171, 133, 64, 26);
 		contentPane.add(lblTaxa);
 
-		JLabel lblCustoMoDe = new JLabel("Custo Mão de Obra:");
-		lblCustoMoDe.setBounds(27, 180, 149, 18);
+		JLabel lblCustoMoDe = new JLabel("Custo M\u00E3o de Obra:");
+		lblCustoMoDe.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblCustoMoDe.setBounds(25, 195, 149, 18);
 		contentPane.add(lblCustoMoDe);
 
 		txtCustoMaodeObra = new JTextField();
-		txtCustoMaodeObra.setBounds(177, 177, 96, 19);
+		txtCustoMaodeObra.setBounds(168, 196, 112, 19);
 		contentPane.add(txtCustoMaodeObra);
 		txtCustoMaodeObra.setColumns(10);
 
 		txtTaxa = new JTextField();
 		txtTaxa.setEditable(false);
-		txtTaxa.setBounds(240, 113, 50, 19);
+		txtTaxa.setBounds(208, 136, 50, 19);
 		contentPane.add(txtTaxa);
 		txtTaxa.setColumns(10);
 
 		txtValorTotal = new JTextField();
 		txtValorTotal.setEditable(false);
-		txtValorTotal.setBounds(144, 212, 124, 19);
+		txtValorTotal.setBounds(113, 295, 124, 19);
 		contentPane.add(txtValorTotal);
 		txtValorTotal.setColumns(10);
 
@@ -181,6 +189,8 @@ public class TelaCadastroPizza extends JFrame {
 					txtCodigo.setText("");
 					txtCustoMaterial.setText("");
 					txtCustoMaodeObra.setText("");
+					dispose();
+					TelaPrincipal.getInstance().setVisible(true);
 				} catch (IdProdutoException eId) {
 					eId.printStackTrace();
 				}
@@ -189,7 +199,21 @@ public class TelaCadastroPizza extends JFrame {
 
 		});
 		btnCadastrarPizza.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnCadastrarPizza.setBounds(25, 267, 112, 23);
+		btnCadastrarPizza.setBounds(10, 334, 99, 23);
 		contentPane.add(btnCadastrarPizza);
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtSabor.setText("");
+				txtCodigo.setText("");
+				txtCustoMaterial.setText("");
+				txtCustoMaodeObra.setText("");
+				checkBox.setSelected(false);
+			}
+		});
+		btnReset.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnReset.setBounds(116, 334, 79, 23);
+		contentPane.add(btnReset);
 	}
 }
