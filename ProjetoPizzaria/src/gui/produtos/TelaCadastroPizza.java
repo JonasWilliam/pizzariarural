@@ -126,10 +126,10 @@ public class TelaCadastroPizza extends JFrame {
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
-		JCheckBox checkBox = new JCheckBox("Borda Recheada");
-		checkBox.setFont(new Font("Dialog", Font.BOLD, 14));
-		checkBox.setBounds(25, 234, 175, 23);
-		contentPane.add(checkBox);
+		JCheckBox checkBoxBorda = new JCheckBox("Borda Recheada");
+		checkBoxBorda.setFont(new Font("Dialog", Font.BOLD, 14));
+		checkBoxBorda.setBounds(25, 234, 175, 23);
+		contentPane.add(checkBoxBorda);
 
 		JLabel lblCodigo = new JLabel("C\u00F3digo:");
 		lblCodigo.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -177,6 +177,7 @@ public class TelaCadastroPizza extends JFrame {
 				pizza.setTamanho(Tamanho.valueOf(pizzaComboBox.getSelectedItem().toString()));
 				pizza.setCustoMaterial(Float.parseFloat(txtCustoMaterial.getText()));
 				pizza.setCustoMaodeObra(Float.parseFloat(txtCustoMaodeObra.getText()));
+				pizza.setBordaRecheada(checkBoxBorda.isSelected());
 				pizza.calcularPreco();
 				txtValorTotal.setText(new String(pizza.getValor() + ""));
 				pizza.setId(1);
@@ -209,7 +210,7 @@ public class TelaCadastroPizza extends JFrame {
 				txtCodigo.setText("");
 				txtCustoMaterial.setText("");
 				txtCustoMaodeObra.setText("");
-				checkBox.setSelected(false);
+				checkBoxBorda.setSelected(false);
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 11));
