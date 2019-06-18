@@ -51,7 +51,7 @@ public class TelaRemocaoFuncionario extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaRemocaoFuncionario() {
-		setTitle("Remoção de Funcionário");
+		setTitle("Remover de Funcion�rio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 270);
 		contentPane = new JPanel();
@@ -92,7 +92,7 @@ public class TelaRemocaoFuncionario extends JFrame {
 			}
 		});
 		btnRemover.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnRemover.setBounds(26, 157, 105, 29);
+		btnRemover.setBounds(26, 157, 125, 29);
 		contentPane.add(btnRemover);
 
 		JButton btnVoltarParaMenu = new JButton("Voltar");

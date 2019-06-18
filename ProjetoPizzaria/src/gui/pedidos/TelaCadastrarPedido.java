@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,9 +22,9 @@ import gui.produtos.TelaListarProdutos;
 import negocios.Cliente;
 import negocios.Entregador;
 import negocios.Fachada;
+import negocios.Funcionario;
 import negocios.Pedido;
 import negocios.Produto;
-import negocios.Tamanho;
 import negocios.exception.ClientePedidosException;
 
 public class TelaCadastrarPedido extends JFrame {
@@ -40,10 +39,10 @@ public class TelaCadastrarPedido extends JFrame {
 	Entregador entregador = new Entregador();
 	Cliente cliente = new Cliente();
 	Pedido pedido = new Pedido();
-	private JTextField txtNomeDoEntregador;
 	private JTextField textAdd;
 	ArrayList<Produto> produtos = new ArrayList<Produto>();
 	private JTextField textRemove;
+	private JTextField txtEntregador;
 
 	public static JFrame getInstance() {
 		if (TelaCadastrarPedido.telaPedidosinstance == null)
@@ -124,8 +123,6 @@ public class TelaCadastrarPedido extends JFrame {
 		lblValorTotal.setBounds(12, 364, 103, 18);
 		contentPane.add(lblValorTotal);
 
-		
-
 		txtEnd = new JTextField();
 		txtEnd.setBounds(86, 69, 186, 20);
 		contentPane.add(txtEnd);
@@ -136,21 +133,49 @@ public class TelaCadastrarPedido extends JFrame {
 		contentPane.add(txtTel);
 		txtTel.setColumns(10);
 
-		
-		
 		TOTAL = new JTextField();
 		TOTAL.setBounds(103, 365, 86, 20);
 		contentPane.add(TOTAL);
 		TOTAL.setColumns(10);
 		
+
+		JComboBox comboBoxentregadores = new JComboBox();
+		comboBoxentregadores.setBounds(115, 172, 80, 22);
+		contentPane.add(comboBoxentregadores);
+
+		JButton btnCarregar = new JButton("Carregar");
+		btnCarregar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnCarregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Funcionario[] entregadores;
+				entregadores = Fachada.getInstance().listarFuncionario();
+				for (int i = 0; i < entregadores.length; i++) {
+					if (entregadores[i] != null && entregadores[i].getCargo().toString().equals("Entregador")) {
+						comboBoxentregadores.addItem(entregadores[i].getNome());
+					}
+
+				}
+			}
+		});
 		
+		txtEntregador = new JTextField();
+		txtEntregador.setBounds(103, 200, 86, 20);
+		contentPane.add(txtEntregador);
+		txtEntregador.setColumns(10);
+		txtEntregador.setText((String) comboBoxentregadores.getSelectedItem());
+		txtEntregador.setEditable(false);
+		txtEntregador.setVisible(false);
 		
+		btnCarregar.setBounds(205, 172, 89, 23);
+		contentPane.add(btnCarregar);
+
 		JButton btnCalcularTotal = new JButton("Calcular Total");
 		btnCalcularTotal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtId.setText(txtTel.getText());
+				txtEntregador.setText((String) comboBoxentregadores.getSelectedItem());
 				float total = 0;
-				for(int i = 0; i < produtos.size(); i++) {
+				for (int i = 0; i < produtos.size(); i++) {
 					total += produtos.get(i).getValor();
 					TOTAL.setText(String.valueOf(total));
 				}
@@ -159,31 +184,28 @@ public class TelaCadastrarPedido extends JFrame {
 		btnCalcularTotal.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnCalcularTotal.setBounds(252, 363, 129, 23);
 		contentPane.add(btnCalcularTotal);
-		
-		
 
 		JButton btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				entregador.setNome(txtNomeDoEntregador.getText());
+				entregador.setNome(txtEntregador.getText());
 				cliente.setNome(txtCliente.getText());
 				cliente.setEndereco(txtEnd.getText());
 				cliente.setTelefone(txtTel.getText());
 				txtId.setText(txtTel.getText());
 				int id = (Integer.parseInt(txtId.getText()));
 				float soma = (Float.parseFloat(TOTAL.getText()));
-				 pedido = new Pedido(cliente,produtos,entregador,soma,id,true);
-				 try {
+				pedido = new Pedido(cliente, produtos, entregador, soma, id, true);
+				try {
 					Fachada.getInstance().criarPedido(pedido);
 					JOptionPane.showMessageDialog(null, "Pedido adicionado ao repositorio com sucesso");
-					txtNomeDoEntregador.setText("");
+					txtEntregador.setText("");
 					txtCliente.setText("");
 					txtEnd.setText("");
 					txtTel.setText("");
 					txtId.setText("");
 					TOTAL.setText("");
-					
-					
+
 				} catch (ClientePedidosException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -207,19 +229,14 @@ public class TelaCadastrarPedido extends JFrame {
 
 		JLabel lblIdPedido = new JLabel("ID Pedido:");
 		lblIdPedido.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblIdPedido.setBounds(12, 222, 81, 14);
+		lblIdPedido.setBounds(12, 245, 81, 14);
 		contentPane.add(lblIdPedido);
 
 		txtId = new JTextField();
-		txtId.setBounds(103, 220, 144, 20);
+		txtId.setBounds(87, 243, 144, 20);
 		contentPane.add(txtId);
 		txtId.setColumns(10);
 		txtId.setEditable(false);
-		
-		txtNomeDoEntregador = new JTextField();
-		txtNomeDoEntregador.setBounds(103, 173, 144, 20);
-		contentPane.add(txtNomeDoEntregador);
-		txtNomeDoEntregador.setColumns(10);
 
 		JLabel lblInformeOCdigo = new JLabel("Informe o C\u00F3digo:");
 		lblInformeOCdigo.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -268,8 +285,6 @@ public class TelaCadastrarPedido extends JFrame {
 		btnDelet.setBounds(535, 241, 89, 23);
 		contentPane.add(btnDelet);
 
-		
-
 		JLabel lblCdigoPApagar = new JLabel("C\u00F3digo p/ Apagar");
 		lblCdigoPApagar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblCdigoPApagar.setBounds(310, 237, 120, 23);
@@ -292,12 +307,12 @@ public class TelaCadastrarPedido extends JFrame {
 		btnAtualizar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAtualizar.setBounds(535, 272, 89, 23);
 		contentPane.add(btnAtualizar);
-		
+
 		JLabel lblProdutos = new JLabel("PRODUTOS");
 		lblProdutos.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblProdutos.setBounds(353, 2, 194, 27);
 		contentPane.add(lblProdutos);
-		
+
 		JButton btnNewButton = new JButton("Listar Todos Produtos");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -307,6 +322,15 @@ public class TelaCadastrarPedido extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton.setBounds(310, 273, 215, 23);
 		contentPane.add(btnNewButton);
+		
+		
 
+
+		/*
+		 * private void carregarComboBox(){ ArrayList<String> contas = new
+		 * ArrayList<String>(); contas =
+		 * RepositorioContasArray.getInstance().getContas(); for(int i = 0;
+		 * i<=contas.size()-1;i++){ comboBoxContas.addItem(contas.get(i)); }
+		 */
 	}
 }

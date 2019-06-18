@@ -2,17 +2,16 @@ package negocios;
 
 import java.io.Serializable;
 
-public class Entregador implements Serializable{
+public class Entregador implements Serializable {
 
 	private String nome;
 
 	public Entregador(String nome) {
-		super();
 		this.nome = nome;
 	}
-	
+
 	public Entregador() {
-		
+
 	}
 
 	public String getNome() {
@@ -23,5 +22,4 @@ public class Entregador implements Serializable{
 		this.nome = nome;
 	}
 
-	
 }
