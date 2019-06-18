@@ -99,9 +99,16 @@ public class TelaLogin extends JFrame {
 					 if(achouFuncionario == null){
 						 JOptionPane.showMessageDialog(null, "Funcionário não existe.");
 					 }else{
-						 if(achouFuncionario.getCpf().equals(txtCpf.getText()) && achouFuncionario.getSenha().equals(txtSenha.getText())) {
+						 if(achouFuncionario.getCpf().equals(txtCpf.getText()) && achouFuncionario.getSenha().equals(txtSenha.getText()) && 
+								 achouFuncionario.getCargo().toString().equals(("Gerente"))) {
+							 
 							 TelaPrincipal.getInstance().setVisible(true);
 							 setVisible(false);
+							 
+							}else if(achouFuncionario.getCargo().toString().equals("Vendedor")){
+								 TelaPrincipalVendedor.getInstance().setVisible(true);
+							 	setVisible(false);
+							 }
 						 }
 						 
 					 }
@@ -110,7 +117,7 @@ public class TelaLogin extends JFrame {
 				
 				
 				
-			}
+			
 		});
 		btnEntrar.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnEntrar.setBounds(61, 209, 111, 23);

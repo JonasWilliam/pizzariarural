@@ -9,12 +9,11 @@ public class Gerente extends Funcionario  implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Gerente(String nome, float salario, String senha, String cpf) {
-		super(nome, salario, senha, cpf);
+	public Gerente(String nome, float salario, String senha, String cpf, Cargos cargo) {
+		super(nome, salario, senha, cpf, cargo);
 		// TODO Auto-generated constructor stub
 	}
 
-	
 
 
 }

@@ -2,7 +2,7 @@ package negocios;
 
 public enum Cargos {
 	
-	Gerente("Gerente"), Entregador("Entregador"), Vendedor("Vendedor");
+	Gerente("Gerente"), Vendedor("Vendedor");
 
 	private String funcao;
 

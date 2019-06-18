@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 import gui.TelaPrincipal;
 import negocios.Fachada;
 import negocios.Pizza;
+import negocios.Produto;
 import negocios.Tamanho;
 import negocios.exception.IdProdutoException;
 
@@ -125,7 +126,7 @@ public class TelaCadastroPizza extends JFrame {
 		txtCodigo.setBounds(87, 71, 154, 20);
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
-		
+
 		JCheckBox checkBoxBorda = new JCheckBox("Borda Recheada");
 		checkBoxBorda.setFont(new Font("Dialog", Font.BOLD, 14));
 		checkBoxBorda.setBounds(25, 234, 175, 23);
@@ -181,17 +182,22 @@ public class TelaCadastroPizza extends JFrame {
 				pizza.calcularPreco();
 				txtValorTotal.setText(new String(pizza.getValor() + ""));
 				pizza.setId(1);
-				
 
 				try {
-					Fachada.getInstance().cadastrarProduto(pizza);
-					JOptionPane.showMessageDialog(null, "Sabor de Pizza adicionado ao repositorio com sucesso");
-					txtSabor.setText("");
-					txtCodigo.setText("");
-					txtCustoMaterial.setText("");
-					txtCustoMaodeObra.setText("");
-					dispose();
-					TelaPrincipal.getInstance().setVisible(true);
+					Produto p;
+					p = Fachada.getInstance().procurarProduto(txtCodigo.getText());
+					if (p == null) {
+						Fachada.getInstance().cadastrarProduto(pizza);
+						JOptionPane.showMessageDialog(null, "Sabor de Pizza adicionado ao repositorio com sucesso");
+						txtSabor.setText("");
+						txtCodigo.setText("");
+						txtCustoMaterial.setText("");
+						txtCustoMaodeObra.setText("");
+						dispose();
+						TelaPrincipal.getInstance().setVisible(true);
+					}else {
+						JOptionPane.showMessageDialog(null, "Já existe uma Pizza adicionada ao repositorio com esse Código.");
+					}
 				} catch (IdProdutoException eId) {
 					eId.printStackTrace();
 				}
@@ -202,7 +208,7 @@ public class TelaCadastroPizza extends JFrame {
 		btnCadastrarPizza.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnCadastrarPizza.setBounds(10, 334, 99, 23);
 		contentPane.add(btnCadastrarPizza);
-		
+
 		JButton btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

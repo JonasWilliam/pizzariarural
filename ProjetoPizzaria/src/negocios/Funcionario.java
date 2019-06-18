@@ -6,18 +6,18 @@ public class Funcionario  implements Serializable{
 
 	private String nome;
 	private float salario;
-
+	private Cargos cargo;
 	private String senha;
 	private String cpf;
 	
 
-	public Funcionario(String nome, float salario, String senha, String cpf) {
+	public Funcionario(String nome, float salario, String senha, String cpf,Cargos cargo) {
 		super();
 		this.nome = nome;
 		this.salario = salario;
 		this.senha = senha;
 		this.cpf = cpf;
-	
+		this.cargo = cargo;
 
 	}
 
@@ -58,13 +58,18 @@ public class Funcionario  implements Serializable{
 		this.cpf = cpf;
 	}
 
+	public Cargos getCargo() {
+		return cargo;
+	}
 
-
+	public void setCargo(Cargos cargo) {
+		this.cargo = cargo;
+	}
 
 	@Override
 	public String toString() {
 		return "\n ********************** \n"+" nome=" + nome + ",\n salario=" + salario + ",\n cpf="
-				+ cpf + "\n **********************";
+				+ cpf + "\n Cargo:"+ cargo + "\n **********************";
 	}
 
 	

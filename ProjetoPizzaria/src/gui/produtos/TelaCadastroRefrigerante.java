@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
 import negocios.Fachada;
+import negocios.Produto;
 import negocios.Refrigerante;
 import negocios.Tamanho;
 import negocios.exception.IdProdutoException;
@@ -142,11 +143,17 @@ public class TelaCadastroRefrigerante extends JFrame {
 				refrigerante.calcularPreco();
 				textValorTotal.setText(new String(refrigerante.getValor() + ""));
 				try {
+					Produto p;
+					p = Fachada.getInstance().procurarProduto(textCodigo.getText());
+					if (p == null) {
 					Fachada.getInstance().cadastrarProduto(refrigerante);
 					JOptionPane.showMessageDialog(null, "Refrigerante adicionado ao repositorio com sucesso");
 					textNome.setText("");
 					textCodigo.setText("");
 					textCustoMaterial.setText("");
+					}else {
+						JOptionPane.showMessageDialog(null, "Já existe um Refrigerante adicionado ao repositorio com esse Código.");
+					}
 				} catch (IdProdutoException eId) {
 					eId.printStackTrace();
 				}
