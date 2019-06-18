@@ -92,7 +92,7 @@ public class TelaRemocaoFuncionario extends JFrame {
 			}
 		});
 		btnRemover.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnRemover.setBounds(61, 157, 125, 29);
+		btnRemover.setBounds(26, 157, 105, 29);
 		contentPane.add(btnRemover);
 
 		JButton btnVoltarParaMenu = new JButton("Voltar");
@@ -103,8 +103,18 @@ public class TelaRemocaoFuncionario extends JFrame {
 			}
 		});
 		btnVoltarParaMenu.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnVoltarParaMenu.setBounds(216, 157, 141, 29);
+		btnVoltarParaMenu.setBounds(300, 158, 105, 29);
 		contentPane.add(btnVoltarParaMenu);
+		
+		JButton btnListarTodos = new JButton("Listar Todos");
+		btnListarTodos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaListarFuncionarios.getInstance().setVisible(true);
+			}
+		});
+		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnListarTodos.setBounds(161, 157, 116, 28);
+		contentPane.add(btnListarTodos);
 	}
 
 }

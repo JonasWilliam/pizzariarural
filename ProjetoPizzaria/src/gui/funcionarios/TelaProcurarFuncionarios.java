@@ -69,6 +69,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
+		textArea.setEditable(false);
 		
 		JButton btnProcurar = new JButton("Procurar");
 		btnProcurar.setFont(new Font("Tahoma", Font.BOLD, 12));

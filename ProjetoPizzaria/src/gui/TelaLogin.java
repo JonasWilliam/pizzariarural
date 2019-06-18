@@ -21,7 +21,15 @@ public class TelaLogin extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtCpf;
 	private JTextField txtSenha;
+	private static JFrame telaLogininstance;
 
+	public static JFrame getInstance() {
+		if (TelaLogin.telaLogininstance == null)
+			TelaLogin.telaLogininstance = new TelaLogin();
+
+		return TelaLogin.telaLogininstance;
+
+	}
 	/**
 	 * Launch the application.
 	 */
@@ -44,34 +52,34 @@ public class TelaLogin extends JFrame {
 	public TelaLogin() {
 		setTitle("Pizzaria Rural");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 430, 370);
+		setBounds(100, 100, 353, 330);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblPizzariaRural = new JLabel("\t\t            Pizzaria Rural");
+		JLabel lblPizzariaRural = new JLabel("Pizzaria Rural");
 		lblPizzariaRural.setFont(new Font("Tahoma", Font.BOLD, 29));
-		lblPizzariaRural.setBounds(10, 11, 414, 60);
+		lblPizzariaRural.setBounds(61, 11, 214, 36);
 		contentPane.add(lblPizzariaRural);
 		
 		JLabel lblCpf = new JLabel("CPF:");
 		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblCpf.setBounds(50, 129, 81, 36);
+		lblCpf.setBounds(50, 105, 81, 36);
 		contentPane.add(lblCpf);
 		
 		txtCpf = new JTextField();
-		txtCpf.setBounds(136, 139, 139, 26);
+		txtCpf.setBounds(110, 112, 176, 26);
 		contentPane.add(txtCpf);
 		txtCpf.setColumns(10);
 		
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblSenha.setBounds(50, 190, 81, 26);
+		lblSenha.setBounds(50, 152, 81, 26);
 		contentPane.add(lblSenha);
 		
 		txtSenha = new JTextField();
-		txtSenha.setBounds(136, 192, 139, 26);
+		txtSenha.setBounds(110, 152, 176, 26);
 		contentPane.add(txtSenha);
 		txtSenha.setColumns(10);
 		
@@ -105,7 +113,18 @@ public class TelaLogin extends JFrame {
 			}
 		});
 		btnEntrar.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnEntrar.setBounds(164, 253, 111, 23);
+		btnEntrar.setBounds(61, 209, 111, 23);
 		contentPane.add(btnEntrar);
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtSenha.setText("");
+				txtCpf.setText("");
+			}
+		});
+		btnReset.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btnReset.setBounds(186, 209, 100, 25);
+		contentPane.add(btnReset);
 	}
 }

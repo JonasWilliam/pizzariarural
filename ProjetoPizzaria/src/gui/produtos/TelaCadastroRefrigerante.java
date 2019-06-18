@@ -61,7 +61,7 @@ public class TelaCadastroRefrigerante extends JFrame {
 		setTitle("Cadastro de Refrigerante");
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 330, 380);
+		setBounds(100, 100, 330, 360);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -74,11 +74,11 @@ public class TelaCadastroRefrigerante extends JFrame {
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNome.setBounds(27, 79, 58, 15);
+		lblNome.setBounds(27, 95, 58, 15);
 		contentPane.add(lblNome);
 
 		textNome = new JTextField();
-		textNome.setBounds(103, 77, 176, 20);
+		textNome.setBounds(120, 94, 162, 20);
 		contentPane.add(textNome);
 		textNome.setColumns(10);
 
@@ -90,27 +90,27 @@ public class TelaCadastroRefrigerante extends JFrame {
 			}
 		});
 		btnVoltarParaMenu.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnVoltarParaMenu.setBounds(170, 289, 134, 23);
+		btnVoltarParaMenu.setBounds(170, 266, 112, 23);
 		contentPane.add(btnVoltarParaMenu);
 
 		JLabel lblValorTotal = new JLabel("Valor Total:");
-		lblValorTotal.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblValorTotal.setBounds(27, 214, 112, 22);
+		lblValorTotal.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblValorTotal.setBounds(27, 213, 112, 22);
 		contentPane.add(lblValorTotal);
 
 		textValorTotal = new JTextField();
 		textValorTotal.setEditable(false);
-		textValorTotal.setBounds(129, 216, 102, 20);
+		textValorTotal.setBounds(137, 216, 102, 20);
 		contentPane.add(textValorTotal);
 		textValorTotal.setColumns(10);
 
 		JLabel lblCdigo = new JLabel("C\u00F3digo:");
 		lblCdigo.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblCdigo.setBounds(27, 45, 72, 22);
+		lblCdigo.setBounds(27, 62, 72, 22);
 		contentPane.add(lblCdigo);
 
 		textCodigo = new JTextField();
-		textCodigo.setBounds(100, 45, 176, 20);
+		textCodigo.setBounds(120, 63, 162, 20);
 		contentPane.add(textCodigo);
 		textCodigo.setColumns(10);
 
@@ -122,12 +122,12 @@ public class TelaCadastroRefrigerante extends JFrame {
 				System.out.println(refrigeranteComboBox.getSelectedItem());
 			}
 		});
-		refrigeranteComboBox.setBounds(113, 138, 46, 22);
+		refrigeranteComboBox.setBounds(120, 121, 46, 22);
 		contentPane.add(refrigeranteComboBox);
 
 		JLabel lblTamanho = new JLabel("Tamanho:");
-		lblTamanho.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblTamanho.setBounds(27, 140, 88, 19);
+		lblTamanho.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTamanho.setBounds(27, 121, 88, 19);
 		contentPane.add(lblTamanho);
 
 		JButton btnCadastrarRefrigerante = new JButton("Cadastrar");
@@ -155,15 +155,16 @@ public class TelaCadastroRefrigerante extends JFrame {
 
 		});
 		btnCadastrarRefrigerante.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnCadastrarRefrigerante.setBounds(48, 289, 112, 23);
+		btnCadastrarRefrigerante.setBounds(27, 266, 112, 23);
 		contentPane.add(btnCadastrarRefrigerante);
 
 		JLabel lblCustomaterial = new JLabel("CustoMaterial:");
-		lblCustomaterial.setBounds(33, 178, 126, 15);
+		lblCustomaterial.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblCustomaterial.setBounds(27, 151, 102, 15);
 		contentPane.add(lblCustomaterial);
 
 		textCustoMaterial = new JTextField();
-		textCustoMaterial.setBounds(155, 174, 124, 19);
+		textCustoMaterial.setBounds(126, 149, 124, 19);
 		contentPane.add(textCustoMaterial);
 		textCustoMaterial.setColumns(10);
 	}

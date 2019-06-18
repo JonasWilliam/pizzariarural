@@ -8,6 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+import negocios.Fachada;
 import negocios.Pedido;
 import negocios.Produto;
 
@@ -58,7 +59,7 @@ public class RepositorioPedidoArray implements RepositorioPedido,Serializable {
 	@Override
 	public Pedido procurarPedido(int id) {
 		Pedido p = new Pedido();
-		for (int i = 0; i <= pedidos.length; i++) {
+		for (int i = 0; i < indice; i++) {
 			if (pedidos[i].getId() == id) {
 				return pedidos[i];
 			}else
@@ -68,15 +69,10 @@ public class RepositorioPedidoArray implements RepositorioPedido,Serializable {
 	}
 
 	@Override
-	public void atualizarPedidoAddMais(int id, Produto produto) {
-		procurarPedido(id);
-		
-	}
-
-	@Override
-	public void atualizarPedidoRemoverPedido(int id, Produto produto) {
-		// TODO Auto-generated method stub
-		
+	public void alterarStatus(int id) {
+		Pedido p;
+		p = procurarPedido(id);
+		p.setStatus(false);
 	}
 	
 	public static RepositorioPedidoArray getInstance() {
@@ -134,6 +130,8 @@ public class RepositorioPedidoArray implements RepositorioPedido,Serializable {
 			}
 		}
 	}
+
+
 
 	
 

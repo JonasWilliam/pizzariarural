@@ -52,7 +52,7 @@ public class TelaRemocaoProduto extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaRemocaoProduto() {
-		setTitle("Remoção Produto");
+		setTitle("Remover Produto");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 270);
 		contentPane = new JPanel();
@@ -98,7 +98,7 @@ public class TelaRemocaoProduto extends JFrame {
 			}
 		});
 		btnRemover.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnRemover.setBounds(72, 157, 125, 29);
+		btnRemover.setBounds(27, 156, 125, 29);
 		contentPane.add(btnRemover);
 		
 		JButton btnVoltarParaMenu = new JButton("Voltar");
@@ -109,8 +109,18 @@ public class TelaRemocaoProduto extends JFrame {
 			}
 		});
 		btnVoltarParaMenu.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnVoltarParaMenu.setBounds(217, 157, 147, 29);
+		btnVoltarParaMenu.setBounds(316, 157, 108, 29);
 		contentPane.add(btnVoltarParaMenu);
+		
+		JButton btnListarProdutos = new JButton("Listar Produtos");
+		btnListarProdutos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaListarProdutos.getInstance().setVisible(true);
+			}
+		});
+		btnListarProdutos.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnListarProdutos.setBounds(162, 161, 144, 23);
+		contentPane.add(btnListarProdutos);
 	}
 
 }

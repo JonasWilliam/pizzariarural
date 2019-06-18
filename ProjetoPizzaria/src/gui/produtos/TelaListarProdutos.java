@@ -68,6 +68,7 @@ public class TelaListarProdutos extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
+		textArea.setEditable(false);
 		
 
 		JLabel lblListarProdutos = new JLabel("Listar Produtos");
@@ -76,7 +77,7 @@ public class TelaListarProdutos extends JFrame {
 		contentPane.add(lblListarProdutos);
 
 		JButton btnListarTodos = new JButton("Listar Todos");
-		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnListarTodos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
@@ -92,7 +93,7 @@ public class TelaListarProdutos extends JFrame {
 				
 			}
 		});
-		btnListarTodos.setBounds(10, 260, 146, 25);
+		btnListarTodos.setBounds(24, 260, 136, 25);
 		contentPane.add(btnListarTodos);
 
 		JButton btnVoltar = new JButton("Voltar");
@@ -104,7 +105,7 @@ public class TelaListarProdutos extends JFrame {
 
 			}
 		});
-		btnVoltar.setBounds(330, 260, 114, 25);
+		btnVoltar.setBounds(269, 260, 76, 25);
 		contentPane.add(btnVoltar);
 		
 		JButton btnReset = new JButton("Reset");
@@ -114,7 +115,18 @@ public class TelaListarProdutos extends JFrame {
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnReset.setBounds(195, 262, 89, 23);
+		btnReset.setBounds(170, 261, 89, 23);
 		contentPane.add(btnReset);
+		
+		JButton btnFechar = new JButton("Fechar");
+		btnFechar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				
+			}
+		});
+		btnFechar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnFechar.setBounds(355, 262, 89, 23);
+		contentPane.add(btnFechar);
 	}
 }

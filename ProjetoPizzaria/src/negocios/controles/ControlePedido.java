@@ -34,19 +34,16 @@ public class ControlePedido {
 	}
 
 	public Pedido procurarPedido(int id) {
-		
-			
 			RepositorioPedidoArray.getInstance();
 			pedidos.procurarPedido(id);
 
 		return pedidos.procurarPedido(id);
 	}
-
-	public void atualizarPedidoAddMais(int id, Produto produto) {
-		pedidos.atualizarPedidoAddMais(id, produto);
+	public void alterarStatus(int id) {
+		RepositorioPedidoArray.getInstance();
+		pedidos.alterarStatus(id);
+		RepositorioPedidoArray.getInstance().salvarArquivo();
 	}
 
-	public void atualizarPedidoRemoverPedido(int id, Produto produto) {
-		pedidos.atualizarPedidoRemoverPedido(id, produto);
-	}
+	
 }

@@ -53,7 +53,7 @@ public class TelaListarFuncionarios extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaListarFuncionarios() {
-		setTitle("Listar Funcion√°rio");
+		setTitle("Listar Funcion·rios");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 380);
 		contentPane = new JPanel();
@@ -67,6 +67,7 @@ public class TelaListarFuncionarios extends JFrame {
 
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
+		textArea.setEditable(false);
 
 		JLabel lblListarFuncionrios = new JLabel("Listar Funcion\u00E1rios");
 		lblListarFuncionrios.setFont(new Font("Tahoma", Font.BOLD, 24));
@@ -97,8 +98,8 @@ public class TelaListarFuncionarios extends JFrame {
 				
 			}
 		});
-		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnListarTodos.setBounds(47, 297, 122, 23);
+		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnListarTodos.setBounds(10, 296, 102, 23);
 		contentPane.add(btnListarTodos);
 
 		JButton btnVoltar = new JButton("Voltar");
@@ -110,7 +111,7 @@ public class TelaListarFuncionarios extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnVoltar.setBounds(290, 297, 89, 23);
+		btnVoltar.setBounds(231, 297, 79, 23);
 		contentPane.add(btnVoltar);
 		
 		JButton btnReset = new JButton("Reset");
@@ -120,8 +121,18 @@ public class TelaListarFuncionarios extends JFrame {
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnReset.setBounds(189, 298, 89, 23);
+		btnReset.setBounds(154, 297, 79, 23);
 		contentPane.add(btnReset);
+		
+		JButton btnFechar = new JButton("Fechar");
+		btnFechar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnFechar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnFechar.setBounds(335, 297, 89, 23);
+		contentPane.add(btnFechar);
 
 	}
 }

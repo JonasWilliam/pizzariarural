@@ -24,8 +24,6 @@ public class TelaProcurarPedido extends JFrame {
 	private JPanel contentPane;
 	private static JFrame telaProcurarPedidoinstance;
 	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
 
 	public static JFrame getInstance() {
 		if (TelaProcurarPedido.telaProcurarPedidoinstance == null)
@@ -67,11 +65,12 @@ public class TelaProcurarPedido extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(33, 142, 358, 166);
+		scrollPane.setBounds(33, 142, 358, 202);
 		contentPane.add(scrollPane);
 		
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
+		textArea.setEditable(false);
 		
 		JLabel lblProcurarPedido = new JLabel("Procurar Pedido");
 		lblProcurarPedido.setFont(new Font("Tahoma", Font.BOLD, 24));
@@ -113,16 +112,6 @@ public class TelaProcurarPedido extends JFrame {
 		btnProcurar.setBounds(172, 108, 89, 23);
 		contentPane.add(btnProcurar);
 		
-		JButton btnAddAoPedido = new JButton("Adicionar ao Pedido");
-		btnAddAoPedido.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnAddAoPedido.setBounds(219, 319, 185, 23);
-		contentPane.add(btnAddAoPedido);
-		
-		JButton btnRemoverItem = new JButton("Remover Item do Pedido");
-		btnRemoverItem.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnRemoverItem.setBounds(219, 341, 185, 23);
-		contentPane.add(btnRemoverItem);
-		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -131,22 +120,28 @@ public class TelaProcurarPedido extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnVoltar.setBounds(172, 368, 89, 32);
+		btnVoltar.setBounds(245, 374, 89, 23);
 		contentPane.add(btnVoltar);
 		
 		JButton btnReset = new JButton("Reset");
-		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnReset.setBounds(271, 108, 89, 23);
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textArea.setText("");
+				textField.setText("");
+			}
+		});
+		btnReset.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnReset.setBounds(64, 374, 89, 23);
 		contentPane.add(btnReset);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(22, 319, 187, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(22, 342, 187, 20);
-		contentPane.add(textField_2);
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				TelaAlterarStatusPedido.getInstance().setVisible(true);
+			}
+		});
+		btnAlterar.setBounds(163, 376, 89, 23);
+		contentPane.add(btnAlterar);
 	}
 }

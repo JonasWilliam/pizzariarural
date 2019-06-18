@@ -18,7 +18,8 @@ import gui.funcionarios.TelaListarFuncionarios;
 import gui.funcionarios.TelaProcurarFuncionarios;
 import gui.funcionarios.TelaRemocaoFuncionario;
 import gui.pedidos.TelaCadastrarPedido;
-import gui.pedidos.TelaListarPedido;
+import gui.pedidos.TelaListarPedidosAberto;
+import gui.pedidos.TelaListarTodosPedido;
 import gui.pedidos.TelaProcurarPedido;
 import gui.pedidos.TelaRemocaoPedido;
 import gui.produtos.TelaCadastroPizza;
@@ -61,7 +62,7 @@ public class TelaPrincipal extends JFrame {
 	 */
 	public TelaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 340, 300);
+		setBounds(100, 100, 416, 300);
 
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -135,13 +136,22 @@ public class TelaPrincipal extends JFrame {
 				TelaProcurarPedido.getInstance().setVisible(true);
 			}
 		});
+		
+		JMenuItem mntmListarPedidosEm = new JMenuItem("Listar Pedidos em Aberto");
+		mntmListarPedidosEm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaListarPedidosAberto.getInstance().setVisible(true);
+			}
+		});
+		mnNewMenuPedidos.add(mntmListarPedidosEm);
 		mnNewMenuPedidos.add(mntmProcurar_1);
 
-		JMenuItem mntmListarPedidos = new JMenuItem("Listar Pedidos");
+		JMenuItem mntmListarPedidos = new JMenuItem("Listar Todos Pedidos");
 		mntmListarPedidos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				TelaListarPedido.getInstance().setVisible(true);
+				TelaListarTodosPedido.getInstance().setVisible(true);
 			}
 		});
 		mnNewMenuPedidos.add(mntmListarPedidos);
@@ -203,6 +213,16 @@ public class TelaPrincipal extends JFrame {
 			}
 		});
 		mnNewFuncionarios.add(mntmRemover_1);
+		
+		JMenuItem mntmSair = new JMenuItem("Sair");
+		mntmSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaLogin.getInstance().setVisible(true);
+			}
+		});
+		mntmSair.setFont(new Font("Tahoma", Font.BOLD, 18));
+		menuBar.add(mntmSair);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

@@ -87,6 +87,7 @@ public class TelaCadastrarPedido extends JFrame {
 
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
+		textArea.setEditable(false);
 
 		JLabel lblCliente = new JLabel("Cliente :");
 		lblCliente.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -147,6 +148,7 @@ public class TelaCadastrarPedido extends JFrame {
 		JButton btnCalcularTotal = new JButton("Calcular Total");
 		btnCalcularTotal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				txtId.setText(txtTel.getText());
 				float total = 0;
 				for(int i = 0; i < produtos.size(); i++) {
 					total += produtos.get(i).getValor();
@@ -167,9 +169,10 @@ public class TelaCadastrarPedido extends JFrame {
 				cliente.setNome(txtCliente.getText());
 				cliente.setEndereco(txtEnd.getText());
 				cliente.setTelefone(txtTel.getText());
+				txtId.setText(txtTel.getText());
 				int id = (Integer.parseInt(txtId.getText()));
 				float soma = (Float.parseFloat(TOTAL.getText()));
-				 pedido = new Pedido(cliente,produtos,entregador,soma,id);
+				 pedido = new Pedido(cliente,produtos,entregador,soma,id,true);
 				 try {
 					Fachada.getInstance().criarPedido(pedido);
 					JOptionPane.showMessageDialog(null, "Pedido adicionado ao repositorio com sucesso");
@@ -211,7 +214,8 @@ public class TelaCadastrarPedido extends JFrame {
 		txtId.setBounds(103, 220, 144, 20);
 		contentPane.add(txtId);
 		txtId.setColumns(10);
-
+		txtId.setEditable(false);
+		
 		txtNomeDoEntregador = new JTextField();
 		txtNomeDoEntregador.setBounds(103, 173, 144, 20);
 		contentPane.add(txtNomeDoEntregador);

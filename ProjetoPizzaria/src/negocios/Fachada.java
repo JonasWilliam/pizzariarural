@@ -2,6 +2,7 @@ package negocios;
 
 
 
+import dados.RepositorioPedidoArray;
 import negocios.controles.ControleFuncionario;
 import negocios.controles.ControlePedido;
 import negocios.controles.ControleProduto;
@@ -47,12 +48,8 @@ public class Fachada{
 		return pedidos.procurarPedido(id);
 	}
 
-	public void atualizarPedidoAddMais(int id, Produto produto) {
-		pedidos.atualizarPedidoAddMais(id, produto);
-	}
-
-	public void atualizarPedidoRemoverPedido(int id, Produto produto) {
-		pedidos.atualizarPedidoRemoverPedido(id, produto);
+	public void alterarStatus(int id) {
+		pedidos.alterarStatus(id);
 	}
 
 	// Produto

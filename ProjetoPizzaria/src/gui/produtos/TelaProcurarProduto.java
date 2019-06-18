@@ -58,6 +58,7 @@ public class TelaProcurarProduto extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaProcurarProduto() {
+		setTitle("Procurar Produtos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 350);
 		contentPane = new JPanel();
@@ -71,6 +72,7 @@ public class TelaProcurarProduto extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
+		textArea.setEditable(false);
 		
 		JLabel lblProcurarUmProduto = new JLabel("Procurar um Produto");
 		lblProcurarUmProduto.setFont(new Font("Tahoma", Font.BOLD, 25));
