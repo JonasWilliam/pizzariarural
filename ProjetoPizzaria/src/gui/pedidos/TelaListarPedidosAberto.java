@@ -129,8 +129,9 @@ public class TelaListarPedidosAberto extends JFrame {
 						if (p[i] != null) {
 							if (p[i].getId() == Integer.parseInt(txtid.getText())) {
 								produtos = p[i].getProdutos();
+								textArea.append(String.valueOf(p[i].getId()));
 								for (int j = 0; j < produtos.size(); j++) {
-									textArea.append(String.valueOf(p[i].getId()));
+									
 									textArea.append("\n Código do produto:");
 									textArea.append(produtos.get(j).getCodigo());
 								}

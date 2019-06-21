@@ -120,7 +120,7 @@ public class TelaProcurarPedido extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnVoltar.setBounds(245, 374, 89, 23);
+		btnVoltar.setBounds(302, 374, 89, 23);
 		contentPane.add(btnVoltar);
 		
 		JButton btnReset = new JButton("Reset");
@@ -131,17 +131,18 @@ public class TelaProcurarPedido extends JFrame {
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnReset.setBounds(64, 374, 89, 23);
+		btnReset.setBounds(10, 374, 89, 23);
 		contentPane.add(btnReset);
 		
-		JButton btnAlterar = new JButton("Alterar");
+		JButton btnAlterar = new JButton("Alterar Status");
+		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				TelaAlterarStatusPedido.getInstance().setVisible(true);
 			}
 		});
-		btnAlterar.setBounds(163, 376, 89, 23);
+		btnAlterar.setBounds(139, 375, 122, 23);
 		contentPane.add(btnAlterar);
 	}
 }

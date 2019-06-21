@@ -79,23 +79,15 @@ public class TelaListarFuncionarios extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
 				Funcionario[] funcionarios = Fachada.getInstance().listarFuncionario();
-				//ArrayList<Funcionario> cpfFuncionarios = new ArrayList<Funcionario>();
+
 				for (int i = 0; i < funcionarios.length; i++) {
 					if (funcionarios[i] != null) {
-					//	cpfFuncionarios.add(funcionarios[i]);
+						// cpfFuncionarios.add(funcionarios[i]);
 						textArea.append(funcionarios[i].toString());
 					}
 
 				}
-			/*	textArea.setText("");
-				Produto[] produto = Fachada.getInstance().listarProdutos();
-				for (int i = 0; i < produto.length; i++) {
-					if(produto[i] != null) {
-						textArea.append(produto[i].toString());	
-					}
-					
-				}*/
-				
+
 			}
 		});
 		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -113,7 +105,7 @@ public class TelaListarFuncionarios extends JFrame {
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnVoltar.setBounds(231, 297, 79, 23);
 		contentPane.add(btnVoltar);
-		
+
 		JButton btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -123,7 +115,7 @@ public class TelaListarFuncionarios extends JFrame {
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnReset.setBounds(154, 297, 79, 23);
 		contentPane.add(btnReset);
-		
+
 		JButton btnFechar = new JButton("Fechar");
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

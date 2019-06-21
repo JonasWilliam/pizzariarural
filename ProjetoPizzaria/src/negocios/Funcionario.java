@@ -71,7 +71,7 @@ public class Funcionario  implements Serializable{
 
 	@Override
 	public String toString() {
-		return "\n ********************** \n"+" nome=" + nome + ",\n salario=" + salario + ",\n cpf="
+		return "\n ********************** \n"+" nome: " + nome + "\n salario:" + salario + ",\n cpf:"
 				+ cpf + "\n Cargo:"+ cargo + "\n **********************";
 	}
 

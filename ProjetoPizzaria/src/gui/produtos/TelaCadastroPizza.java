@@ -195,7 +195,8 @@ public class TelaCadastroPizza extends JFrame {
 						txtCustoMaodeObra.setText("");
 						dispose();
 						TelaPrincipal.getInstance().setVisible(true);
-					}else {
+						
+					}else if(txtCodigo.getText().equals(p.getCodigo())){
 						JOptionPane.showMessageDialog(null, "Já existe uma Pizza adicionada ao repositorio com esse Código.");
 					}
 				} catch (IdProdutoException eId) {
