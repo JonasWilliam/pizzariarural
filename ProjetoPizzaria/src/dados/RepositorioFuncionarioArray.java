@@ -43,7 +43,7 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 			if (funcionarios[i].getCpf().equals(cpf)) {
 				funcionarios[i] = null;
 				indice--;
-				System.out.println("removeu na posição" + i);
+				
 
 				for (int j = 0; j < indice; j++) {
 					System.out.println("chegou no 2 for");
@@ -51,7 +51,7 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 						if (funcionarios[j + 1] != null) {
 							funcionarios[j] = funcionarios[j + 1];
 						}
-						System.out.println("chegou no ao fim do for");
+						
 
 					}
 				}
@@ -63,9 +63,7 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 
 	@Override
 	public Funcionario[] listarFuncionario() {
-		for (int i = 0; i < indice; i++) {
-			System.out.println(indice + " " + funcionarios[i].getCpf() + " " + funcionarios[i].getNome());
-		}
+		
 		return funcionarios;
 	}
 
@@ -74,8 +72,7 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 		Funcionario a = null;
 		for (int i = 0; i < indice; i++) {
 			if (funcionarios[i].getCpf().equals(cpf)) {
-				System.out.println("Nome: " + funcionarios[i].getNome() + " senha: " + funcionarios[i].getSenha());
-				//a = funcionarios[i];
+				
 				return funcionarios[i];
 			} else
 				a = null;
@@ -88,7 +85,6 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 	@Override
 	public void alterarSenhaFuncionario(String senha, String cpf) {
 		Funcionario a = new Funcionario();
-		System.out.println("********");
 		a = procurarFuncionario(cpf);
 		a.setSenha(senha);
 

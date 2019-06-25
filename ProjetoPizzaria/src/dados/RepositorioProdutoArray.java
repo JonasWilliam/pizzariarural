@@ -25,7 +25,6 @@ public class RepositorioProdutoArray implements RepositorioProduto, Serializable
 	@Override
 	public void cadastrarProduto(Produto produto) {
 		this.produtos[indice] = produto;
-		//produtos[indice].setId(indice);
 		this.indice = this.indice + 1;
 		
 	}
@@ -36,16 +35,16 @@ public class RepositorioProdutoArray implements RepositorioProduto, Serializable
 			if (produtos[i].getCodigo().equals(codigo)) {
 				produtos[i] = null;
 				indice--;
-				System.out.println("removeu na posição" + i);
+			
 
 				for (int j = 0; j < indice; j++) {
-					System.out.println("chegou no segundo FOR");
+				
 					if (produtos[j] == null) {
 						if (produtos[j + 1] != null) {
 							produtos[j] = produtos[j + 1];
 							break;
 						}
-						System.out.println("chegou no ao fim do for");
+					
 					}
 				}
 			}
@@ -55,7 +54,7 @@ public class RepositorioProdutoArray implements RepositorioProduto, Serializable
 	@Override
 	public Produto[] listarProdutos() {
 		for (int i = 0; i < indice; i++) {
-			System.out.println(indice + " " + produtos[i].getNome());
+			
 		}
 		return produtos;
 	}
@@ -65,7 +64,7 @@ public class RepositorioProdutoArray implements RepositorioProduto, Serializable
 		Produto p = null;
 		for (int i = 0; i < indice; i++) {
 			if (produtos[i].getCodigo().equals(codigo)) {
-				System.out.println("Nome: " + produtos[i].getNome());
+			
 				return produtos[i];
 			} else
 				p = null;
