@@ -104,8 +104,8 @@ public class TelaCadastrarPedido extends JFrame {
 		contentPane.add(lblDadosDoCliente);
 
 		JLabel lblEntregador = new JLabel("Entregador :");
-		lblEntregador.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblEntregador.setBounds(12, 175, 93, 15);
+		lblEntregador.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblEntregador.setBounds(7, 167, 80, 23);
 		contentPane.add(lblEntregador);
 
 		JLabel lblNomeCliente = new JLabel("Telefone :");
@@ -140,11 +140,11 @@ public class TelaCadastrarPedido extends JFrame {
 		
 
 		JComboBox comboBoxentregadores = new JComboBox();
-		comboBoxentregadores.setBounds(115, 172, 80, 22);
+		comboBoxentregadores.setBounds(96, 168, 114, 22);
 		contentPane.add(comboBoxentregadores);
 
-		JButton btnCarregar = new JButton("Carregar");
-		btnCarregar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		JButton btnCarregar = new JButton("\r\nListar");
+		btnCarregar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnCarregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Funcionario[] entregadores;
@@ -166,7 +166,7 @@ public class TelaCadastrarPedido extends JFrame {
 		txtEntregador.setEditable(false);
 		txtEntregador.setVisible(false);
 		
-		btnCarregar.setBounds(205, 172, 89, 23);
+		btnCarregar.setBounds(220, 167, 80, 23);
 		contentPane.add(btnCarregar);
 
 		JButton btnCalcularTotal = new JButton("Calcular Total");

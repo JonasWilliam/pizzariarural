@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import gui.funcionarios.TelaCadastroFuncionario;
 import negocios.Fachada;
 import negocios.Funcionario;
 import javax.swing.JPasswordField;
@@ -54,7 +55,7 @@ public class TelaLogin extends JFrame {
 	public TelaLogin() {
 		setTitle("Pizzaria Rural");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 353, 330);
+		setBounds(100, 100, 368, 330);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -92,12 +93,9 @@ public class TelaLogin extends JFrame {
 					Funcionario[] listaFuncionario = Fachada.getInstance().listarFuncionario();
 					if (achouFuncionario == null) {
 
-						if ((txtCpf.getText().equals("admin") && txtSenha.getText().equals("admin"))) {
-							setVisible(false);
-							TelaPrincipal.getInstance().setVisible(true);
-						} else {
+					
 							JOptionPane.showMessageDialog(null, "Funcionário não existe.");
-						}
+						
 					} else {
 						if (achouFuncionario.getCpf().equals(txtCpf.getText())
 								&& achouFuncionario.getSenha().equals(txtSenha.getText())
@@ -118,7 +116,7 @@ public class TelaLogin extends JFrame {
 
 		});
 		btnEntrar.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnEntrar.setBounds(61, 209, 111, 23);
+		btnEntrar.setBounds(10, 210, 100, 23);
 		contentPane.add(btnEntrar);
 
 		JButton btnReset = new JButton("Reset");
@@ -129,11 +127,22 @@ public class TelaLogin extends JFrame {
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnReset.setBounds(186, 209, 100, 25);
+		btnReset.setBounds(248, 209, 94, 25);
 		contentPane.add(btnReset);
 
 		txtSenha = new JPasswordField();
 		txtSenha.setBounds(110, 152, 176, 26);
 		contentPane.add(txtSenha);
+		
+		JButton btnCadastro = new JButton("Cadastro");
+		btnCadastro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastroFuncionario.getInstance().setVisible(true);
+				dispose();
+			}
+		});
+		btnCadastro.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnCadastro.setBounds(120, 212, 118, 23);
+		contentPane.add(btnCadastro);
 	}
 }

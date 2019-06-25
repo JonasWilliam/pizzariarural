@@ -111,6 +111,7 @@ public class TelaListarPedidosAberto extends JFrame {
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
+				txtid.setText("");
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));
