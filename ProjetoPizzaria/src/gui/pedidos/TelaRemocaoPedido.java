@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import gui.TelaPrincipal;
 import negocios.Fachada;
 import negocios.Pedido;
+import java.awt.Color;
 
 public class TelaRemocaoPedido extends JFrame {
 
@@ -52,11 +53,12 @@ public class TelaRemocaoPedido extends JFrame {
 	public TelaRemocaoPedido() {
 		setTitle("Cancelar Pedido");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 270);
+		setBounds(100, 100, 450, 248);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(new Color(250, 235, 215));
 
 		JLabel lblCancelarPedido = new JLabel("Cancelar Pedido");
 		lblCancelarPedido.setFont(new Font("Tahoma", Font.BOLD, 24));
@@ -74,6 +76,8 @@ public class TelaRemocaoPedido extends JFrame {
 		textcdg.setColumns(10);
 
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBackground(Color.RED);
+		btnCancelar.setForeground(Color.BLACK);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (textcdg.getText().equals("")) {
@@ -91,10 +95,11 @@ public class TelaRemocaoPedido extends JFrame {
 			}
 		});
 		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnCancelar.setBounds(81, 165, 110, 23);
+		btnCancelar.setBounds(76, 141, 118, 23);
 		contentPane.add(btnCancelar);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBackground(Color.YELLOW);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -102,7 +107,7 @@ public class TelaRemocaoPedido extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnVoltar.setBounds(244, 165, 97, 23);
+		btnVoltar.setBounds(239, 141, 97, 23);
 		contentPane.add(btnVoltar);
 
 	}

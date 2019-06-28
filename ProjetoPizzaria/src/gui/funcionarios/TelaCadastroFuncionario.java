@@ -20,6 +20,7 @@ import negocios.Fachada;
 import negocios.Funcionario;
 import negocios.exception.CpfInvalidoException;
 import javax.swing.JComboBox;
+import java.awt.Color;
 
 public class TelaCadastroFuncionario extends JFrame {
 
@@ -63,6 +64,7 @@ public class TelaCadastroFuncionario extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 460, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(250, 235, 215));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -118,6 +120,7 @@ public class TelaCadastroFuncionario extends JFrame {
 		contentPane.add(textsenha);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setBackground(Color.GREEN);
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -172,6 +175,7 @@ public class TelaCadastroFuncionario extends JFrame {
 		contentPane.add(btnCadastrar);
 
 		JButton btnVoltarParaMenu = new JButton("Voltar");
+		btnVoltarParaMenu.setBackground(Color.RED);
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -183,6 +187,7 @@ public class TelaCadastroFuncionario extends JFrame {
 		contentPane.add(btnVoltarParaMenu);
 
 		JButton btnReset = new JButton("Reset");
+		btnReset.setBackground(Color.GRAY);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textnome.setText("");

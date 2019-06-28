@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Color;
 
 public class TelaAlterarSenhaFuncionario extends JFrame {
 
@@ -89,6 +90,7 @@ public class TelaAlterarSenhaFuncionario extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 280);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(250, 235, 215));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -109,6 +111,7 @@ public class TelaAlterarSenhaFuncionario extends JFrame {
 		textsenha.setColumns(10);
 		
 		JButton btnTeste_1 = new JButton("Alterar");
+		btnTeste_1.setBackground(Color.GREEN);
 		btnTeste_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnTeste_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -132,6 +135,7 @@ public class TelaAlterarSenhaFuncionario extends JFrame {
 		contentPane.add(lblCpf);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBackground(Color.RED);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import gui.TelaPrincipal;
 import negocios.Fachada;
 import negocios.Funcionario;
+import java.awt.Color;
 
 public class TelaRemocaoFuncionario extends JFrame {
 
@@ -55,6 +56,7 @@ public class TelaRemocaoFuncionario extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 270);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(250, 235, 215));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -75,6 +77,7 @@ public class TelaRemocaoFuncionario extends JFrame {
 		textcpf.setColumns(10);
 
 		JButton btnRemover = new JButton("Remover");
+		btnRemover.setBackground(Color.RED);
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (textcpf.getText().equals("")) {
@@ -96,6 +99,7 @@ public class TelaRemocaoFuncionario extends JFrame {
 		contentPane.add(btnRemover);
 
 		JButton btnVoltarParaMenu = new JButton("Voltar");
+		btnVoltarParaMenu.setBackground(Color.YELLOW);
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -107,6 +111,7 @@ public class TelaRemocaoFuncionario extends JFrame {
 		contentPane.add(btnVoltarParaMenu);
 		
 		JButton btnListarTodos = new JButton("Listar Todos");
+		btnListarTodos.setBackground(Color.GREEN);
 		btnListarTodos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaListarFuncionarios.getInstance().setVisible(true);

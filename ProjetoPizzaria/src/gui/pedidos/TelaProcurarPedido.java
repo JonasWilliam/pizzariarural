@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 import gui.TelaPrincipal;
 import negocios.Fachada;
 import negocios.Pedido;
+import java.awt.Color;
 
 public class TelaProcurarPedido extends JFrame {
 
@@ -63,6 +64,7 @@ public class TelaProcurarPedido extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(new Color(250, 235, 215));
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(33, 142, 358, 202);
@@ -88,6 +90,7 @@ public class TelaProcurarPedido extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnProcurar = new JButton("Procurar");
+		btnProcurar.setBackground(Color.GREEN);
 		btnProcurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("Dados: \n");
@@ -113,6 +116,7 @@ public class TelaProcurarPedido extends JFrame {
 		contentPane.add(btnProcurar);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBackground(Color.RED);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaPrincipal.getInstance().setVisible(true);
@@ -124,6 +128,7 @@ public class TelaProcurarPedido extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		JButton btnReset = new JButton("Reset");
+		btnReset.setBackground(Color.GRAY);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
@@ -135,6 +140,7 @@ public class TelaProcurarPedido extends JFrame {
 		contentPane.add(btnReset);
 		
 		JButton btnAlterar = new JButton("Alterar Status");
+		btnAlterar.setBackground(Color.GREEN);
 		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -27,6 +27,12 @@ import gui.produtos.TelaCadastroRefrigerante;
 import gui.produtos.TelaListarProdutos;
 import gui.produtos.TelaProcurarProduto;
 import gui.produtos.TelaRemocaoProduto;
+import java.awt.Color;
+import javax.swing.JSlider;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.JEditorPane;
+import javax.swing.JLabel;
 
 public class TelaPrincipal extends JFrame {
 
@@ -68,6 +74,7 @@ public class TelaPrincipal extends JFrame {
 		setJMenuBar(menuBar);
 
 		JMenu mnNewMenuProdutos = new JMenu("Produtos");
+		mnNewMenuProdutos.setBackground(Color.LIGHT_GRAY);
 		mnNewMenuProdutos.setFont(new Font("Tahoma", Font.BOLD, 18));
 		menuBar.add(mnNewMenuProdutos);
 
@@ -117,6 +124,7 @@ public class TelaPrincipal extends JFrame {
 		mnNewMenuProdutos.add(mntmRemover);
 
 		JMenu mnNewMenuPedidos = new JMenu("Pedidos");
+		mnNewMenuPedidos.setBackground(Color.LIGHT_GRAY);
 		mnNewMenuPedidos.setFont(new Font("Tahoma", Font.BOLD, 18));
 		menuBar.add(mnNewMenuPedidos);
 
@@ -166,6 +174,7 @@ public class TelaPrincipal extends JFrame {
 		mnNewMenuPedidos.add(mntmCancelar);
 
 		JMenu mnNewFuncionarios = new JMenu("Funcion\u00E1rios\r\n");
+		mnNewFuncionarios.setBackground(Color.LIGHT_GRAY);
 		mnNewFuncionarios.setFont(new Font("Tahoma", Font.BOLD, 18));
 		menuBar.add(mnNewFuncionarios);
 
@@ -215,6 +224,7 @@ public class TelaPrincipal extends JFrame {
 		mnNewFuncionarios.add(mntmRemover_1);
 		
 		JMenuItem mntmSair = new JMenuItem("Sair");
+		mntmSair.setBackground(Color.RED);
 		mntmSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -224,6 +234,7 @@ public class TelaPrincipal extends JFrame {
 		mntmSair.setFont(new Font("Tahoma", Font.BOLD, 18));
 		menuBar.add(mntmSair);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(250, 235, 215));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

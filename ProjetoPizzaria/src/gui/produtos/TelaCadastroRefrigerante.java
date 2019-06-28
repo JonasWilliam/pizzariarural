@@ -20,6 +20,7 @@ import negocios.Produto;
 import negocios.Refrigerante;
 import negocios.Tamanho;
 import negocios.exception.IdProdutoException;
+import java.awt.Color;
 
 public class TelaCadastroRefrigerante extends JFrame {
 
@@ -67,6 +68,7 @@ public class TelaCadastroRefrigerante extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(new Color(250, 235, 215));
 
 		JLabel lblCadastroDePizza = new JLabel("Cadastro de Refrigerante\r\n");
 		lblCadastroDePizza.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -84,6 +86,7 @@ public class TelaCadastroRefrigerante extends JFrame {
 		textNome.setColumns(10);
 
 		JButton btnVoltarParaMenu = new JButton("Voltar");
+		btnVoltarParaMenu.setBackground(Color.RED);
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -132,6 +135,7 @@ public class TelaCadastroRefrigerante extends JFrame {
 		contentPane.add(lblTamanho);
 
 		JButton btnCadastrarRefrigerante = new JButton("Cadastrar");
+		btnCadastrarRefrigerante.setBackground(Color.GREEN);
 		btnCadastrarRefrigerante.addActionListener(new ActionListener() {
 
 			@Override

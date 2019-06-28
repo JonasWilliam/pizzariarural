@@ -21,6 +21,7 @@ import negocios.Pizza;
 import negocios.Produto;
 import negocios.Tamanho;
 import negocios.exception.IdProdutoException;
+import java.awt.Color;
 
 public class TelaCadastroPizza extends JFrame {
 
@@ -69,6 +70,7 @@ public class TelaCadastroPizza extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(new Color(250, 235, 215));
 
 		JLabel lblCadastroDePizza = new JLabel("Cadastro de Pizza\r\n");
 		lblCadastroDePizza.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -86,6 +88,7 @@ public class TelaCadastroPizza extends JFrame {
 		contentPane.add(txtSabor);
 
 		JButton btnVoltarParaMenu = new JButton("Voltar");
+		btnVoltarParaMenu.setBackground(Color.RED);
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -169,6 +172,7 @@ public class TelaCadastroPizza extends JFrame {
 		txtValorTotal.setColumns(10);
 
 		JButton btnCadastrarPizza = new JButton("Cadastrar");
+		btnCadastrarPizza.setBackground(Color.GREEN);
 		btnCadastrarPizza.addActionListener(new ActionListener() {
 
 			@Override
@@ -211,6 +215,7 @@ public class TelaCadastroPizza extends JFrame {
 		contentPane.add(btnCadastrarPizza);
 
 		JButton btnReset = new JButton("Reset");
+		btnReset.setBackground(Color.GRAY);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtSabor.setText("");

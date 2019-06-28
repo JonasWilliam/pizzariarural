@@ -19,6 +19,7 @@ import gui.TelaPrincipal;
 import negocios.Fachada;
 import negocios.Pedido;
 import negocios.Produto;
+import java.awt.Color;
 
 public class TelaListarPedidosAberto extends JFrame {
 
@@ -62,6 +63,7 @@ public class TelaListarPedidosAberto extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(new Color(250, 235, 215));
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 100, 400, 173);
@@ -77,6 +79,7 @@ public class TelaListarPedidosAberto extends JFrame {
 		contentPane.add(lblListarPedidos);
 
 		JButton btnListarTodos = new JButton("Listar");
+		btnListarTodos.setBackground(Color.GREEN);
 		btnListarTodos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
@@ -97,6 +100,7 @@ public class TelaListarPedidosAberto extends JFrame {
 		contentPane.add(btnListarTodos);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBackground(Color.RED);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -108,6 +112,7 @@ public class TelaListarPedidosAberto extends JFrame {
 		contentPane.add(btnVoltar);
 
 		JButton btnReset = new JButton("Reset");
+		btnReset.setBackground(Color.GRAY);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
@@ -119,6 +124,8 @@ public class TelaListarPedidosAberto extends JFrame {
 		contentPane.add(btnReset);
 
 		JButton btnTeste = new JButton("Procurar");
+		btnTeste.setBackground(Color.GREEN);
+		btnTeste.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnTeste.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("Código do Pedido: ");

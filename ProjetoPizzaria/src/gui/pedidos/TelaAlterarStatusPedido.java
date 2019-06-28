@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import gui.TelaPrincipal;
 import negocios.Fachada;
 import negocios.Pedido;
+import java.awt.Color;
 
 public class TelaAlterarStatusPedido extends JFrame {
 
@@ -53,15 +54,16 @@ public class TelaAlterarStatusPedido extends JFrame {
 	 */
 	public TelaAlterarStatusPedido() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 417, 260);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(250, 235, 215));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblAlterarStatus = new JLabel("Alterar Status Pedido");
 		lblAlterarStatus.setFont(new Font("Tahoma", Font.BOLD, 28));
-		lblAlterarStatus.setBounds(64, 11, 328, 26);
+		lblAlterarStatus.setBounds(48, 11, 328, 26);
 		contentPane.add(lblAlterarStatus);
 		
 		JLabel lblInformeOId = new JLabel("Informe o Id do pedido:");
@@ -70,11 +72,12 @@ public class TelaAlterarStatusPedido extends JFrame {
 		contentPane.add(lblInformeOId);
 		
 		textid = new JTextField();
-		textid.setBounds(257, 109, 135, 20);
+		textid.setBounds(222, 109, 135, 20);
 		contentPane.add(textid);
 		textid.setColumns(10);
 		
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setBackground(Color.GREEN);
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Fachada.getInstance().alterarStatus(Integer.parseInt(textid.getText()));
@@ -83,11 +86,12 @@ public class TelaAlterarStatusPedido extends JFrame {
 				TelaPrincipal.getInstance().setVisible(true);
 			}
 		});
-		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnAlterar.setBounds(91, 161, 89, 23);
+		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnAlterar.setBounds(82, 161, 98, 24);
 		contentPane.add(btnAlterar);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBackground(Color.RED);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -95,7 +99,7 @@ public class TelaAlterarStatusPedido extends JFrame {
 			}
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnVoltar.setBounds(203, 162, 89, 23);
+		btnVoltar.setBounds(222, 163, 89, 23);
 		contentPane.add(btnVoltar);
 	}
 }

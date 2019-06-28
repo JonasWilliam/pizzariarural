@@ -28,6 +28,7 @@ import gui.produtos.TelaCadastroRefrigerante;
 import gui.produtos.TelaListarProdutos;
 import gui.produtos.TelaProcurarProduto;
 import gui.produtos.TelaRemocaoProduto;
+import java.awt.Color;
 
 public class TelaPrincipalVendedor extends JFrame {
 
@@ -176,6 +177,7 @@ public class TelaPrincipalVendedor extends JFrame {
 		mntmSair.setFont(new Font("Tahoma", Font.BOLD, 18));
 		menuBar.add(mntmSair);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(250, 235, 215));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

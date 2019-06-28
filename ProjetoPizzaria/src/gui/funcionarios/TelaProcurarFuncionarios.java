@@ -20,6 +20,7 @@ import negocios.Funcionario;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Color;
 
 public class TelaProcurarFuncionarios extends JFrame {
 
@@ -59,6 +60,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 300, 380);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(250, 235, 215));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -72,6 +74,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 		textArea.setEditable(false);
 		
 		JButton btnProcurar = new JButton("Procurar");
+		btnProcurar.setBackground(Color.GREEN);
 		btnProcurar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnProcurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -112,6 +115,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 		contentPane.add(lblInformeOCpf);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBackground(Color.RED);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -124,6 +128,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		JButton btnReset = new JButton("Reset");
+		btnReset.setBackground(Color.GRAY);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");

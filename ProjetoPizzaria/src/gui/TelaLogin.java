@@ -14,9 +14,11 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import gui.funcionarios.TelaCadastroFuncionario;
+import negocios.Cargos;
 import negocios.Fachada;
 import negocios.Funcionario;
 import javax.swing.JPasswordField;
+import java.awt.Color;
 
 public class TelaLogin extends JFrame {
 
@@ -82,20 +84,28 @@ public class TelaLogin extends JFrame {
 		contentPane.add(lblSenha);
 
 		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.setBackground(Color.GREEN);
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				if (txtCpf.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Digite o cpf do funcionario.");
-				} else {
+				}
+
+				else {
 
 					Funcionario achouFuncionario = Fachada.getInstance().procurarFuncionario(txtCpf.getText());
 					Funcionario[] listaFuncionario = Fachada.getInstance().listarFuncionario();
-					if (achouFuncionario == null) {
 
-					
-							JOptionPane.showMessageDialog(null, "Funcionário não existe.");
-						
+					if (achouFuncionario == null) {
+						if (txtCpf.getText().equals("admin") && txtSenha.getText().equals("admin")) {
+							TelaPrincipal.getInstance().setVisible(true);
+							setVisible(false);
+						}else {
+						JOptionPane.showMessageDialog(null, "Funcionário não existe.");
+						txtCpf.setText("");
+						txtSenha.setText("");
+						}
 					} else {
 						if (achouFuncionario.getCpf().equals(txtCpf.getText())
 								&& achouFuncionario.getSenha().equals(txtSenha.getText())
@@ -116,10 +126,11 @@ public class TelaLogin extends JFrame {
 
 		});
 		btnEntrar.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnEntrar.setBounds(10, 210, 100, 23);
+		btnEntrar.setBounds(74, 210, 100, 23);
 		contentPane.add(btnEntrar);
 
 		JButton btnReset = new JButton("Reset");
+		btnReset.setBackground(new Color(250, 235, 215));
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtSenha.setText("");
@@ -127,22 +138,11 @@ public class TelaLogin extends JFrame {
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnReset.setBounds(248, 209, 94, 25);
+		btnReset.setBounds(184, 209, 94, 25);
 		contentPane.add(btnReset);
 
 		txtSenha = new JPasswordField();
 		txtSenha.setBounds(110, 152, 176, 26);
 		contentPane.add(txtSenha);
-		
-		JButton btnCadastro = new JButton("Cadastro");
-		btnCadastro.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaCadastroFuncionario.getInstance().setVisible(true);
-				dispose();
-			}
-		});
-		btnCadastro.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnCadastro.setBounds(120, 212, 118, 23);
-		contentPane.add(btnCadastro);
 	}
 }

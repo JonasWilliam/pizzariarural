@@ -20,6 +20,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 
 import java.awt.Font;
+import java.awt.Color;
 
 public class TelaListarProdutos extends JFrame {
 
@@ -61,6 +62,7 @@ public class TelaListarProdutos extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setBackground(new Color(250, 235, 215));
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 54, 434, 181);
@@ -77,6 +79,7 @@ public class TelaListarProdutos extends JFrame {
 		contentPane.add(lblListarProdutos);
 
 		JButton btnListarTodos = new JButton("Listar Todos");
+		btnListarTodos.setBackground(Color.GREEN);
 		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnListarTodos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -97,6 +100,7 @@ public class TelaListarProdutos extends JFrame {
 		contentPane.add(btnListarTodos);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBackground(Color.YELLOW);
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -109,6 +113,7 @@ public class TelaListarProdutos extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		JButton btnReset = new JButton("Reset");
+		btnReset.setBackground(Color.GRAY);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
@@ -119,6 +124,7 @@ public class TelaListarProdutos extends JFrame {
 		contentPane.add(btnReset);
 		
 		JButton btnFechar = new JButton("Fechar");
+		btnFechar.setBackground(Color.RED);
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

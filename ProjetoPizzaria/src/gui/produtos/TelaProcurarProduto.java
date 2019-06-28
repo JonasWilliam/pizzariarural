@@ -22,6 +22,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class TelaProcurarProduto extends JFrame {
 
@@ -62,6 +63,7 @@ public class TelaProcurarProduto extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 350);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(250, 235, 215));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -90,6 +92,7 @@ public class TelaProcurarProduto extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnProcurar = new JButton("Procurar");
+		btnProcurar.setBackground(Color.GREEN);
 		btnProcurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -117,6 +120,7 @@ public class TelaProcurarProduto extends JFrame {
 		contentPane.add(btnProcurar);
 		
 		JButton btnVoltarParaMenu = new JButton("Voltar");
+		btnVoltarParaMenu.setBackground(Color.RED);
 		btnVoltarParaMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -128,6 +132,7 @@ public class TelaProcurarProduto extends JFrame {
 		contentPane.add(btnVoltarParaMenu);
 		
 		JButton btnReset = new JButton("Reset");
+		btnReset.setBackground(Color.GRAY);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText("");

@@ -19,6 +19,7 @@ import gui.TelaPrincipal;
 import negocios.Fachada;
 import negocios.Funcionario;
 import negocios.Produto;
+import java.awt.Color;
 
 public class TelaListarFuncionarios extends JFrame {
 
@@ -57,6 +58,7 @@ public class TelaListarFuncionarios extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 380);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(250, 235, 215));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -75,6 +77,7 @@ public class TelaListarFuncionarios extends JFrame {
 		contentPane.add(lblListarFuncionrios);
 
 		JButton btnListarTodos = new JButton("Listar");
+		btnListarTodos.setBackground(Color.GREEN);
 		btnListarTodos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
@@ -95,6 +98,7 @@ public class TelaListarFuncionarios extends JFrame {
 		contentPane.add(btnListarTodos);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBackground(Color.YELLOW);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -107,16 +111,18 @@ public class TelaListarFuncionarios extends JFrame {
 		contentPane.add(btnVoltar);
 
 		JButton btnReset = new JButton("Reset");
+		btnReset.setBackground(Color.GRAY);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnReset.setBounds(154, 297, 79, 23);
+		btnReset.setBounds(145, 297, 79, 23);
 		contentPane.add(btnReset);
 
 		JButton btnFechar = new JButton("Fechar");
+		btnFechar.setBackground(Color.RED);
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

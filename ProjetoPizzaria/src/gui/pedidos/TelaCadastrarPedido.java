@@ -26,6 +26,7 @@ import negocios.Funcionario;
 import negocios.Pedido;
 import negocios.Produto;
 import negocios.exception.ClientePedidosException;
+import java.awt.Color;
 
 public class TelaCadastrarPedido extends JFrame {
 
@@ -76,6 +77,7 @@ public class TelaCadastrarPedido extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 650, 450);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(250, 235, 215));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -134,6 +136,8 @@ public class TelaCadastrarPedido extends JFrame {
 		txtTel.setColumns(10);
 
 		TOTAL = new JTextField();
+		TOTAL.setFont(new Font("Tahoma", Font.BOLD, 14));
+		TOTAL.setEditable(false);
 		TOTAL.setBounds(103, 365, 86, 20);
 		contentPane.add(TOTAL);
 		TOTAL.setColumns(10);
@@ -144,6 +148,7 @@ public class TelaCadastrarPedido extends JFrame {
 		contentPane.add(comboBoxentregadores);
 
 		JButton btnCarregar = new JButton("\r\nListar");
+		btnCarregar.setBackground(Color.YELLOW);
 		btnCarregar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnCarregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -170,6 +175,7 @@ public class TelaCadastrarPedido extends JFrame {
 		contentPane.add(btnCarregar);
 
 		JButton btnCalcularTotal = new JButton("Calcular Total");
+		btnCalcularTotal.setBackground(Color.YELLOW);
 		btnCalcularTotal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtId.setText(txtTel.getText());
@@ -186,6 +192,7 @@ public class TelaCadastrarPedido extends JFrame {
 		contentPane.add(btnCalcularTotal);
 
 		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setBackground(Color.GREEN);
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				entregador.setNome(txtEntregador.getText());
@@ -217,6 +224,7 @@ public class TelaCadastrarPedido extends JFrame {
 		contentPane.add(btnConfirmar);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBackground(Color.RED);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaPrincipal.getInstance().setVisible(true);
@@ -249,6 +257,7 @@ public class TelaCadastrarPedido extends JFrame {
 		textAdd.setColumns(10);
 
 		JButton btnAdd = new JButton("Add");
+		btnAdd.setBackground(Color.GREEN);
 		btnAdd.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -271,6 +280,7 @@ public class TelaCadastrarPedido extends JFrame {
 		contentPane.add(btnAdd);
 
 		JButton btnDelet = new JButton("Apagar");
+		btnDelet.setBackground(Color.RED);
 		btnDelet.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnDelet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -296,6 +306,7 @@ public class TelaCadastrarPedido extends JFrame {
 		textRemove.setColumns(10);
 
 		JButton btnAtualizar = new JButton("Atualizar");
+		btnAtualizar.setBackground(Color.YELLOW);
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textArea.setText("");
@@ -314,6 +325,7 @@ public class TelaCadastrarPedido extends JFrame {
 		contentPane.add(lblProdutos);
 
 		JButton btnNewButton = new JButton("Listar Todos Produtos");
+		btnNewButton.setBackground(Color.GREEN);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaListarProdutos.getInstance().setVisible(true);
