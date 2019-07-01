@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
+import gui.funcionarios.FuncionarioTableModel;
 import negocios.Fachada;
 import negocios.Produto;
 import javax.swing.JTable;
@@ -26,6 +27,8 @@ public class TelaListarProdutos extends JFrame {
 
 	private JPanel contentPane;
 	private static JFrame telaListarProdutosinstance;
+	private JTable table;
+	ProdutoTableModel modelo = new ProdutoTableModel();
 
 	public static JFrame getInstance() {
 		if (TelaListarProdutos.telaListarProdutosinstance == null)
@@ -68,14 +71,14 @@ public class TelaListarProdutos extends JFrame {
 		scrollPane.setBounds(10, 54, 434, 181);
 		contentPane.add(scrollPane);
 		
-		JTextArea textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
-		textArea.setEditable(false);
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		table.setModel(modelo);
 		
 
 		JLabel lblListarProdutos = new JLabel("Listar Produtos");
 		lblListarProdutos.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblListarProdutos.setBounds(108, 11, 205, 32);
+		lblListarProdutos.setBounds(122, 11, 205, 32);
 		contentPane.add(lblListarProdutos);
 
 		JButton btnListarTodos = new JButton("Listar Todos");
@@ -83,15 +86,12 @@ public class TelaListarProdutos extends JFrame {
 		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnListarTodos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText("");
-				Produto[] produto = Fachada.getInstance().listarProdutos();
-				//ArrayList<Produto> nomeProdutos = new ArrayList<Produto>();
-				for (int i = 0; i < produto.length; i++) {
-					if(produto[i] != null) {
-						textArea.append(produto[i].toString());	
+				modelo.limparLista();
+				Produto[] produtos = Fachada.getInstance().listarProdutos();
+				for(int i = 0; i < produtos.length;i++) {
+					if(produtos[i] != null) {
+						modelo.addRow(produtos[i]);
 					}
-					
-
 				}
 				
 			}
@@ -116,7 +116,9 @@ public class TelaListarProdutos extends JFrame {
 		btnReset.setBackground(Color.GRAY);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText("");
+				TelaListarProdutos.getInstance().setVisible(false);
+				modelo.limparLista();
+				TelaListarProdutos.getInstance().setVisible(true);
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));

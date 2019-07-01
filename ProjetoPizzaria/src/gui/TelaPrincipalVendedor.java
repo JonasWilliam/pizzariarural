@@ -20,7 +20,7 @@ import gui.funcionarios.TelaProcurarFuncionarios;
 import gui.funcionarios.TelaRemocaoFuncionario;
 import gui.pedidos.TelaCadastrarPedido;
 import gui.pedidos.TelaListarPedidosAberto;
-import gui.pedidos.TelaListarTodosPedido;
+import gui.pedidos.TelaHistoricoDePedidos;
 import gui.pedidos.TelaProcurarPedido;
 import gui.pedidos.TelaRemocaoPedido;
 import gui.produtos.TelaCadastroPizza;
@@ -153,7 +153,7 @@ public class TelaPrincipalVendedor extends JFrame {
 		mntmListarPedidos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				TelaListarTodosPedido.getInstance().setVisible(true);
+				TelaHistoricoDePedidos.getInstance().setVisible(true);
 			}
 		});
 		mnNewMenuPedidos.add(mntmListarPedidos);

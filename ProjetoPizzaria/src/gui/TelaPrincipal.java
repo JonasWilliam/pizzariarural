@@ -19,7 +19,7 @@ import gui.funcionarios.TelaProcurarFuncionarios;
 import gui.funcionarios.TelaRemocaoFuncionario;
 import gui.pedidos.TelaCadastrarPedido;
 import gui.pedidos.TelaListarPedidosAberto;
-import gui.pedidos.TelaListarTodosPedido;
+import gui.pedidos.TelaHistoricoDePedidos;
 import gui.pedidos.TelaProcurarPedido;
 import gui.pedidos.TelaRemocaoPedido;
 import gui.produtos.TelaCadastroPizza;
@@ -155,11 +155,11 @@ public class TelaPrincipal extends JFrame {
 		mnNewMenuPedidos.add(mntmListarPedidosEm);
 		mnNewMenuPedidos.add(mntmProcurar_1);
 
-		JMenuItem mntmListarPedidos = new JMenuItem("Listar Todos Pedidos");
+		JMenuItem mntmListarPedidos = new JMenuItem("Listar Pedidos Fechados");
 		mntmListarPedidos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				TelaListarTodosPedido.getInstance().setVisible(true);
+				TelaHistoricoDePedidos.getInstance().setVisible(true);
 			}
 		});
 		mnNewMenuPedidos.add(mntmListarPedidos);

@@ -23,12 +23,15 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.JTable;
 
 public class TelaProcurarProduto extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private static JFrame telaProcurarProdutoinstance;
+	private JTable table;
+	ProdutoTableModel modelo = new ProdutoTableModel();
 
 	public static JFrame getInstance() {
 		if (TelaProcurarProduto.telaProcurarProdutoinstance == null)
@@ -72,9 +75,9 @@ public class TelaProcurarProduto extends JFrame {
 		scrollPane.setBounds(10, 100, 364, 150);
 		contentPane.add(scrollPane);
 		
-		JTextArea textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
-		textArea.setEditable(false);
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		table.setModel(modelo);
 		
 		JLabel lblProcurarUmProduto = new JLabel("Procurar um Produto");
 		lblProcurarUmProduto.setFont(new Font("Tahoma", Font.BOLD, 25));
@@ -96,7 +99,7 @@ public class TelaProcurarProduto extends JFrame {
 		btnProcurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				textArea.setText("Dados: \n");
+				
 				if(textField.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Digite o Nome do Produto.");
 				}
@@ -108,7 +111,7 @@ public class TelaProcurarProduto extends JFrame {
 						 JOptionPane.showMessageDialog(null, "Produto não existe.");
 					 }else{
 						 JOptionPane.showMessageDialog(null, "Produto existe.");
-						 textArea.append(achouProduto.toString());
+						 modelo.addRow(achouProduto);
 					 }
 					 
 				}
@@ -136,7 +139,7 @@ public class TelaProcurarProduto extends JFrame {
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textField.setText("");
-				textArea.setText("");
+				
 			}
 		});
 		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));

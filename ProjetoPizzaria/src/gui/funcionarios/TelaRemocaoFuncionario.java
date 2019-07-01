@@ -90,6 +90,7 @@ public class TelaRemocaoFuncionario extends JFrame {
 					} else {
 						Fachada.getInstance().removerFuncionario(textcpf.getText());
 						JOptionPane.showMessageDialog(null, "Funcionário removido com sucesso");
+						textcpf.setText("");
 					}
 				}
 			}

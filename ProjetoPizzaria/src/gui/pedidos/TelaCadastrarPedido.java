@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
+import gui.produtos.ProdutoTableModel;
 import gui.produtos.TelaListarProdutos;
 import negocios.Cliente;
 import negocios.Entregador;
@@ -27,6 +28,7 @@ import negocios.Pedido;
 import negocios.Produto;
 import negocios.exception.ClientePedidosException;
 import java.awt.Color;
+import javax.swing.JTable;
 
 public class TelaCadastrarPedido extends JFrame {
 
@@ -44,6 +46,8 @@ public class TelaCadastrarPedido extends JFrame {
 	ArrayList<Produto> produtos = new ArrayList<Produto>();
 	private JTextField textRemove;
 	private JTextField txtEntregador;
+	private JTable table;
+	ProdutoTableModel modelo = new ProdutoTableModel();
 
 	public static JFrame getInstance() {
 		if (TelaCadastrarPedido.telaPedidosinstance == null)
@@ -85,10 +89,10 @@ public class TelaCadastrarPedido extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(310, 40, 314, 150);
 		contentPane.add(scrollPane);
-
-		JTextArea textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
-		textArea.setEditable(false);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		table.setModel(modelo);
 
 		JLabel lblCliente = new JLabel("Cliente :");
 		lblCliente.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -212,6 +216,7 @@ public class TelaCadastrarPedido extends JFrame {
 					txtTel.setText("");
 					txtId.setText("");
 					TOTAL.setText("");
+					
 
 				} catch (ClientePedidosException e1) {
 					// TODO Auto-generated catch block
@@ -268,7 +273,7 @@ public class TelaCadastrarPedido extends JFrame {
 				} else if (p == null) {
 					JOptionPane.showMessageDialog(null, "Produto não existe");
 				} else {
-					textArea.append(p.toString());
+					modelo.addRow(p);
 					produtos.add(p);
 					textAdd.setText("");
 				}
@@ -288,6 +293,10 @@ public class TelaCadastrarPedido extends JFrame {
 				j = Fachada.getInstance().procurarProduto(textRemove.getText());
 				produtos.remove(j);
 				textRemove.setText("");
+				modelo.limparLista();
+				for(int i = 0; i < produtos.size(); i++) {
+					modelo.addRow(produtos.get(i));
+				}
 
 			}
 		});
@@ -304,20 +313,6 @@ public class TelaCadastrarPedido extends JFrame {
 		textRemove.setBounds(439, 243, 86, 20);
 		contentPane.add(textRemove);
 		textRemove.setColumns(10);
-
-		JButton btnAtualizar = new JButton("Atualizar");
-		btnAtualizar.setBackground(Color.YELLOW);
-		btnAtualizar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				textArea.setText("");
-				for (int i = 0; i < produtos.size(); i++) {
-					textArea.append(produtos.get(i).toString());
-				}
-			}
-		});
-		btnAtualizar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnAtualizar.setBounds(535, 272, 89, 23);
-		contentPane.add(btnAtualizar);
 
 		JLabel lblProdutos = new JLabel("PRODUTOS");
 		lblProdutos.setFont(new Font("Tahoma", Font.BOLD, 25));

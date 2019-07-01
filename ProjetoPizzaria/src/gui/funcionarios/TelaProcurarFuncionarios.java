@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -27,7 +28,9 @@ public class TelaProcurarFuncionarios extends JFrame {
 	private JPanel contentPane;
 	private JTextField textcpf;
 	private static JFrame telaListarFuncionarioinstance;
-
+	FuncionarioTableModel modelo = new FuncionarioTableModel();
+	private JTable table;
+	
 	public static JFrame getInstance() {
 		if (TelaProcurarFuncionarios.telaListarFuncionarioinstance == null)
 			TelaProcurarFuncionarios.telaListarFuncionarioinstance = new TelaProcurarFuncionarios();
@@ -58,7 +61,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 	public TelaProcurarFuncionarios() {
 		setTitle("Procurar Funcionário");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 300, 380);
+		setBounds(100, 100, 382, 380);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(250, 235, 215));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -66,19 +69,21 @@ public class TelaProcurarFuncionarios extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 100, 264, 150);
+		scrollPane.setBounds(10, 99, 346, 151);
 		contentPane.add(scrollPane);
 		
-		JTextArea textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
-		textArea.setEditable(false);
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		table.setModel(modelo);
+		
+		
 		
 		JButton btnProcurar = new JButton("Procurar");
 		btnProcurar.setBackground(Color.GREEN);
 		btnProcurar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnProcurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText("Dados: \n");
+				modelo.limparLista();
 				if(textcpf.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Digite o cpf do funcionario.");
 				}
@@ -90,7 +95,8 @@ public class TelaProcurarFuncionarios extends JFrame {
 						 JOptionPane.showMessageDialog(null, "Funcionário não existe.");
 					 }else{
 						 JOptionPane.showMessageDialog(null, "Funcionário existe.");
-						 textArea.append(achouFuncionario.toString());
+						 modelo.addRow(achouFuncionario);
+						
 					 }
 					 
 				}
@@ -124,14 +130,14 @@ public class TelaProcurarFuncionarios extends JFrame {
 			
 		});
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnVoltar.setBounds(145, 261, 110, 30);
+		btnVoltar.setBounds(195, 260, 110, 30);
 		contentPane.add(btnVoltar);
 		
 		JButton btnReset = new JButton("Reset");
 		btnReset.setBackground(Color.GRAY);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText("");
+				modelo.limparLista();
 				textcpf.setText("");
 			}
 		});

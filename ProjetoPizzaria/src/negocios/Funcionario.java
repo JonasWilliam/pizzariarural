@@ -10,6 +10,10 @@ public class Funcionario  implements Serializable{
 	private String senha;
 	private String cpf;
 	
+	public Funcionario(String nome,String cpf) {
+		this.nome = nome;
+		this.cpf = cpf;
+	}
 	public Funcionario(String nome) {
 		this.nome = nome;
 	}

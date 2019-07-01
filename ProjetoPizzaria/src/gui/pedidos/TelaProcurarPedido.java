@@ -19,12 +19,15 @@ import gui.TelaPrincipal;
 import negocios.Fachada;
 import negocios.Pedido;
 import java.awt.Color;
+import javax.swing.JTable;
 
 public class TelaProcurarPedido extends JFrame {
 
 	private JPanel contentPane;
 	private static JFrame telaProcurarPedidoinstance;
 	private JTextField textField;
+	private JTable table;
+	PedidosTableModel modelo = new PedidosTableModel();
 
 	public static JFrame getInstance() {
 		if (TelaProcurarPedido.telaProcurarPedidoinstance == null)
@@ -67,12 +70,12 @@ public class TelaProcurarPedido extends JFrame {
 		contentPane.setBackground(new Color(250, 235, 215));
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(33, 142, 358, 202);
+		scrollPane.setBounds(10, 142, 394, 202);
 		contentPane.add(scrollPane);
 		
-		JTextArea textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
-		textArea.setEditable(false);
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		table.setModel(modelo);
 		
 		JLabel lblProcurarPedido = new JLabel("Procurar Pedido");
 		lblProcurarPedido.setFont(new Font("Tahoma", Font.BOLD, 24));
@@ -93,7 +96,7 @@ public class TelaProcurarPedido extends JFrame {
 		btnProcurar.setBackground(Color.GREEN);
 		btnProcurar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText("Dados: \n");
+				
 				if(textField.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Digite o id do Pedido.");
 				}
@@ -105,14 +108,14 @@ public class TelaProcurarPedido extends JFrame {
 						 JOptionPane.showMessageDialog(null, "Pedido não existe.");
 					 }else{
 						 JOptionPane.showMessageDialog(null, "Pedido Encontrado.");
-						 textArea.append(achouPedido.toString());
+						 modelo.addRow(achouPedido);
 					 }
 					 
 				}
 			}
 		});
 		btnProcurar.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnProcurar.setBounds(172, 108, 89, 23);
+		btnProcurar.setBounds(106, 108, 89, 23);
 		contentPane.add(btnProcurar);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -131,7 +134,7 @@ public class TelaProcurarPedido extends JFrame {
 		btnReset.setBackground(Color.GRAY);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText("");
+				modelo.limparLista();
 				textField.setText("");
 			}
 		});
@@ -150,5 +153,16 @@ public class TelaProcurarPedido extends JFrame {
 		});
 		btnAlterar.setBounds(139, 375, 122, 23);
 		contentPane.add(btnAlterar);
+		
+		JButton btnListarPedidos = new JButton("Listar Pedidos");
+		btnListarPedidos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaListarPedidosAberto.getInstance().setVisible(true);
+			}
+		});
+		btnListarPedidos.setBackground(Color.YELLOW);
+		btnListarPedidos.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnListarPedidos.setBounds(223, 108, 134, 23);
+		contentPane.add(btnListarPedidos);
 	}
 }

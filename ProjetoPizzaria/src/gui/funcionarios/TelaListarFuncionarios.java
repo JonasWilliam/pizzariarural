@@ -20,11 +20,14 @@ import negocios.Fachada;
 import negocios.Funcionario;
 import negocios.Produto;
 import java.awt.Color;
+import javax.swing.JTable;
 
 public class TelaListarFuncionarios extends JFrame {
 
 	private JPanel contentPane;
 	private static JFrame telaListarFuncionarioinstance;
+	private JTable table;
+	FuncionarioTableModel modelo = new FuncionarioTableModel();
 
 	public static JFrame getInstance() {
 		if (TelaListarFuncionarios.telaListarFuncionarioinstance == null)
@@ -66,36 +69,15 @@ public class TelaListarFuncionarios extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 100, 414, 150);
 		contentPane.add(scrollPane);
-
-		JTextArea textArea = new JTextArea();
-		scrollPane.setViewportView(textArea);
-		textArea.setEditable(false);
-
+		 
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		table.setModel(modelo);
+		
 		JLabel lblListarFuncionrios = new JLabel("Listar Funcion\u00E1rios");
 		lblListarFuncionrios.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblListarFuncionrios.setBounds(84, 11, 295, 28);
 		contentPane.add(lblListarFuncionrios);
-
-		JButton btnListarTodos = new JButton("Listar");
-		btnListarTodos.setBackground(Color.GREEN);
-		btnListarTodos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				textArea.setText("");
-				Funcionario[] funcionarios = Fachada.getInstance().listarFuncionario();
-
-				for (int i = 0; i < funcionarios.length; i++) {
-					if (funcionarios[i] != null) {
-						// cpfFuncionarios.add(funcionarios[i]);
-						textArea.append(funcionarios[i].toString());
-					}
-
-				}
-
-			}
-		});
-		btnListarTodos.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnListarTodos.setBounds(10, 296, 102, 23);
-		contentPane.add(btnListarTodos);
 
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setBackground(Color.YELLOW);
@@ -110,17 +92,6 @@ public class TelaListarFuncionarios extends JFrame {
 		btnVoltar.setBounds(231, 297, 79, 23);
 		contentPane.add(btnVoltar);
 
-		JButton btnReset = new JButton("Reset");
-		btnReset.setBackground(Color.GRAY);
-		btnReset.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				textArea.setText("");
-			}
-		});
-		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnReset.setBounds(145, 297, 79, 23);
-		contentPane.add(btnReset);
-
 		JButton btnFechar = new JButton("Fechar");
 		btnFechar.setBackground(Color.RED);
 		btnFechar.addActionListener(new ActionListener() {
@@ -131,6 +102,37 @@ public class TelaListarFuncionarios extends JFrame {
 		btnFechar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnFechar.setBounds(335, 297, 89, 23);
 		contentPane.add(btnFechar);
+		
+		JButton btnListar = new JButton("Listar");
+		btnListar.setBackground(Color.GREEN);
+		btnListar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnListar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.limparLista();
+				Funcionario[] funcionarios = Fachada.getInstance().listarFuncionario();
+				for(int i = 0; i < funcionarios.length; i++) {
+					if(funcionarios[i] != null) {
+						modelo.addRow(funcionarios[i]);
+					}
+				}
+				
+			}
+		});
+		btnListar.setBounds(26, 298, 89, 23);
+		contentPane.add(btnListar);
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaListarFuncionarios.getInstance().setVisible(false);
+				modelo.limparLista();
+				TelaListarFuncionarios.getInstance().setVisible(true);
+				
+			}
+		});
+		btnReset.setBackground(Color.GRAY);
+		btnReset.setBounds(132, 298, 89, 23);
+		contentPane.add(btnReset);
 
 	}
 }
