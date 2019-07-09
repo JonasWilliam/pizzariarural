@@ -18,8 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import gui.TelaPrincipal;
-import gui.funcionarios.FuncionarioTableModel;
-import gui.produtos.ProdutoTableModel;
+import gui.produtos.ProdutoTableModel1;
 import negocios.Fachada;
 import negocios.Pedido;
 import negocios.Produto;
@@ -31,7 +30,7 @@ public class TelaListarPedidosAberto extends JFrame {
 	private JTextField txtid;
 	private JTable table;
 	PedidosTableModel modelo = new PedidosTableModel();
-	ProdutoTableModel modelo2 = new ProdutoTableModel();
+	ProdutoTableModel1 modelo2 = new ProdutoTableModel1();
 	private JTable table_1;
 
 	public static JFrame getInstance() {

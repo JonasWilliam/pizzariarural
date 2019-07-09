@@ -11,7 +11,9 @@ public class Produto implements Serializable {
 	private String codigo;
 	protected float custoMaterial;
 	protected float custoMaodeObra;
-
+	private int quantidade;
+	
+	
 	protected static final Float TAXA_P = new Float(0.5);
 	protected static final Float TAXA_M = new Float(1);
 	protected static final Float TAXA_G = new Float(2);
@@ -25,6 +27,20 @@ public class Produto implements Serializable {
 		this.id = id;
 		this.custoMaterial = custoMaterial;
 	}
+	
+	
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
+
 
 	public float getCustoMaterial() {
 		return custoMaterial;

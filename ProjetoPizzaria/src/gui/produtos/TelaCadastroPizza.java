@@ -131,6 +131,7 @@ public class TelaCadastroPizza extends JFrame {
 		txtCodigo.setColumns(10);
 
 		JCheckBox checkBoxBorda = new JCheckBox("Borda Recheada");
+		checkBoxBorda.setBackground(new Color(250, 235, 215));
 		checkBoxBorda.setFont(new Font("Dialog", Font.BOLD, 14));
 		checkBoxBorda.setBounds(25, 234, 175, 23);
 		contentPane.add(checkBoxBorda);
@@ -148,6 +149,8 @@ public class TelaCadastroPizza extends JFrame {
 		JLabel lblTaxa = new JLabel("Taxa:");
 		lblTaxa.setBounds(171, 133, 64, 26);
 		contentPane.add(lblTaxa);
+		lblTaxa.setVisible(false);
+		
 
 		JLabel lblCustoMoDe = new JLabel("Custo M\u00E3o de Obra:");
 		lblCustoMoDe.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -160,10 +163,12 @@ public class TelaCadastroPizza extends JFrame {
 		txtCustoMaodeObra.setColumns(10);
 
 		txtTaxa = new JTextField();
+		txtTaxa.setEnabled(false);
 		txtTaxa.setEditable(false);
 		txtTaxa.setBounds(208, 136, 50, 19);
 		contentPane.add(txtTaxa);
 		txtTaxa.setColumns(10);
+		txtTaxa.setVisible(false);
 
 		txtValorTotal = new JTextField();
 		txtValorTotal.setEditable(false);
