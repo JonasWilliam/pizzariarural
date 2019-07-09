@@ -90,6 +90,9 @@ public class TelaRemocaoPedido extends JFrame {
 					} else {
 						Fachada.getInstance().removerPedido(Integer.parseInt(textcdg.getText()));
 						JOptionPane.showMessageDialog(null, "Pedido removido com sucesso");
+						telaRemocaoFuncionarioinstance = null;
+						dispose();
+						TelaPrincipal.getInstance().setVisible(true);
 					}
 				}
 			}

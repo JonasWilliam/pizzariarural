@@ -35,16 +35,15 @@ public class RepositorioProdutoArray implements RepositorioProduto, Serializable
 			if (produtos[i].getCodigo().equals(codigo)) {
 				produtos[i] = null;
 				indice--;
-			
 
 				for (int j = 0; j < indice; j++) {
-				
+
 					if (produtos[j] == null) {
 						if (produtos[j + 1] != null) {
 							produtos[j] = produtos[j + 1];
 							break;
 						}
-					
+
 					}
 				}
 			}
@@ -54,7 +53,7 @@ public class RepositorioProdutoArray implements RepositorioProduto, Serializable
 	@Override
 	public Produto[] listarProdutos() {
 		for (int i = 0; i < indice; i++) {
-			
+
 		}
 		return produtos;
 	}
@@ -63,9 +62,11 @@ public class RepositorioProdutoArray implements RepositorioProduto, Serializable
 	public Produto procurarProduto(String codigo) {
 		Produto p = null;
 		for (int i = 0; i < indice; i++) {
-			if (produtos[i].getCodigo().equals(codigo)) {
-			
-				return produtos[i];
+			if (produtos[i] != null) {
+				if (produtos[i].getCodigo().equals(codigo)) {
+
+					return produtos[i];
+				}
 			} else
 				p = null;
 		}

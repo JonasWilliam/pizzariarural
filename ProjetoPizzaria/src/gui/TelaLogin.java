@@ -114,10 +114,7 @@ public class TelaLogin extends JFrame {
 							TelaPrincipal.getInstance().setVisible(true);
 							setVisible(false);
 
-						} else if (achouFuncionario.getCargo().toString().equals("Vendedor")) {
-							TelaPrincipalVendedor.getInstance().setVisible(true);
-							setVisible(false);
-						}
+						} 
 					}
 
 				}

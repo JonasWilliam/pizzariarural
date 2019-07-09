@@ -80,6 +80,11 @@ public class TelaListarPedidosAberto extends JFrame {
 		scrollPane.setViewportView(table);
 		table.setModel(modelo);
 
+		JLabel label = new JLabel("");
+		label.setBounds(346, 378, 79, 14);
+		contentPane.add(label);
+		label.setText("");
+		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblNewLabel.setBounds(162, 370, 134, 26);
@@ -96,6 +101,8 @@ public class TelaListarPedidosAberto extends JFrame {
 		btnListarTodos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				modelo.limparLista();
+				TelaListarPedidosAbertoinstance = null;
+			//	TelaListarPedidosAberto.getInstance();
 				Pedido[] pedidos = Fachada.getInstance().listarPedidos();
 				for (int i = 0; i < pedidos.length; i++) {
 					if (pedidos[i] != null && pedidos[i].getStatus() == true) {
@@ -113,6 +120,7 @@ public class TelaListarPedidosAberto extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				TelaListarPedidosAbertoinstance = null;
 				TelaPrincipal.getInstance().setVisible(true);
 			}
 		});
@@ -157,6 +165,8 @@ public class TelaListarPedidosAberto extends JFrame {
 							if (p[i] != null) {
 								if (p[i].getId() == Integer.parseInt(txtid.getText())) {
 									lblNewLabel.setText(String.valueOf(p[i].getId()));
+									label.setText(String.valueOf(p[i].getStatus()));
+									
 									produtos = p[i].getProdutos();
 									modelo.limparLista();
 									for (int j = 0; j < produtos.size(); j++) {
@@ -192,6 +202,13 @@ public class TelaListarPedidosAberto extends JFrame {
 		lblIdDoPedido.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblIdDoPedido.setBounds(25, 370, 121, 26);
 		contentPane.add(lblIdDoPedido);
+		
+		JLabel lblStatus = new JLabel("Status:");
+		lblStatus.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblStatus.setBounds(291, 377, 46, 14);
+		contentPane.add(lblStatus);
+		
+		
 
 	}
 }

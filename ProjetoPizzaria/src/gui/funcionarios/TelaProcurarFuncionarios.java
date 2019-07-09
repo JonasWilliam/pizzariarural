@@ -125,6 +125,7 @@ public class TelaProcurarFuncionarios extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				telaListarFuncionarioinstance = null;
 				TelaPrincipal.getInstance().setVisible(true);
 			}
 			

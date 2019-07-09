@@ -105,6 +105,7 @@ public class TelaListarProdutos extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				telaListarProdutosinstance = null;
 				TelaPrincipal.getInstance().setVisible(true);
 
 			}
@@ -116,8 +117,8 @@ public class TelaListarProdutos extends JFrame {
 		btnReset.setBackground(Color.GRAY);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaListarProdutos.getInstance().setVisible(false);
-				modelo.limparLista();
+				
+				telaListarProdutosinstance = null;
 				TelaListarProdutos.getInstance().setVisible(true);
 			}
 		});
@@ -129,6 +130,7 @@ public class TelaListarProdutos extends JFrame {
 		btnFechar.setBackground(Color.RED);
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				telaListarProdutosinstance = null;
 				dispose();
 				
 			}

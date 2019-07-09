@@ -158,6 +158,7 @@ public class TelaCadastrarPedido extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Funcionario[] entregadores;
 				entregadores = Fachada.getInstance().listarFuncionario();
+				comboBoxentregadores.removeAllItems(); 
 				for (int i = 0; i < entregadores.length; i++) {
 					if (entregadores[i] != null && entregadores[i].getCargo().toString().equals("Entregador")) {
 						comboBoxentregadores.addItem(entregadores[i].getNome());
@@ -216,7 +217,8 @@ public class TelaCadastrarPedido extends JFrame {
 					txtTel.setText("");
 					txtId.setText("");
 					TOTAL.setText("");
-					
+					telaPedidosinstance = null;
+					TelaPrincipal.getInstance().setVisible(true);
 
 				} catch (ClientePedidosException e1) {
 					// TODO Auto-generated catch block
@@ -295,7 +297,10 @@ public class TelaCadastrarPedido extends JFrame {
 				textRemove.setText("");
 				modelo.limparLista();
 				for(int i = 0; i < produtos.size(); i++) {
-					modelo.addRow(produtos.get(i));
+					if(produtos.get(i) != null) {
+						modelo.addRow(produtos.get(i));
+					}
+					
 				}
 
 			}
@@ -329,6 +334,21 @@ public class TelaCadastrarPedido extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton.setBounds(310, 273, 215, 23);
 		contentPane.add(btnNewButton);
+		
+		JButton btnAtualizar = new JButton("Atualizar");
+		btnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modelo.limparLista();
+				for(int i = 0; i < produtos.size(); i++) {
+					if(produtos.get(i) != null) {
+						modelo.addRow(produtos.get(i));
+					}
+					
+				}
+			}
+		});
+		btnAtualizar.setBounds(535, 275, 89, 23);
+		contentPane.add(btnAtualizar);
 		
 		
 

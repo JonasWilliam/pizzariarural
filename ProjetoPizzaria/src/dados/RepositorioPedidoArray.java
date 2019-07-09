@@ -12,13 +12,13 @@ import negocios.Fachada;
 import negocios.Pedido;
 import negocios.Produto;
 
-public class RepositorioPedidoArray implements RepositorioPedido,Serializable {
+public class RepositorioPedidoArray implements RepositorioPedido, Serializable {
 
 	private Pedido[] pedidos;
 	private int indice;
 	private final static int TAMANHO = 100;
 	private static RepositorioPedidoArray instance;
-	
+
 	public RepositorioPedidoArray() {
 		this.pedidos = new Pedido[TAMANHO];
 		this.indice = 0;
@@ -36,14 +36,14 @@ public class RepositorioPedidoArray implements RepositorioPedido,Serializable {
 		for (int i = 0; i < indice; i++) {
 			if (pedidos[i].getId() == id) {
 				pedidos[i] = null;
-				indice --;
+				indice--;
 				for (int j = 0; j < indice; j++) {
 
 					if (pedidos[j] == null) {
-						if(pedidos[j+1] != null) {
+						if (pedidos[j + 1] != null) {
 							pedidos[i] = pedidos[j];
 						}
-						
+
 					}
 				}
 			}
@@ -60,9 +60,11 @@ public class RepositorioPedidoArray implements RepositorioPedido,Serializable {
 	public Pedido procurarPedido(int id) {
 		Pedido p = new Pedido();
 		for (int i = 0; i < indice; i++) {
-			if (pedidos[i].getId() == id) {
-				return pedidos[i];
-			}else
+			if (pedidos[i] != null) {
+				if (pedidos[i].getId() == id) {
+					return pedidos[i];
+				}
+			} else
 				p = null;
 		}
 		return p;
@@ -74,7 +76,7 @@ public class RepositorioPedidoArray implements RepositorioPedido,Serializable {
 		p = procurarPedido(id);
 		p.setStatus(false);
 	}
-	
+
 	public static RepositorioPedidoArray getInstance() {
 		if (instance == null) {
 			instance = lerDoArquivo();
@@ -130,11 +132,5 @@ public class RepositorioPedidoArray implements RepositorioPedido,Serializable {
 			}
 		}
 	}
-
-
-
-	
-
-	
 
 }

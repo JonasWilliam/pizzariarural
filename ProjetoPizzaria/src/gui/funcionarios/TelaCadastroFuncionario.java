@@ -144,6 +144,7 @@ public class TelaCadastroFuncionario extends JFrame {
 						textsenha.setText("");
 						textcpf.setText("");
 						dispose();
+						telaCadastroFuncionarioinstance = null;
 						TelaPrincipal.getInstance().setVisible(true);
 					}else {
 						JOptionPane.showMessageDialog(null, "Funcionário com Esse CPF já foi Adicionado ao repositorio");

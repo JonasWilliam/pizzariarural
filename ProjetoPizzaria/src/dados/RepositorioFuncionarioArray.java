@@ -43,7 +43,6 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 			if (funcionarios[i].getCpf().equals(cpf)) {
 				funcionarios[i] = null;
 				indice--;
-				
 
 				for (int j = 0; j < indice; j++) {
 					System.out.println("chegou no 2 for");
@@ -51,7 +50,6 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 						if (funcionarios[j + 1] != null) {
 							funcionarios[j] = funcionarios[j + 1];
 						}
-						
 
 					}
 				}
@@ -63,7 +61,7 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 
 	@Override
 	public Funcionario[] listarFuncionario() {
-		
+
 		return funcionarios;
 	}
 
@@ -71,9 +69,11 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 	public Funcionario procurarFuncionario(String cpf) {
 		Funcionario a = null;
 		for (int i = 0; i < indice; i++) {
-			if (funcionarios[i].getCpf().equals(cpf)) {
-				
-				return funcionarios[i];
+			if (funcionarios[i] != null) {
+				if (funcionarios[i].getCpf().equals(cpf)) {
+
+					return funcionarios[i];
+				}
 			} else
 				a = null;
 
@@ -89,8 +89,6 @@ public class RepositorioFuncionarioArray implements RepositorioFuncionario, Seri
 		a.setSenha(senha);
 
 	}
-
-
 
 	private static RepositorioFuncionarioArray lerDoArquivo() {
 		RepositorioFuncionarioArray instanciaLocal = null;

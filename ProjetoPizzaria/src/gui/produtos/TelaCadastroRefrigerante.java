@@ -155,6 +155,9 @@ public class TelaCadastroRefrigerante extends JFrame {
 					textNome.setText("");
 					textCodigo.setText("");
 					textCustoMaterial.setText("");
+					telaCadastroRefrigeranteinstance = null;
+					dispose();
+					TelaPrincipal.getInstance().setVisible(true);
 					}else {
 						JOptionPane.showMessageDialog(null, "Já existe um Refrigerante adicionado ao repositorio com esse Código.");
 					}

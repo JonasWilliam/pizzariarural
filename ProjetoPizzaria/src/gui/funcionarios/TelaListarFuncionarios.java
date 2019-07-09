@@ -124,7 +124,9 @@ public class TelaListarFuncionarios extends JFrame {
 		JButton btnReset = new JButton("Reset");
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
 				TelaListarFuncionarios.getInstance().setVisible(false);
+				telaListarFuncionarioinstance = null;
 				modelo.limparLista();
 				TelaListarFuncionarios.getInstance().setVisible(true);
 				
